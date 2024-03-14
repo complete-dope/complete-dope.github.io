@@ -9,7 +9,7 @@ name: Mohit Dulani
 description: Machine Learning Engineer from India 
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://raw.githubusercontent.com/barryclark/jekyll-now/master/images/logo.png
+avatar: images\logo.png
 
 #
 # Flags below are optional
