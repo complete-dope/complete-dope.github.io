@@ -13,4 +13,4 @@ Feel free to message me !! Would love to hear you out and talk about ML and rela
 
 ### Contact me
 ![Twitter](https://x.com/hashqueu)
-![Email](mailto:mohitdulani28@gmail.com)
+![email](mailto:mohitdulani28@gmail.com)
