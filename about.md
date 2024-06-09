@@ -4,12 +4,13 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Starting from a gaussian distribution till I find the perfect p(x) and updating my gradients on way !! 
+This is my scratch pad and you will find my loose ideas !! 
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself.
+Feel free to message me !! Would love to hear you out and talk about ML and related stuff !
 
 ### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+![Twitter](https://x.com/hashqueu)
+![Email](mailto:mohitdulani28@gmail.com)
