@@ -3,6 +3,10 @@ layout: post
 title: Diffusion Models and Score Based Models noob explanation 
 ---
 
+Diffusion Model Noob explanation !! 
+
+In generative AI, we just try to sample out more data from the existing probability density space
+
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
