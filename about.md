@@ -4,8 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Starting from a gaussian distribution till I find the perfect p(x) and updating my gradients on way !! 
-This is my scratch pad and you will find my loose ideas !! 
+Starting from a gaussian distribution till I find the perfect p(x) and updating my gradients on way 
+
+This is my scratch pad and you will find my loose ideas  
 
 ### More Information
 
