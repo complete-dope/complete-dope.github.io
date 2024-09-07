@@ -3,8 +3,6 @@ layout: post
 title: Learning a bit advanced Pytorch
 ---
 
-## Learning a bit advanced Pytorch
-
 ### Training Loop demystified
 * **Forward Pass**: Compute predictions (The code where you pass the input to the model to get the output)
 * **Loss Calculation**: Compute the loss (The code where you calculate the loss between the predicted output and the target output)
@@ -17,7 +15,6 @@ title: Learning a bit advanced Pytorch
 ```python
 for epoch in range(num_epochs):
     for i, (images, labels) in enumerate(train_loader):     
-        # Will explain later
         optimizer.zero_grad()
         # Forward pass
         outputs = model(images)
@@ -56,3 +53,49 @@ for param in model.parameters():
     if param.requires_grad:
         param.grad = None
 ```
+
+
+
+### Convolutional Layers demystified with alias codes 
+
+Nice [link](https://github.com/vdumoulin/conv_arithmetic/blob/master/README.md) for visualizing the convolution operation.
+
+`conv2d( kernel_size = 3, stride = 1, padding = 1)` translates to   
+```
+input_size = (3 , 32, 32)
+>>>kernel_size = 3 == (3, 3, 3) 
+stride = 1
+padding = 1
+
+output_size = (32, 32)
+
+## get blob of the input_tensor , do element wise multiplication with the kernel and sum them up to get the output_tensor
+
+# Define output tensor of desired size
+output_tensor = torch.zeros(output_size)
+
+# Iterate over each position in the output tensor
+
+
+for c in range(input_size[2]):  
+    for i in range(output_size[0]-kernel_size[0]+1):
+        for j in range(output_size[1]-kernel_size[1]+1):
+            # Define the receptive field
+            start_i = i * stride - padding
+            start_j = j * stride - padding
+            end_i = start_i + kernel_size
+            end_j = start_j + kernel_size
+            
+            # Extract the input patch
+            input_patch = input_tensor[:, start_i:end_i, start_j:end_j]
+            
+            # Perform element-wise multiplication with kernel and sum
+            output_tensor[i, j] = torch.sum(input_patch * kernel)
+
+# The output_tensor now contains the result of the convolution operation
+
+```
+
+
+visualizing `ConvTranspose2d` is a bit more complex and tough than the conv2d layers and the reason is less intutive nature behind it. 
+Dont think much about it ... just know that it works and gives results.( I dont know much about it too)
