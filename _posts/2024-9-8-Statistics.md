@@ -4,7 +4,13 @@ title: "Statistics for ML"
 date: 2024-09-08
 ---
 
-### Deep dive into the whole required stastistics , that would be a required to learn stable diffusion from the very scratch
+Deep dive into the whole required stastistics , that would be a required to learn stable diffusion from the very scratch
+
+
+#### Probability and Distributions 
+
+
+
 
 
 #### Entropy [Link](https://www.youtube.com/watch?v=2s3aJfRr9gE)
@@ -194,4 +200,10 @@ Entropy: The inherent unpredictability of the weather in your area. Some places 
 Cross-entropy: How surprised you are by the actual weather, based on your predictions. If your predictions are way off, you'll be very surprised (high cross-entropy).
 
 KL Divergence: The extra surprise you experience because your predictions aren't perfect. It's how much more often you're caught without an umbrella (or with an unnecessary umbrella) compared to if you had perfect knowledge of the weather patterns.
-        
+
+
+
+Closed form solution for KLD [LINK](https://johfischer.com/2022/05/21/closed-form-solution-of-kullback-leibler-divergence-between-two-gaussians/)
+
+True    : data-distribution ( unknown aka multi-variate gaussian distribution i.e. assumption so that we can use closed form solution)
+Trying to make it  : Normal distribution / gaussian distribution    
