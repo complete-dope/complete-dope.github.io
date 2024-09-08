@@ -4,10 +4,10 @@ title: "Statistics for ML"
 date: 2024-09-08
 ---
 
-## I will deep dive into the whole required stastistics , that would be a required to learn stable diffusion from the very scratch
+### Deep dive into the whole required stastistics , that would be a required to learn stable diffusion from the very scratch
 
 
-### Entropy [Link](https://www.youtube.com/watch?v=2s3aJfRr9gE)
+#### Entropy [Link](https://www.youtube.com/watch?v=2s3aJfRr9gE)
 
 This is best understood using examples
 Assume 2 machines A and B , that produces coins ( A,B,C,D ) with some probability distribution.
@@ -127,18 +127,71 @@ whenever the outcomes are equally probable entropy is high and if the outcomes a
 ( not that much intuitive but just the math works !)
 
 
-### Cross-Entropy ( not yet intutive , need to research more on it )
+#### Cross-Entropy ( not yet intutive , need to research more on it )
 
-No. of bits required to represent or transmit an average event from one distribution compared to another distribution is called Cross-Entropy
+Imagine we're trying to predict the weather for the next day in a certain city. For simplicity, let's say there are only three possible weather conditions: Sunny, Rainy, or Cloudy.
 
-p : target distribution
-q : another distribution
+True Distribution (P):
+Let's say based on historical data, the actual probabilities of these weather conditions are:
 
-H(p,q) = - sum ( P(x) * log(Q(x)) )
-
-
-### KL-Divergence ( once you understand the above two concepts , this is very easy ) 
-
-Cross entropy = KL-Divergence + Entropy 
+Sunny: 50% (0.5)
+Rainy: 30% (0.3)
+Cloudy: 20% (0.2)
 
 
+
+This is our "true" distribution P.
+
+Predicted Distribution (Q):
+Now, suppose a meteorologist makes a prediction for tomorrow's weather:
+
+Sunny: 40% (0.4)
+Rainy: 35% (0.35)
+Cloudy: 25% (0.25)
+
+
+This is our predicted distribution Q.
+
+Now, cross entropy tells us, If we use meterologist guesses to make predictions, how surprised will we be on average when we see the actual weather?
+
+If the meterologist guesses are close to the actual distribution, cross entropy will be low because we'll be surprised less when we see the actual weather.
+If the meterologist guesses are far from the actual distribution, cross entropy will be high because we'll be surprised more when we see the actual weather.
+
+High suprise means more entropy and more no. of bits
+As the units of suprise / entropy is bits 
+
+If the event is more probable, then we require less information about it and vice versa  
+so information of event = -log(px) 
+
+Assume a case like this 
+
+Q_ The true prob for a event x = 0.125 , the q(x) = 0.125 
+then px * logqx = 0.125 ** 3 = 0.375
+
+whereas 
+px = 0.125 and qx = 0.500
+then px * logqx = 0.125 * *1 = > 0.125
+
+which means I am getting more surprised when the actual and predicted distribution are same compared to actaul and predicted are different ? 
+
+A_ When the event with such low probability actually occurs, it gives more surprise and more no. of bits. When a more probable event occurs it gives less surprise hence less no. of bits.. but in the `summation` makes things even and the different prob. distributions gives more suprise 
+
+*Case 1*: P matches Q  
+P(x) = Q(x) = 0.125, P(not-x) = Q(not-x) = 0.875
+Cross-entropy = -[0.125 * log₂(0.125) + 0.875 * log₂(0.875)] ≈ 0.544
+
+*Case 2*: P differs from Q   
+P(x) = 0.125, Q(x) = 0.500, P(not-x) = 0.875, Q(not-x) = 0.500
+Cross-entropy = -[0.125 * log₂(0.500) + 0.875 * log₂(0.500)] = 1.000
+
+
+#### KL-Divergence ( once you understand the above two concepts , this is very easy ) 
+
+KL-Divergence = Cross entropy - Entropy 
+
+Entropy: The inherent unpredictability of the weather in your area. Some places have more variable weather (high entropy) than others.
+
+Cross-entropy: How surprised you are by the actual weather, based on your predictions. If your predictions are way off, you'll be very surprised (high cross-entropy).
+
+KL Divergence: The extra surprise you experience because your predictions aren't perfect. It's how much more often you're caught without an umbrella (or with an unnecessary umbrella) compared to if you had perfect knowledge of the weather patterns.
+        
