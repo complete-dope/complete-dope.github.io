@@ -13,6 +13,112 @@ Deep dive into the whole required stastistics , that would be a required to lear
 
 
 
+
+`Probability` : It tells the chances of an event to happen. And is calculated as the ratio of no. of outcomes of a particular event to the total no. of outcomes.
+
+`Likelihood` : It measures how well a statistical model fits the observed data. 
+
+
+Q) What is a statistical model and observed data ?
+
+A) Asssume by tossing a coin 100 times we got 90 heads and 10 tails.
+
+In the coin toss, the statistical model are fair-coin, slightly biased coin, heavily biased coin. 
+
+For each model we calculate the likelihood, how probable the observed data (coin toss results) is, and select the one with the highest likelihood.
+
+Take it like this : we flipped a fair coin 100 times and it gives heads 90 times and tails 10 times so the likelihood the coin is fair is quite low 
+
+When we say maximise the likelihood … we mean to say, we want the best parameters that are accurately predicting the data
+
+Probability goes from model to data (What data do we expect given this model?)
+Likelihood goes from data to model (What model best explains this data?)
+
+
+In `genAI`:
+The model whose params are most likely to produce the observed data is selected. Means the one with maximum likelihood is selected.
+The architecture that work on this principle is called `Likelihood based Models`
+
+
+`Maximum Likelihood Estimation` : 
+We have the intialised parameters of the model and we try to maximise the likelihood by updating the parameters.
+so our cost function looks like : 
+Theta = argmax(P(X|Theta)) , thetas are the parameters of the model
+
+
+`Normal / gaussian Distribution`:
+The bell shaped curve, having mean-mu and the variance-sigma^2 as parameters.
+
+
+`Joint Distributions`: 
+The joint distribution of two random variables X and Y is the probability distribution of the pair (X, Y). It describes the probability of all possible combinations of X and Y.
+
+X = The person is a smoker
+Y = The person has a disease
+
+P(x=smoker, y=disease) = 0.05
+P(x=smoker, y=no-disease) = 0.01
+P(x=non-smoker, y=disease) = 0.03
+P(x=non-smoker, y=no-disease) = 0.91
+
+
+`Marginal Distributions` [link](https://www.youtube.com/watch?v=FWrEaSaW2mc): 
+Given a known joint distribution of two discrete random variables, say, X and Y, the marginal distribution of either variable – X for example – is the probability distribution of X when the values of Y are not taken into consideration
+
+*P(x=smoker)[Marginal distribution of X] = P(x=smoker, y=disease) + P(x=smoker, y=no-disease) = 0.05 + 0.01 = 0.06
+
+
+*P(x=non-smoker)[Marginal distribution of X] = P(x=non-smoker, y=disease) + P(x=non-smoker, y=no-disease) = 0.03 + 0.91 = 0.94
+
+
+*P(y=disease)[Marginal distribution of Y] = P(x=smoker, y=disease) + P(x=non-smoker, y=disease) = 0.05 + 0.03 = 0.08
+
+
+*P(y=no-disease)[Marginal distribution of Y] = P(x=smoker, y=no-disease) + P(x=non-smoker, y=no-    disease) = 0.01 + 0.91 = 0.92
+
+
+
+`Marginal Likelihood` : 
+Called as model evidence
+is the probability of observing the data under a given model, averaged over all possible parameter values for that model.
+Marginalizing out all the o ther variables, that means integrating over all the possible values ( *all* the possible values of the other variables)
+This is the reason why trying to calculate it, makes the solution intractable 
+
+Marginal likelihood is indeed an extension of regular likelihood where we consider a range of possible parameter values rather than just a single set
+
+Its just an extension of the likelihood .. where dont limit ourself to a set of likely distributions rather consider all the possible distributions and average over it 
+
+For each possible combination of μ and σ:
+a) We calculate the likelihood of our data given those specific values.
+b) We *multiply* this by the prior probability we assign to those parameter values.
+We integrate this product over all possible values of μ and σ.
+The result is a single number representing how well our model explains the data, considering all possible parameter values.
+
+`TODO`: *multiply* is used in *cross-entropy* as well, ( I still don't know the reason behind it )  
+
+Here in generative models we are marginalizing out the latent space, to make the results come out irrespective of the distribution of the latent space ... 
+
+Stats Example:
+Instead of just these two models, we'd consider many combinations of means (e.g., 160-180 cm) and standard deviations (e.g., 1-20 cm). We'd calculate the likelihood for each, weight them by their prior probability, and sum all of these up.
+
+Q) What does Marginal means ? 
+A) Marginalizing out means integrate over that variables value ... Not taking consideration of that variable ... Less variables to consider ... 
+The name marginal comes from the fact that the values are written at the margins of the table  
+
+Q) How to choose what to marginalize out ?
+A) Latent variables represent unobserved factors that influence our data.
+We're uncertain about their exact values, but we know they exist within a range.
+Marginalizing allows us to account for all possible values these factors could take.
+
+In statistics, when we're unsure about a parameter, we often "integrate it out" to remove that uncertainty from our final result.
+In deep learning, we're doing the same with the latent space – integrating out our uncertainty about the exact latent representations.
+
+
+##### BUT YOU WILL NEVER FIND THIS IN CODE ? WHY ?   
+The reason is this is theoretical calculations and doing these on hand leads to a final loss function, that the researchers lead .. (finding out a loss function is not that simple ) The loss function (ELBO) encourages the model to learn a good latent space that, when marginalized over, explains the data well.
+We start with this crazy maths and end at the loss function, so our model can learn what we want it to learn. 
+
+
 #### Entropy [Link](https://www.youtube.com/watch?v=2s3aJfRr9gE)
 
 This is best understood using examples
