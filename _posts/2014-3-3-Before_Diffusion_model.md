@@ -37,6 +37,7 @@ Then in the backprop we train enc , dec,  along with the code-book.
 
 In inference, 
 randomly sample the indices from the code-book , convert that to the actual inplace values of the codebook and pass it to the decoder to reconstruct the image.
+So we need to keep a codebook to get the embeddings from.. 
 
 The loss function used is quite interesting here, the loss function is the real maths used in the paper, 
 
@@ -48,5 +49,7 @@ TODO: A detailed discussion on the loss function used in vqvae, has 3 loss terms
 Similar to the vq-vae model , here we use additional discriminator to discriminate between the original image and the reconstructed image.
 Minor changes to the loss function and the training procedure.
 
+In inferencing, the next token prediction is done using a next token prediction (and whose better than transformers on that) models like transformers .. just start with a blank token and keep predicting the next token till the end of the sequence.
 
+We need to keep a codebook to get the embeddings from.. 
 
