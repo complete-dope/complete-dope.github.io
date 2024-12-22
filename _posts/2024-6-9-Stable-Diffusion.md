@@ -63,7 +63,7 @@ This formula tells us that to generate a clean image (x0), we:
 
 a) Start with pure noise (xT) 
 b) Gradually denoise it step by step (∏T(t=1) p(xt-1|xt)) 
-c) Consider all possible paths through this denoising process (∫z)
+c) Consider all possible paths through this denoising process `(∫z)`
 
 `The model learns to estimate p(xt-1|xt) for each step, which allows it to gradually transform noise into a coherent image.`
 
