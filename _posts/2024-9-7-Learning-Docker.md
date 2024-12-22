@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Learning Docker
+date : 2024-09-07
 ---
 
 ## Docker Commands end to end 

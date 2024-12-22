@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Generative AI explained   
+date : 2024-06-10
 ---
 
 Machine learning aka Mathematical modelling 

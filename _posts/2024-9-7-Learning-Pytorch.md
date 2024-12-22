@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Learning a bit advanced Pytorch
+date: 2024-09-07
 ---
 
 ### Training Loop demystified

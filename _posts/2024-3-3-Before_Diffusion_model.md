@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Journey till diffusion model  
-date: 2024-9-09
+date: 2024-3-03
 ---
 
 Diffusion model's were not built in a day, so we will learn the underlying concepts that helped us reach to diffusion model.

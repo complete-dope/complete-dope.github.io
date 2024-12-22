@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Stable Diffusion model 
+date : 2024-06-09
 ---
 
 The pre-requisites for this blog post is Journey till diffusion model 
