@@ -7,7 +7,7 @@ date: 2024-9-09
 Diffusion model's were not built in a day, so we will learn the underlying concepts that helped us reach to diffusion model.
 
 
-Loose ideas : https://docs.google.com/document/d/12zcDr7z5qjcMyuKFnKR6C_m7NMAO0Ki43--IpEdJ3FM/edit?usp=sharing 
+![Loose ideas](https://docs.google.com/document/d/12zcDr7z5qjcMyuKFnKR6C_m7NMAO0Ki43--IpEdJ3FM/edit?usp=sharing) 
 
 
 #### Autoencoders
