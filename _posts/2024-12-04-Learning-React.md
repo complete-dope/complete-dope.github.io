@@ -4,10 +4,10 @@ title: Learning basics of React
 ---
 
 
-Doc link : https://docs.google.com/document/d/1Bg43BoC0xSmXugYI7L27NJm4ZFUaHDYlVYsFiTiodTM/edit?usp=sharing 
+![Doc link](https://docs.google.com/document/d/1Bg43BoC0xSmXugYI7L27NJm4ZFUaHDYlVYsFiTiodTM/edit?usp=sharing) 
 
 
-REPLIT : https://replit.com/@mohitdulani1/eg 
+![REPLIT](https://replit.com/@mohitdulani1/eg)
 
 Trying to Learn React once again 
 Delta to learn react is high, you need JS, css, html 
