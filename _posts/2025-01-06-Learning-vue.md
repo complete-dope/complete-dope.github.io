@@ -23,6 +23,7 @@ Progressive JavaScript Framework, means even if your project is React you can us
 
 SPA ( single page application ) is a web application that loads a single HTML page and dynamically updates the page as the user interacts with it. 
 
+
 Reactive data binding means a magical flow when the data updates the UI also updates itself , no need to manually write the updation logic ( done using virtual DOM ) 
 
 Component based architecture , everything is a component , you can reuse it anywhere in your project
@@ -140,8 +141,10 @@ The key should be unique
 
 
 Adding form:: 
+`v-bind` : a 1 way binder, that updates only when data flows from parent to child flows
+`v-model` : a 2 way binder, that updates both ways when data flows from parent to child and from child to parent
 
-`v-model` : acts as a default and binds to the value of input field here     
+Acts as a default and binds to the value of input field here
 
 ```html 
 
@@ -193,7 +196,7 @@ Need to have data() to define the data and for calling methods / attaching a met
 
 
 ### Composition API : 
-CODE IS IN : `App.vue`
+CODE IS IN : `App_composition.vue`
 
 The `template` remains the same, only the part inside the `script` tag is different and we make it cleaner 
 
@@ -265,5 +268,355 @@ const toggleStatus = () => {
 ```
 
 
+### LIFECYCLE METHODS OF COMPONENTS  : 
 
-TO CONTINUE AT : https://youtu.be/VeNfHj6MhgA?feature=shared&t=2900 
+* The lifecycle methods for components that are defined inside the `.vue` file for a single component only !!
+Use JS map function to use an array of objects ( easily ) 
+
+the `.value` extracts the initialised part of the internal dtype be it list/obj or something else
+
+```js
+
+onMounted(async() => {
+  // code
+})
+
+```
+
+## Vue Props
+
+Props are used to pass data from parent to child components
+
+The name of the prop can be anything, that u decide, 
+
+```js
+import myPropClass from '@/components/propclass.vue'; 
+
+const Apples = ref("Bananas");
+<myPropClass :title="Apples"/> //dynamic declaration , title =Bananas
+<myPropClass title="Apples"/> // static declaration , title = Apples 
+
+```
+
+
+Same like we do in React:
+
+```js
+
+<script setup> 
+import { defineProps } from 'vue';
+
+defineProps({
+  title: {
+   type: String, 
+   default: "Default Title"
+  }
+});
+
+</script> 
+
+<template> 
+<p>{{title}}</p> 
+</template> 
+
+```
+
+Even things in string in component / anything , none of that is actually string for static declaration for static need to pass that as name="Chatgpt" and is its dynamic / declarative then its :name="Chatgpt" 
+
+Use the props as {{title}} in your template defined ! 
+
+
+To bind anything to a dynamic value we can use , v-bind:prop="value" and to keep that static we can do , prop="value" 
+
+:prop="value", to dynamically bind a prop to a value ( only use this to pass a static string )
+:prop="10", an integer value of 10 bind a prop to a value ( the only way to pass integers / functions in Props )
+
+
+## Vue Slots 
+![Slots](https://claude.ai/chat/a2ffb7da-b4b9-439b-b0c0-045a168de154)
+
+Slots vs Props in VUE ?? 
+
+Props passes data to a function, they flow from Parent to Child
+
+Slots are like holes in the child component that the parent can fill with content 
+
+( bacho m voids hai and usko parents fill krte hai)
+
+
+PROPS 
+```js
+<!-- Parent -->
+<ChildComponent :message="hello" />
+
+<!-- Child -->
+<template>
+  <div>{{ message }}</div>
+</template>
+
+<script>
+export default {
+  props: ['message']
+}
+</script>
+
+```
+
+
+SLOTS 
+
+```js
+
+<!-- Parent -->
+<Card>
+  <h1>Title</h1>
+  <p>Content</p>
+</Card>
+
+<!-- Child (Card) -->
+<template>
+  <div class="card">
+    <slot></slot>  <!-- Content gets injected here -->
+  </div>
+</template>
+
+// the Title in H1 and Content in para gets added in the slot 
+
+```
+
+
+Named Slots / Holes 
+
+```js
+<!-- Parent -->
+<Layout>
+  <template #header>
+    <h1>Header</h1>
+  </template>
+  
+  <template #sidebar>
+    <nav>Menu</nav>
+  </template>
+  
+  <template #main>
+    <p>Main content</p>
+  </template>
+</Layout>
+
+<!-- Child (Layout) -->
+<template>
+  <div>
+    <slot name="header"></slot>
+    <slot name="sidebar"></slot>
+    <slot name="main"></slot>
+  </div>
+</template>
+
+```
+
+To create a graph and as app is very dependent on this , then this all becomes very important to learn  ( learn vueflow library )
+
+
+
+# Learning VUE FLOW (https://vueflow.dev/guide/ )
+
+Install the @vue-flow from npm ... else specific pieces like @vue-flow/core , @vue-flow/node , @vue-flow/background , @vue-flow/controls , @vue-flow/minimap , @vue-flow/node-toolbar , @vue-flow/node-resizer
+
+Background : 2 built in pattern for bg and that too is rest customisable 
+
+MiniMap : bird eye view of the nodes in a small map at the bottomRight
+
+Controls : bottomLeft zoom function , a control panel 
+
+Node toolbar: essential tools directly from the Node itself ( cut, copy , paste for the Node button )
+
+Node Resizer: Seamlessly adjust the size of the Node 
+
+
+Starting with the coding part: 
+
+npm add @vue-flow/core
+
+Define the nodes and edges as they are the data part going then define them in the vueflow and pass them as Prop to VueFlow 
+
+Nodes types: 
+
+1. default ( can take input as well as output both )
+2. input ( can only act as an input node for someone, connection dot at below )
+3. output (can act as output node for some other node , connection dot at above) 
+4. custom-type ( any other type , can have any name and is a custom node and can take a custom edge also !!) 
+
+```js
+
+const nodes = ref([
+  {
+    id: '1',
+    type: 'special', // Here the type is special 
+    position: { x: 500, y: 5 },
+    data: { label: 'Node 1' , description: 'This is a node 1' }
+  }
+])
+
+
+
+const edges = ref([
+  { 
+    id: 'e1->2',
+    source: '1', 
+    target: '2',
+    type : 'special', // means this is a special edge 
+    animated : true, 
+    data: {
+      conn: 'world',
+    }
+  }
+])
+
+
+```
+
+
+
+data : any data/content you want to attach to a node or to a edge you can do that also and should be in a dict format
+
+Node should have : 
+id , type , position , data
+
+Edge should have :
+id , type, source , target , data
+
+
+Then pass this data as a dynamic-props to the VueFlow component 
+
+```html
+<VueFlow :nodes="nodes" :edges="edges" > </VueFlow>
+```
+
+#### Slots in VueFlow: 
+
+slot names start with `node-<type>` and `edge-<type>`
+
+```html
+
+<template> 
+
+<VueFlow :nodes="nodes" :edges="edges" >
+
+  <!-- the naming follows as node-<type> and edge-<type> -->
+  <template #node-special="specialNodeProps">
+    <SpecialNode v-bind="specialNodeProps" />
+  </template>
+  <template #edge-special="specialEdgeProps">
+    <SpecialEdge v-bind="specialEdgeProps" />
+  </template>
+</VueFlow>
+
+<template> 
+
+```
+
+
+#### CUSTOM NODES AND EDGES: 
+
+For custom nodes you are GOD, you can do anything in it !! 
+
+
+(Not good docs, need to experiment and learn it)
+
+NODES : 
+
+Choose a default node class ( vue-flow__node-default) and then add whatever you like in it !! 
+
+Handle (connecting dots) : adds a connection point to the node, for custom node types you have to add it manually 
+
+Position tells where to place that node 
+
+
+EDGES : 
+you have to define the bezier curve yourself
+
+
+Theming , all class names  (https://vueflow.dev/guide/theming.html)
+
+
+#### DEFAULT / INBUILT GRAPHS:
+
+![Default Nodes Customisation](https://vueflow.dev/guide/node.html)
+
+Handle means where the dot shows up in a node '.' , 4 positions possible , top , bottom , left , right
+
+Set handle position using, targetPosition and sourcePosition
+
+
+NODES: 
+
+`data` : {validTarget : 'B', validSource : 'A'} ( that means A can only be connected to B and no one else )
+
+
+
+
+
+
+EDGES:
+
+`label` : "TEXT ON EDGE" , text to show on the edge
+
+`markerEnd` : MarketType.ArrowClosed , the arrow at the end of the edge
+
+`style` : { stroke: 'red' } , style of the edge [ color of edge ]
+
+`labelBgStyle` : { fill: 'red' } , style of the label background
+
+`lableBgPadding` : [8,4]
+
+`lableBgBorderRadius` : 4
+
+`labelBgStyle` : MarketType.Arrow
+
+`updatable` : true ( play with nodes and make the updates )
+
+
+
+Add Dark mode in graph : toggle dark mode in graph 
+
+
+
+CONTROLS:
+Add custom buttons to handle the graph better 
+
+
+If button is visible but Icon is not visible that means, the CSS is broken and need to import / write some CSS for that particular class 
+
+
+
+
+
+
+
+
+# LEARNING JAVASCRIPT
+
+* Viewport : the display area of a screen, for a laptop its the laptop screen, for the mobile that would be the mobile phone screen 
+
+
+*Math.random() returns a random number between 0 and 1
+
+Path creates an actual path lines for the logo , svg 
+
+Function declarations:
+
+
+```js
+function randomizeNodes(){
+} 
+
+const randomizeNodes = () => {
+}
+
+const randomizeNodes = (() => {
+
+})
+
+```
+
+continue from here : https://claude.ai/chat/08b3a722-cb89-46d5-a84a-e517490163e5 
