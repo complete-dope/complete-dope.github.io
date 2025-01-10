@@ -46,3 +46,4 @@ when p side is connected to a insulated-positive plate electrons starts to flow 
 
 # Advanced 
 
+transistor to pc ( to learn ) 
