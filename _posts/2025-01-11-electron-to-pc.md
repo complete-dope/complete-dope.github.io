@@ -7,8 +7,8 @@ date : 2025-01-11
 Links : 
 * http://www.gooath.org/blog/2022/12/05/how-do-computers-really-work-part-1-basics/
 
-![Transistor](https://youtu.be/IcrBqCFLHIY?feature=shared)
-![Diode](https://youtu.be/Fwj_d3uO5g8?feature=shared)
+[Transistor](https://youtu.be/IcrBqCFLHIY?feature=shared)
+[Diode](https://youtu.be/Fwj_d3uO5g8?feature=shared)
 
 
 # Basics 
