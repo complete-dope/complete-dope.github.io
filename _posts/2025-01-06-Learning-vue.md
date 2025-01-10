@@ -28,6 +28,7 @@ Reactive data binding means a magical flow when the data updates the UI also upd
 
 Component based architecture , everything is a component , you can reuse it anywhere in your project
 
+
 ## Vue components 
 
 The actual file that has .vue as the extension is called a component
@@ -201,7 +202,7 @@ CODE IS IN : `App_composition.vue`
 The `template` remains the same, only the part inside the `script` tag is different and we make it cleaner 
 
 
-Using `ref` to make it them reactive
+Using `ref` to make it them reactive, and to use the variable defined in the ref we need to use the .value on them and then we need to do the things on that value ... 
 
 Instead of data() and methods, here we use setup()
 
@@ -418,6 +419,55 @@ To create a graph and as app is very dependent on this , then this all becomes v
 
 
 
+
+`ref` : can be used on any HTML tag, and acts as a reference to that can be accessed using $refs object. 
+
+```html
+<template> 
+  <div ref="reference1">
+    <!-- logic goes here  -->
+  </div>
+</template>
+```
+
+
+```html
+<script>
+const reference1 = ref(null); // initilized by a null value 
+
+
+onMounted(()=>{
+  if (reference1.value !== null) {
+
+    // logic goes here 
+  }
+})
+
+</script> 
+```
+
+Object Syntax, its a way to bind classes or styles to an element using an object. 
+
+```html
+
+<template> 
+
+  <div id="temp-id" :class="{class-name : condition}" class="static-class">
+
+</template>
+
+```
+
+Pairs are in Key : Value format, and only 2 places we can use the object syntax i.e. `:class` , `:style`  
+
+But the values, can only be true-false 
+
+If its true, then class-name is : `static-class class-name`
+else the class name is : `static-class`
+
+
+
+
 # Learning VUE FLOW (https://vueflow.dev/guide/ )
 
 Install the @vue-flow from npm ... else specific pieces like @vue-flow/core , @vue-flow/node , @vue-flow/background , @vue-flow/controls , @vue-flow/minimap , @vue-flow/node-toolbar , @vue-flow/node-resizer
@@ -620,3 +670,37 @@ const randomizeNodes = (() => {
 ```
 
 continue from here : https://claude.ai/chat/08b3a722-cb89-46d5-a84a-e517490163e5 
+
+START WITH FINAL REWRITE OF eg THE CODE IN VUE JS 
+
+
+onMounted() : Once all the components are displayed on the screen / DOM is updated . Then the functions inside onMounted() will get executed
+
+
+Reactivity in Vue is amazing, the DOM is a connected graph of when an element flagged by `ref()` gets updated the DOM also gets updated and every component using that data also gets updated ( similar to when parent node gets updated the child nodes also get updated )   
+
+
+Variables gets declared locally only in a JS function, and not globally ...   
+
+
+# LEARNING CSS - TAILWIND CSS  
+
+In CSS, the default logic is horizontal stacking of div tags, and to make that in vertical need to wrap that in a flex box / flex style. 
+
+
+
+Using Tailwind css for styling .. 
+
+
+
+`.basic-flow .vue-flow__controls .vue-flow__controls-button ` : 
+
+What does this CSS line mean ? 
+It means basic-flow has nested this class vue-flow__controls and that has nested vue-flow__controls-button inside it ... 
+
+
+
+
+https://chat.deepseek.com/a/chat/s/27bc7208-1a9f-42a2-87b2-00b95b9df7dd 
+
+
