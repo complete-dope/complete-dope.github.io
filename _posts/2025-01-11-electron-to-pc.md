@@ -61,4 +61,4 @@ The transistor cant be just made smaller as at such small levels, atomic forces 
 
 # Advanced 
 
-transistor to pc ( to learn ) 
+We created an Adder and a Subtracter in the section above this is used in the actual system to do the mathematical calculations   
