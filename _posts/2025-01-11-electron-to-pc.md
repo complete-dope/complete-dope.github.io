@@ -7,9 +7,9 @@ date : 2025-01-11
 Links : 
 * http://www.gooath.org/blog/2022/12/05/how-do-computers-really-work-part-1-basics/
 
-[Transistor](https://youtu.be/IcrBqCFLHIY?feature=shared)
-[Diode](https://youtu.be/Fwj_d3uO5g8?feature=shared)
-
+[Transistor](https://youtu.be/IcrBqCFLHIY?feature=shared)  
+[Diode](https://youtu.be/Fwj_d3uO5g8?feature=shared)  
+[Logic gates from transistor](https://www.youtube.com/watch?v=sTu3LwpF6XI)  
 
 # Basics 
 
@@ -40,7 +40,17 @@ np side and pn side both want to flow current in inner sides so no outer current
 
 when p side is connected to a insulated-positive plate electrons starts to flow from n side to the p side and in addition with an external Electric field (using an battery) the current starts to flow in the required direction.  
 
+Bit is a transistor, 8 bit combined make up a byte ( 8 tranisistors combined )  
 
+Create logic gates from transistor using AND , OR gates ..etc 
+
+
+To create a basic NAND operator, 2 input nand gate you need 4 transistors ... 
+
+Combine logic gates to create Adder, Subtracter, multipliers, divider etc   
+
+
+Adder, subtracter are used in computers to make the work happen 
 
 
 
