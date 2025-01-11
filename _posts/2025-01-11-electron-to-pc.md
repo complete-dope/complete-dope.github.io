@@ -47,11 +47,16 @@ Create logic gates from transistor using AND , OR gates ..etc
 
 To create a basic NAND operator, 2 input nand gate you need 4 transistors ... 
 
-Combine logic gates to create Adder, Subtracter, multipliers, divider etc   
+A single transistor can produce only a single bit output 
 
+Combine logic gates to create Adder, Subtracter, multipliers, divider etc   
 
 Adder, subtracter are used in computers to make the work happen 
 
+
+The most important thing is Transistor powering all the devices in the world ... but the things come to how much can we compact it in a single board ?
+There comes Moore law limitations 
+The transistor cant be just made smaller as at such small levels, atomic forces comes into play and electrons start flowing from n-type to p-type without additional aid .. so that makes a transistor usesless .. 
 
 
 # Advanced 
