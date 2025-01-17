@@ -46,7 +46,12 @@ Features of using a custom DOM ,
 add features like is_clickable , is_visible etc .. 
 
 
+## The flow goes like
 
+1. Creates all JS interactable tags from the custom DOM. 
+2. Pass to the LLM model, and ask it to define the next step / where to click from there
+3. Make bounding boxes using the core Algo, and then add labels to that , the labels should be same as what you got from the custom DOM parsing
+4. Pass that to a good VLM model and ask it to find the changes it did ..       
 
 
 
