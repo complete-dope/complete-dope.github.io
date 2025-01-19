@@ -32,6 +32,24 @@ Add the commands , add event listener , implement features like webview, status 
 
 `package.json` = dependencies , contribute commands ( which tells it where to route for a particular input ) 
 
+## After all this initialisations what next to do ? 
+
+extension.js : 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
