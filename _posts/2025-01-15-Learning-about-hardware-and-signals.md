@@ -27,7 +27,7 @@ A "field" refers to an area or space where forces can be felt.
 Also we can imagine it as an football field where electrons play 
 
 
-And at the special relativity level, we see that the things contract in the direction of there motion .. it means that at high speed an plane moving towards right direction gets compressed and things in opposide gets delayed and this relativity effect happen in objects and objects as they are made up of atoms they experience a force and this force on charge in an movement of electrons and protons is called Magnetic field  
+And at the special relativity level, we see that electrons and protons , they contract in the direction of the motion .. think of this as , at high speed a plane moving towards right direction gets compressed and things in opposites gets delayed and this relativity effect happen in objects and as they are made up of atoms they experience a force and this force on charge in an movement of electrons and protons is called Magnetic field.
 
 ### Coiled wire and the forces it experiences 
 ??
@@ -63,8 +63,40 @@ Temperature and weather conditions
 
 
 ### What is electromagnetic ? 
-
+Sunlight is an EM wave 
 Electromagnetic waves to send information wirelessly. These waves are made up of:
 
 Electric fields: Invisible "push" forces.
 Magnetic fields: Invisible "pull" forces. They work together and move through the air at the speed of light.
+
+
+Imagine you want to send a message across a lake:
+
+Digital Signal: You tap a wooden stick in the water in a precise pattern (e.g., tap-tap...pause...tap-tap-tap). The taps represent your message in 0s and 1s.
+
+EM Wave: The ripples in the water are what actually carry your taps to the other side of the lake.
+
+In the real world, the digital message (your taps) often rides on EM waves to travel from one place to another, like how Wi-Fi or mobile data works.
+
+
+### How does cellphones transmit sound and stuff ? 
+[mobile communication](https://www.youtube.com/watch?v=1JZG9x_VOwA)
+
+
+Your voice goes to microphone ( that is an analogue signal ) with the help of MEMS sensor and IC it gets converted to digital signal aka binary signal ( 0's and 1's) 
+Then this binary signal is taken up by antenna to convert to EM wave 
+
+0 is low frequency and 1 is high frequency
+
+
+Cellular tower, ( cell tower ) , each area is divided in hexagonal parts and each part has its own tower and frequency slot 
+
+ 
+
+
+
+
+
+
+
+
