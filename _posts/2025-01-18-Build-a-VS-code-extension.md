@@ -163,9 +163,34 @@ The compilation to a single file, is done by using webpack or similar tools that
 In the script tag , you just have to mention <script id='dist/main.js'/> !! That is the compiled main.js file 
 ``` 
 
+## Bundler
+
 All the files get compiled to JS , even css all gets compiled to JS and then created in a single file in the dist folder , and in HTML you just have to refer to a single div in which you add the <script src="bundle.js">   
 
 That's it ... This is how you use react in a webview in a vsc extension 
+
+In Webpack, a loader is a tool or plugin that processes and transforms files (like JavaScript, CSS, images, etc.) before they are bundled into the final output.
+
+### Loader 
+
+A loader in Webpack is a mechanism that allows you to preprocess files as they are imported or loaded into your project. Loaders transform these files into modules that can be included in your application's dependency graph. For example:
+
+1. Compiling TypeScript to JavaScript.
+2. Transforming SASS/SCSS to CSS.
+
+### Types of loader 
+
+1. babel-loader
+2. style-loader
+3. css-loader
+
+What they do is convert the complex coding file code to simple 2 (css , js) / simplify them
+
+complex file ( like typescript , css )  => loader => (easy files) => webpack ( makes it to a single file) 
+
+Webpack makes it all in a single file .. 
+
+
 
 ## Extension.js
 Tree views != Webview , they are both seperate things 
@@ -187,9 +212,28 @@ The user interact with these values and these values are linked to the 'postMess
 webview.onDidReceiveMessage() , this takes in the data and classifies using switch-case to tell what to do .. 
 
 
-
 ## Typescript 
 Interface in React = enum in python 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
