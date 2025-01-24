@@ -59,7 +59,7 @@ The 3 most important section is contributes section ,:
 
 2. `viewContainers` : Defines containers in the VS Code Activity Bar (the sidebar on the left). These containers hold views (e.g., the Explorer, Source Control, or your custom views).
 
-```json
+```javascript
 {
   ID: 
   Title: 
@@ -78,17 +78,100 @@ Icon : 'Images/icon.png'
 }
 
 How to use this in views file : 
+
+```javascript
 "views": {
 "testingext": [
   {
-  "id": "testingext.view", 
+  "id": "testingext.view",  // this is view-ID
   }
 ]
 }
-   
+```
+
+### DISPLAYING A WEBVIEW :
+To display a webview, that means first I need to register a provider , using registerWebviewViewProvider, that takes the ID of the view-ID, and a custom web view , then resolve the web view and set options, and then set the view  
+
+
+```javascript
+// In the extension.js file 
+
+class CustomWebView {
+  // defined the extension URI for the model  
+  constructor(extensionUri) {
+    this._extensionUri = extensionUri;
+  }
+
+  resolveWebviewView(webviewView) {
+    this._view = webviewView;
+
+    // Set up the webview options
+    webviewView.webview.options = {
+      enableScripts: true, // Enable JavaScript if needed
+      localResourceRoots: [this._extensionUri] // Allow loading local resources from the extension URI
+    };
+
+    // Set the HTML content for the webview
+    webviewView.webview.html = this._getHtmlForWebview();
+  }
+
+  _getHtmlForWebview() {
+    // Generate the HTML content for the webview
+    return `
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Custom WebView</title>
+          <style>
+              body {
+                  font-family: Arial, sans-serif;
+                  margin: 0;
+                  padding: 0;
+                  background-color:rgb(0, 0, 0);
+              }
+              h1 {
+                  color: #333;
+                  text-align: center;
+                  margin-top: 20px;
+              }
+          </style>
+      </head>
+      <body>
+          <h1>Hello, this is a Custom WebView!</h1>
+          <h2>You can customize this content as needed.</h2>
+      </body>
+      </html>
+    `;
+  }
+}
+
+
+```
+
+What if you want to use React ? 
+The old js engines cant understand the modern es modules / syntax so we have to use something like bundler .. 
+
+But, what is a bundler ?? 
+Bundlers like webpack , ship your whole code in a single JS file and that acts as the entrypoint / script tag 
+
+
+The compilation to a single file, is done by using webpack or similar tools that converts whole of your react code to a single JS file !
+
+```html
+In the script tag , you just have to mention <script id='dist/main.js'/> !! That is the compiled main.js file 
+
+``` 
+
 
 ## Extension.js
 Tree views != Webview , they are both seperate things 
+
+[Tree View](https://code.visualstudio.com/api/extension-guides/tree-view) 
+
+[Web view](https://stackoverflow.com/questions/77978393/visual-studio-code-webview-provider)
+
 
 ## FLOW FOR AN EXTENSION 
 
