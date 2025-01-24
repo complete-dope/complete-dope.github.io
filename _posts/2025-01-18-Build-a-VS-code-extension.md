@@ -36,13 +36,39 @@ Add the commands , add event listener , implement features like webview, status 
 
 ## Webview
 Everything that we see in a vs code extension is built out in a webview ( a single extension can only have a single webview ) , 
-That webview is can be built in HTML , css , JS or using some framework like React, Angular, Vue JS .. 
+That webview is can be built in HTML , css , JS or using a fjramework like React, Angular, Vue JS .. 
 
 In the webview initialise a react / typescript project and code it, the directory will be '/src/components/'  
 
 
 ## Interacting with webview 
 For the webview to interact with the backend code, the vscode.postMessage with a type {"<>"} (posting the event), the event needs to be posted so that means we need to use switch-case for that to work ...
+
+This way the webview / frontend posted a message : 
+
+```javascript
+vscode.postMessage({
+  type: 'takeScreenshot',
+  value: {provider, modelName , question}
+});
+```
+
+To recieve that message in the backend / extension.js we have to use onDidReceiveMessage: 
+
+```javascript
+webviewView.webview.onDidReceiveMessage(data => {
+  switch(data.type){
+    case 'takeScreenshot':
+      try{
+        // js code that works
+      }
+      catch(err){
+      }
+  }
+})
+
+```
+
 
 
 ## BASIC FLOW FOR AN EXTENSION 
@@ -53,7 +79,7 @@ For the webview to interact with the backend code, the vscode.postMessage with a
 
 
 ## Package.json
-The 3 most important section is contributes section ,: 
+The 5 most important section is contributes section ,: 
 
 1. `commands` : That we use using ctrl+shift+P , that get registered there
 
@@ -88,6 +114,21 @@ How to use this in views file :
 ]
 }
 ```
+
+4. `Menus`
+The id for the menu it takes from the defined commands, first you need to register that command, then based on the ID you gave it , you need to call that ID and use it in the menus with the :
+```javascript
+
+"menus": {
+  "view/title":[
+    "command": <as defined in the commands>
+    "when": <when to call it>
+  ]
+}
+
+```
+
+
 
 ### DISPLAYING A WEBVIEW :
 To display a webview, that means first I need to register a provider , using registerWebviewViewProvider, that takes the ID of the view-ID, and a custom web view , then resolve the web view and set options, and then set the view  
