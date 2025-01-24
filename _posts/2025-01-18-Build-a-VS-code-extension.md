@@ -161,9 +161,11 @@ The compilation to a single file, is done by using webpack or similar tools that
 
 ```html
 In the script tag , you just have to mention <script id='dist/main.js'/> !! That is the compiled main.js file 
-
 ``` 
 
+All the files get compiled to JS , even css all gets compiled to JS and then created in a single file in the dist folder , and in HTML you just have to refer to a single div in which you add the <script src="bundle.js">   
+
+That's it ... This is how you use react in a webview in a vsc extension 
 
 ## Extension.js
 Tree views != Webview , they are both seperate things 
