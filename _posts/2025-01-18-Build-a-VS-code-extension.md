@@ -190,7 +190,8 @@ complex file ( like typescript , css )  => loader => (easy files) => webpack ( m
 
 Webpack makes it all in a single file .. 
 
-
+### Custom Scripts
+Using `npm run` we can run the custom scripts which we define inside the scripts section in the `package.json`   
 
 ## Extension.js
 Tree views != Webview , they are both seperate things 
