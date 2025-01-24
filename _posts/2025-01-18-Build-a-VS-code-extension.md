@@ -52,6 +52,44 @@ For the webview to interact with the backend code, the vscode.postMessage with a
 `extension.js` : register that same command and tell in the function what you want it to do 
 
 
+## Package.json
+The 3 most important section is contributes section ,: 
+
+1. `commands` : That we use using ctrl+shift+P , that get registered there
+
+2. `viewContainers` : Defines containers in the VS Code Activity Bar (the sidebar on the left). These containers hold views (e.g., the Explorer, Source Control, or your custom views).
+
+```json
+{
+  ID: 
+  Title: 
+  Icon : 
+}
+```
+
+3. `views` : Defines the actual content , inside that panel , view that will be shown in the UI
+The id defined in the activity bar for an extension , for that only you can create a UI also , that means if inside viewsContainers, I defined an ICON with an extension as:
+defined in the viewContainer :
+
+{
+Id :'ext_testing',
+Title : 'Testing this extension ',
+Icon : 'Images/icon.png' 
+}
+
+How to use this in views file : 
+"views": {
+"testingext": [
+  {
+  "id": "testingext.view", 
+  }
+]
+}
+   
+
+## Extension.js
+Tree views != Webview , they are both seperate things 
+
 ## FLOW FOR AN EXTENSION 
 
 UI has the buttons, textarea , dropdowns , etc .. 
