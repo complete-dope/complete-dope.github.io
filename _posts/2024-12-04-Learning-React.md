@@ -13,7 +13,7 @@ date: 2024-12-04
 Trying to Learn React once again 
 Delta to learn react is high, you need JS, css, html 
 
-Importing / Exporting  
+## `Importing / Exporting`
 Named export ( export function App ) 
 Default export ( export default <name> )
 
@@ -21,8 +21,33 @@ Default import ( import App from ‘./App’ )
 Named import ( import {App} from ‘./App’ )  the { } must match the function name exactly 
 
 
-Components :
-different parts 
+Multiple Exports
+
+```javascript
+
+** File is  : app.js
+export const Test1 = (()=>{
+
+})
+
+export const Test2 = function(){
+
+}
+
+export const Test3 = () => {
+
+}
+
+
+// call it as following
+
+import {Test, Test2 , Test3} from './app.js'
+
+```
+
+## Components :
+
+Different parts 
 Like parts of a motorcycle , fan .. these are components and a site is made up many such components  
 Component name should always start with a Capital letter
 Inside JSX, we can write javascript also 
@@ -31,11 +56,20 @@ Can only return only one parent element
 Curly braces 
 Inside curly braces, we can pass string , number and also for styling we can pass inside a js object inside {} so its {{ }}
 
-Props 
+### Props 
 Passing to a jsx tag: Props are the information that you pass to a JSX tag
-Passing to a component: <Component prop1 = {100} prop2 = {{name:’mohit’}}>
- 
-Receiving / Read props Way-1 : function Component ({ prop1 , prop2 }) { // prop1 and prop2  }
+Passing to a component:
+
+```javascript
+<Component prop1 = {100} prop2 = {{name:’mohit’}}>
+```
+
+Receiving / Read props Way-1 :
+
+```javascript
+function Component ({ prop1 , prop2 }) { // prop1 and prop2  }
+```
+
 Object passing needs to be wrapped in double curly braces
 
 Reading props Way-2 : function Component (props) read as props.prop1 and props.prop2
@@ -45,20 +79,22 @@ Child prop (passing other component as a prop, content inside a prop) : The cont
 Key prop (inbuilt keyword in prop) : used to identify one object from another 
 
 
-Template literals 
+### Template literals 
 Passing in a combination of backticks + string + some dynamic value using $
-** ` Hello ${Name} `
+** ` Hello ${Name} ` : Similar to python's F-string  
 
 
-Rendering
+### Rendering
 Going from code to beautiful frontend  using VDOM , virtual dom
 DOM is a tree like hierarchy  
 State changed ? First updates virtual dom 
 Then uses diffing to find changes in real dom to virtual dom
 Then updates few nodes in the real dom ( Reconciliation ) 
 
-Event Handling
-https://youtu.be/wIyHSOugGGw?feature=shared&t=278 
+### Event Handling
+[Event handling](https://youtu.be/wIyHSOugGGw)
+
+
 Handling user interaction 
 User clicking somewhere and the desired results is rendered using the event handler 
 Event handler functions:
@@ -66,7 +102,7 @@ Are usually defined inside your components.
 Have names that start with ‘handle’, followed by the name of the event.
 Event handler props convention is to start with ‘on’ 
 
-Event propagation:
+### Event propagation:
 Each event clicks finds its location in a tree and from there it calls all the events above it to the top node of the tree. 
 Stopping propagation, Event handlers receive an event object as their only argument. By convention, it’s usually called e, which stands for “event”. 
 e.stopPropagation() → to stop up the propagation of e to the parent node 
@@ -79,7 +115,7 @@ State
 useState(initial_state)
 useReducer() 
 
-Hooks
+### Hooks
 These can be called only at the top level of the component  
 1. State Hooks
 useState()
@@ -166,4 +202,67 @@ Points to remember
 2_ Props are read only, take the prop declare a state and then play with that state … its like this because of pure in react 
 
 3_ react strictmode sometimes causes the component to render twice to check for its correctness .. this may be the reason of multiple renders that you see 
+
+
+
+## useref hook 
+
+It has a single object and doesnt causes re-render
+
+Its takes the DOM value directly
+
+```javascript
+import React, { useRef } from "react";
+
+function App() {
+  const inputRef = useRef(null);
+
+  const handleFocus = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <input type="text" ref={inputRef} placeholder="Click the button to focus" />
+      <button onClick={handleFocus}>Focus Input</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+The above function on clicking the button the focus will come to the input button 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
