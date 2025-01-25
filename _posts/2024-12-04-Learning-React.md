@@ -56,8 +56,8 @@ Can only return only one parent element
 Curly braces 
 Inside curly braces, we can pass string , number and also for styling we can pass inside a js object inside {} so its {{ }}
 
-### Props 
-Passing to a jsx tag: Props are the information that you pass to a JSX tag
+### Props
+1. Passing to a jsx tag: Props are the information that you pass to a JSX tag
 Passing to a component:
 
 ```javascript
@@ -72,7 +72,7 @@ function Component ({ prop1 , prop2 }) { // prop1 and prop2  }
 
 Object passing needs to be wrapped in double curly braces
 
-Reading props Way-2 : function Component (props) read as props.prop1 and props.prop2
+2. Reading props Way-2 : function Component (props) read as props.prop1 and props.prop2
 
 Child prop (passing other component as a prop, content inside a prop) : The content inside the element acts as a prop
 
@@ -238,6 +238,8 @@ The above function on clicking the button the focus will come to the input butto
 
 ## useEffect hook 
 
+One of the methods for calling API but adds a conditional to when to call the API .. 
+
 This is used to call API's  / external systems .. 
 The thing is the function at it scratch implementation is a synchronous function and for it to work, even with fetch API we need to use useEffect() 
 
@@ -260,6 +262,44 @@ useEffect(()=>{
 This function runs whenever some dependency changes from the array, but can we pass params to the useEffect function ? 
 
 Yup, the same old trick, if the function directly is unable to take anything wrap it up in another function and pass the props from that function to the useEffect hook ... 
+
+###  React function component 
+
+For react to know that its a React function component, it must start with a capital letter. 
+
+```javascript
+
+function getData(()=>{
+   async function dataFetch(){
+      const response = await fetch('https://localhost:3000')
+   }
+}, [])
+// gives error like its not a react function component
+
+// solve it by :
+
+function GetData(()=>{
+   async function dataFetch(){
+      const response = await fetch('https://localhost:3000')
+   }
+}, [])
+
+```
+
+
+The onSubmit , onClick .. etc types of functions can take both sync and async functions as input !! --> kinda weird 
+
+
+### Re-rendering 
+Now that I added a new component ( that is just some html wrapped in JS shit for a bundler ) but its not getting compiled as react doesnt know that it got changed / it has to make changes because of some new addition ( fuck u react .. why can't you just listen to all the events occuring ) ... like an event loop 
+
+So we have to now tell it that some new component has come please interact with it .. 
+
+
+
+
+
+
 
 
 
