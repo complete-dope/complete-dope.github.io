@@ -259,7 +259,8 @@ useEffect(()=>{
 
 This function runs whenever some dependency changes from the array, but can we pass params to the useEffect function ? 
 
-Yup, the same old trick, if the function directly is unable to take anything 
+Yup, the same old trick, if the function directly is unable to take anything wrap it up in another function and pass the props from that function to the useEffect hook ... 
+
 
 
 
