@@ -236,10 +236,30 @@ The above function on clicking the button the focus will come to the input butto
 
 
 
+## useEffect hook 
 
+This is used to call API's  / external systems .. 
+The thing is the function at it scratch implementation is a synchronous function and for it to work, even with fetch API we need to use useEffect() 
 
+The basic fetching wont work ... 
+useEffect takes in a function and a depedency array , that will call the function whenever something from the dependency array changes 
 
+```javascript
 
+useEffect(()=>{
+   async function getData(){
+      const response = await fetch('https://google.com')
+      const data = await response.json()
+      log(data) 
+   }
+
+},[dependency1 , dependency2])
+
+```
+
+This function runs whenever some dependency changes from the array, but can we pass params to the useEffect function ? 
+
+Yup, the same old trick, if the function directly is unable to take anything 
 
 
 
