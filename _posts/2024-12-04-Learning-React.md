@@ -293,7 +293,26 @@ The onSubmit , onClick .. etc types of functions can take both sync and async fu
 ### Re-rendering 
 Now that I added a new component ( that is just some html wrapped in JS shit for a bundler ) but its not getting compiled as react doesnt know that it got changed / it has to make changes because of some new addition ( fuck u react .. why can't you just listen to all the events occuring ) ... like an event loop 
 
-So we have to now tell it that some new component has come please interact with it .. 
+So we have to now tell it that some new component has come please interact with it / show it to the user on screen  .. 
+
+
+### Server side and client side component rendering !
+
+So anything that a server sends ( means things that happen at the server and then sent back as a compiled HTML / JS)  is a server side code / component
+
+And things that happen in client side ( like talking to an API ) is called Client side component ... 
+
+There is one thing , we can't use async - await in client side code so how do we call API from client side ? 
+
+Answer is : Using `useEffect` hook we can call the API from client side in a seperate component
+
+The whole idea of components now makes sense .. without component writing things in react is just seems so impossible ..
+
+### USING HOOKS
+
+Using hooks makes sense, as the whole react code is async and for it to read values we need to use hooks , normal declaration of variable doesnt work correctly in this case  
+
+
 
 
 
