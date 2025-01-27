@@ -265,6 +265,7 @@ Yup, the same old trick, if the function directly is unable to take anything wra
 
 Also used to call a function based on its state change, in the dependency array add all the states that need to tracked for and checked for change and useEffect hook just calls it ...   
 
+There is also a cleanUp function, that resets the state back to normal to avoid irrelevant re-rendering ..   
 
 
 ###  React function component 
