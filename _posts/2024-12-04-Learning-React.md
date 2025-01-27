@@ -263,6 +263,10 @@ This function runs whenever some dependency changes from the array, but can we p
 
 Yup, the same old trick, if the function directly is unable to take anything wrap it up in another function and pass the props from that function to the useEffect hook ... 
 
+Also used to call a function based on its state change, in the dependency array add all the states that need to tracked for and checked for change and useEffect hook just calls it ...   
+
+
+
 ###  React function component 
 
 For react to know that its a React function component, it must start with a capital letter. 
