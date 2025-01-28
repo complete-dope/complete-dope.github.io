@@ -317,6 +317,12 @@ The whole idea of components now makes sense .. without component writing things
 
 Using hooks makes sense, as the whole react code is async and for it to read values we need to use hooks , normal declaration of variable doesnt work correctly in this case  
 
+### Component Rendering 
+
+The way the component renders in React is quite interesting , at 2 times re-rendering happens, when a component's state or props change, the component re-renders.
+
+If any state variable get defined inside a component, and it gets updated then the component re-renders and second is if the component takes a prop and that gets prop gets updated , the component re-renders
+
 
 
 
