@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 
+date: 2025-01-16
 title : Learning how web works and building my custom DOM for it !! 
 ---
 
