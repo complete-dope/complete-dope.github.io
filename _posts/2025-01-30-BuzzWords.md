@@ -1,0 +1,79 @@
+---
+layout : post
+title : Cloud / Devops buzzwords
+date : 2025-01-30
+---
+
+# Devops Glossary
+
+
+## Elastic Search 
+"Elastic" – It is highly scalable and can dynamically handle large volumes of data.
+"Search" – It is designed primarily for search and analytics, making retrieval fast and efficient.
+
+Elasticsearch is a distributed search and analytics engine built on Apache Lucene. It is designed for fast, scalable full-text search and is commonly used for log analysis, real-time data indexing, and search applications.
+
+Its a search engine with some database like properties, so its optimised for search , stores data in a json format and is used for logging purposes doesnt ensure ACID compliancy .Real time logging ( ~1s delay ) and regularly updates database. 
+
+
+## Kibana 
+Kibana is like a super cool dashboard for your data, especially when you're using Elasticsearch. Let’s say you have a lot of information, like numbers, text, or logs. Kibana lets you look at and understand this data in a visual way. Instead of reading through long lists, you can see the data in charts, graphs, maps, and other visuals, making it much easier to understand and explore.
+
+It connects to Elasticsearch to pull out the data and then turns it into neat pictures, like bar charts or pie charts, that you can use to make decisions or find patterns.
+
+Its just a UI tool 
+
+
+## Grafana 
+
+Grafana is a more general-purpose visualization tool that focuses on monitoring and time-series data (like server metrics, application performance, etc.) and can pull data from multiple sources like Prometheus, InfluxDB, and Elasticsearch. Grafana shines with metrics, time-series data, and real-time monitoring (e.g., CPU usage, memory usage, or network traffic). Grafana can connect to many different data sources, including Prometheus, Elasticsearch, InfluxDB, MySQL, PostgreSQL, and more.
+
+
+## Prometheus
+
+Prometheus is an open-source system designed for monitoring and alerting, particularly for time-series data. It is commonly used to monitor servers, applications, and infrastructure to track metrics like CPU usage, memory usage, disk space, and network traffic in real-time.
+
+How It Works:
+
+*Exporter: A software that runs on your system (like node_exporter for Linux servers) and exposes your system's metrics.
+
+*Prometheus Server: Scrapes data from exporters at regular intervals and stores it.
+
+*Alertmanager: If the data exceeds thresholds defined in Prometheus, it triggers alerts to be sent via email, Slack, etc.
+
+Uses PromQL, its a query language, 
+
+
+ 
+
+# Backend Glossary 
+
+## Restful API 
+
+A RESTful API (Representational State Transfer API) is a set of rules for building web services that allow communication between different systems over the internet using HTTP requests.
+
+
+## CI/CD 
+Continuous Integration (CI): A practice where developers frequently merge their code into a central repository, followed by automated testing to catch bugs early.
+Continuous Deployment (CD): The practice of automatically deploying all code changes to production after they pass automated tests, ensuring rapid delivery of features and fixes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
