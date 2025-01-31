@@ -183,9 +183,16 @@ asyncio.run(fin_main()) ## HERE WE RUN THE FUNCTION
 ```
 
 Typical Linux System	1000–65000 (depends on tuning)
+
+**METRICS**
+
 Python asyncio + aiohttp	1000–10000 (efficient)
+
 Thread-based (e.g., requests)	~100–500 (less efficient)
+
 Nginx Default (worker_connections)	1024–4096 per worker
+
+So , approx 100-200 connection can be made parallel from the same OS !! 
 
 
 
