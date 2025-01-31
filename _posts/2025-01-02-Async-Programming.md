@@ -17,10 +17,6 @@ At any single time, a single CPU thread executes only a single function ( no mul
 2. Create / Add tasks in it 
 3. Check for the status and if done return the result 
 
-## 
-
-
-
 ## Coroutines : 
 A coroutine is a special function that can give up control to its caller without losing its state. 
 
@@ -112,6 +108,84 @@ recv.send("Value-1")
 ```
 
 
+## Using the async-await keywords !! 
+For async to work we need to make sure that we make it async to the lowest level / OS level otherwise nothing is asynchronous .. only on surface level its asynchronous !!  
+
+
+```python
+
+import asyncio
+import aiohttp
+
+
+async def counter(idx=1):
+    print(f"Counter {idx} started")
+    await asyncio.sleep(idx)
+    print("Exiting the counter")
+
+async def fetch(idx, url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            print(f"{idx}-{url} → {response.status}")  # Print status when done
+
+async def main():
+    await counter(2) # must finish before going ahead
+    await fetch(10000, "https://jsonplaceholder.typicode.com/users") # wait for this one before all others
+    urls = ["https://jsonplaceholder.typicode.com/users"] * 10  # 10 URLs ## SCHEDULED CALLS 
+    tasks = [fetch(idx,url) for idx,url in enumerate(urls)]  # Create tasks
+    await asyncio.gather(*tasks)  # Run all at the same time
+
+asyncio.run(main()) # creates a loop, executes , closes
+```
+
+
+Await just means you need to wait for this operation / function to complete before moving ahead !!  
+
+This makes sure that the counter and 10000 call's are finished before you start anything new !! 
+
+You can make functions async by clubbing functions that you want to run together ... if you will just keep a await statement on every function that you call then it again makes it async call only !! OHH !!
+
+Means the one we are using in project its just asynchronous !! 
+
+So I need to test whether I can gather and run and then again start with below part ? 
+
+```python
+import asyncio
+
+async def fn1():
+  pass
+
+
+async def fn2():
+  pass
+
+
+async def mid_main():
+  asyncio.gather(fn1() , fn2())
+
+
+asyncio.run(mid_main()) ## HERE WE RUN THE FUNCTION 
+
+
+async def ahead():
+  pass
+
+
+async def ahead2():
+  pass
+
+async def fin_main():
+  asyncio.gather(ahead(), ahead2())
+
+
+asyncio.run(fin_main()) ## HERE WE RUN THE FUNCTION
+
+```
+
+Typical Linux System	1000–65000 (depends on tuning)
+Python asyncio + aiohttp	1000–10000 (efficient)
+Thread-based (e.g., requests)	~100–500 (less efficient)
+Nginx Default (worker_connections)	1024–4096 per worker
 
 
 
