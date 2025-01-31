@@ -182,9 +182,58 @@ asyncio.run(fin_main()) ## HERE WE RUN THE FUNCTION
 
 ```
 
-Typical Linux System	1000–65000 (depends on tuning)
+Yes we can do this !!
+
+```python
+import asyncio
+import aiohttp
+import time
+
+
+async def counter(idx=1):
+    print(f"Counter {idx} started")
+    await asyncio.sleep(idx)
+    print("Exiting the counter")
+
+async def fetch(idx, url):
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url) as response:
+            print(f"{idx}-{url} → {response.status}")  # Print status when done
+
+async def main():
+    await counter(2) # must finn
+    start = time.time()
+    await fetch(10000, "https://jsonplaceholder.typicode.com/users") # wait for this one before all others
+    end = time.time()
+    print("Time for a single API call is " , end - start)
+    urls = ["https://jsonplaceholder.typicode.com/users"] * 6  # 10 URLs ## SCHEDULED CALLS 
+    tasks = [fetch(idx,url) for idx,url in enumerate(urls)]  # Create tasks
+    await asyncio.gather(*tasks)  # Run all at the same time
+    print("All API call time is ", time.time() - end)
+
+
+asyncio.run(main()) # creates a loop, executes , closes
+
+async def main2():
+    await counter(3) # must finn
+    start = time.time()
+    await fetch(100 , "https://fakestoreapiserver.reactbd.com/smart") # wait for this one before all others
+    end = time.time()
+    print("Time for a single API call is " , end - start)
+    urls = ["https://fakestoreapiserver.reactbd.com/smart"] * 10  # 10 URLs ## SCHEDULED CALLS
+    tasks = [fetch(idx,url) for idx,url in enumerate(urls)]  # Create tasks
+    await asyncio.gather(*tasks)  # Run all at the same time
+    print("All API call time is ", time.time() - end)
+
+asyncio.run(main2())
+
+```
+
+
 
 **METRICS**
+
+Typical Linux System	1000–65000 (depends on tuning)
 
 Python asyncio + aiohttp	1000–10000 (efficient)
 
