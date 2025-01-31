@@ -196,6 +196,32 @@ So , approx 100-200 connection can be made parallel from the same OS !!
 
 
 
+## How does this work in the low level ? 
+
+The OS works in the following manner, network request comes from the python application, then it makes requests to the OS , then OS calls networking library, socket it created in a non-blocking manner and upto ~60000 TCP connections can be made .. but in reality we can have around 100 network calls at max. 
+
+and it the epoll tells the OS when is the data received and then it tells it back to the application .. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
