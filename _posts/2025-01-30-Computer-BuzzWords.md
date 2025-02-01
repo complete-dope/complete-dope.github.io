@@ -1,8 +1,10 @@
 ---
 layout : post
-title : Cloud / Devops buzzwords
+title : Computer buzzwords
 date : 2025-01-30
 ---
+
+This includes all cloud / devops , web-based , backend , machines etc 
 
 # Devops Glossary
 
@@ -58,6 +60,50 @@ Continuous Integration (CI): A practice where developers frequently merge their 
 Continuous Deployment (CD): The practice of automatically deploying all code changes to production after they pass automated tests, ensuring rapid delivery of features and fixes.
 
 
+
+
+
+# Machines 
+
+## Virtualisation
+Single host machine, but can serve multiple virtual machines from it .. Think of this as what google gcp does , its give you a single virtual machine inside a single host machine .. that means shared hardware resource but custom software / OS !!
+
+OS that supports this is : proxmox , its an open source virtualisation OS, that lets you configure / setup your requirement using web interface and allots you a VM 
+
+## Distributed inference 
+
+Node : Single Machine
+[Distributed Inference](https://docs.vllm.ai/en/latest/serving/distributed_serving.html)
+
+Multi nodes : Multiple machines
+
+
+
+
+
+# Networking 
+
+## Public IP Addresses
+The IP address of your router that is actually connected to the internet and once u connect to a router you are basically in a private IP address range and its talk to internet using ports ...
+
+Does public IP address also changes ? 
+Yes, when electricity goes off , router gets offline , and when electricity comes back a new public IP address is assigned to the router unless you have a plan for Static IP address defualt is the dynamic IP address 
+
+## Private IP addresses 
+The router assigns you a local IP address and that can also change once you turn your wifi off and on. 
+
+This typically starts from : 
+
+* 10.0.0.0 to 10.255.255.255 
+* 172.16.0.0 to 172.31.255.255
+* 192.168.0.0 to 192.168.255.255
+
+## Subnetting 
+A subnet, or subnetwork, is a network inside a network. Subnets make networks more efficient. Through subnetting, network traffic can travel a shorter distance without passing through unnecessary routers to reach its destination.
+
+A subnet mask is like an IP address, but for only internal usage within a network. Routers use subnet masks to route data packets to the right place. Subnet masks are not indicated within data packets traversing the Internet — those packets only indicate the destination IP address, which a router will match with a subnet.
+
+![Subnet Image](https://cf-assets.www.cloudflare.com/slt3lc6tev37/2pBqIHUTSlxI7EW9XZPKf3/551ab3390ab9ab86fee15c73fd245f6c/subnet-diagram.svg)
 
 
 
