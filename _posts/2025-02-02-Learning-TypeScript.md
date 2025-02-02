@@ -146,6 +146,92 @@ const user2: User = {
 ```
 
 
+## Bit complex in TypeScript
+
+Type-Assertion : Its a way to tell the compiler, "trust me, I know what type this is"
+
+Its a way to tell typescript, that u as developer know about its type than TypeScript's type checker .. 
+
+```javascript
+// Example-1
+let value: any = "hello";
+let strLength: number = (<string>value).length;
+
+//Example-2
+let value: any = "hello";
+let strLength: number = (value as string).length;
+```
+
+Overriding implicit 'any' types
+
+Interesting Example
+
+
+```javascript
+const inputElement = document.getElementById("email") as HTMLInputElement;
+inputElement.value = "user@example.com"; // Now TypeScript knows it's an input
+```
+
+Possible types for document.getElementById("email") are either an HTMLElement or a null value
+
+So a code like this :
+
+```javascript
+const inputElement = document.getElementById("email");
+inputElement.value = "user@example.com"; // ❌ Error: Property 'value' does not exist on type 'HTMLElement'.
+```
+
+
+So we need to do a type assertion, so if I make that to HTMLInputElement, I will tell typescript explicitly that this is not any HTMLElement its a HTMLInputElement 
+
+```javascript
+// Suppose the element with ID "email" is a `<div>`:
+
+<div id="email">Hey I am Email in a div tag</div>
+const inputElement = document.getElementById("email") as HTMLInputElement; // ex-1
+const inputElement = <HTMLInputElement>document.getElementById("email");  // ex-2
+
+inputElement.value = "test"; // 💥 Runtime Error: `value` property doesn't exist on `<div>`.
+```
+
+You can't leave any variable untouched in typescript , the sole purpose of typescript is to be able to do better type checking. 
+
+```javascript
+function addNum(x: number, y: number): number{
+    return x+y;
+}
+
+
+// This defines that output is also a number 
+```
+
+Either you have to define it as a any or void 
+
+```javascript
+// Void
+
+function log(message: string | number ): void {
+    console.log(message);
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
