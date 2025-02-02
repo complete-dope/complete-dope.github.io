@@ -207,6 +207,9 @@ function addNum(x: number, y: number): number{
 
 Either you have to define it as a any or void 
 
+
+Complete typescript with comments ! 
+
 ```javascript
 // Void
 
@@ -214,6 +217,150 @@ function log(message: string | number ): void {
     console.log(message);
 }
 ```
+
+//Interfaces 
+
+
+```javascript
+
+
+// Interface
+
+interface UserInterface { // 
+    id: number,
+    name: string,
+    age?: string // This is an Optional field   
+    readonly email?: string // This is a Readonly field
+} 
+
+const user1: UserInterface = {
+    id: 1,
+    name: "John"
+}
+
+
+// interface inside function 
+
+
+interface MathFunction {
+    (x: number, y: number): number
+}
+
+const add2 : MathFunction = function(x: number, y: number): number {
+    return x + y
+};
+
+const subtract: MathFunction = (x: number, y: number): number => x-y;
+
+
+// Classes 
+
+
+class Person{
+    id: number
+    name : string
+
+    constructor(id: number, name: string){
+        this.id = id;
+        this.name = name;
+        console.log("Hello World");
+    }
+}
+
+
+const mohit = new Person(21 , "Mohit");
+const john = new Person(22 , "John");
+
+
+mohit.id = 123;
+
+// Public, private, protected 
+
+// protected: used inside the class and its subclasses
+// This = self, in python  
+class Person2{
+    private id: number 
+    public name: string 
+    protected age: number
+
+
+    constructor(id: number, name: string, age: number){
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    function(a: number, b: number): void{
+        console.log(this.id);
+        console.log(a+b);
+        
+    }
+}
+
+
+// interface in a class 
+
+interface PersonInterface{
+    id: number,
+    name: string,
+    register(): string
+}
+
+class Person3 implements PersonInterface{ // This si just an extra type-checking and does nothing interesting ... !!   
+    id: number
+    name: string
+
+    constructor(id: number, name: string){
+        this.id = id;
+        this.name = name;
+    }
+
+    register(){
+        return `${this.name} is now registered`;
+    }
+}
+
+// subclass
+
+
+class Names extends Person3{
+    position : string 
+
+
+    constructor(id: number, name: string, position: string){
+        super(id, name); // Take the parent class implementation of constructor and use that ! 
+        this.position = position;
+    }
+}
+
+// Generics 
+function getArray(items: any[]): any[]{
+    return new Array().concat(items);
+}
+
+let numArr = getArray([1,2,3,4]);
+let strArray = getArray(["Hello", "World"]);
+
+numArr.push('Mohit'); // This gives no error as its of `any` type
+
+// How to change this ? 
+
+function getArray2<T>(items: T[]): T[]{
+    return new Array().concat(items);
+}
+
+
+let numArr2 = getArray2<number>([1,2,3,4]);
+let strArray2 = getArray2<string>(["Hello", "World"]);
+
+// numArr2.push('Mohit'); // This gives an error as its of `number` type
+numArr2.push(5); // This is fine as its of `number` type
+
+```
+
+
+[TypeScript for React](https://github.com/typescript-cheatsheets/react#reacttypescript-cheatsheets)
+
 
 
 
