@@ -639,6 +639,10 @@ If button is visible but Icon is not visible that means, the CSS is broken and n
 
 
 
+#### Router in VueJS
+
+`useRouter() hook` : 
+
 
 
 
@@ -699,8 +703,32 @@ What does this CSS line mean ?
 It means basic-flow has nested this class vue-flow__controls and that has nested vue-flow__controls-button inside it ... 
 
 
-
-
 https://chat.deepseek.com/a/chat/s/27bc7208-1a9f-42a2-87b2-00b95b9df7dd 
+
+
+`package.json`
+It contains all the whole history of the project that you created, name, version, scripts-commands like (dev , build , ... etc ), dependencies, devDependencies that list all the packages that are getting used in this project. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
