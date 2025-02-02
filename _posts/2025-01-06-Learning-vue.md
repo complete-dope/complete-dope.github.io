@@ -72,7 +72,7 @@ We gonna start with the options API and then move to the composition API ..
 
 ### Vue Templates : 
 
-`templates` written in html + vue + pythonic way = vue templates
+`templates` are written in html + pythonic way = vue templates
 
 
 * Conditionals In templates : 
@@ -162,11 +162,9 @@ Acts as a default and binds to the value of input field here
 ### Options API : 
 CODE IS IN : `App2.vue`
 
-Need to have data() to define the data and for calling methods / attaching a method to a tag alongside exporting and then returning the values from it  
-
+You define the data in the data(){//values} function, and if you want to call some methods / functions you can call it inside the methods dict
 
 ```js
-
 <script>
  export default {
     data(){
