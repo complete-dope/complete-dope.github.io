@@ -637,13 +637,39 @@ If button is visible but Icon is not visible that means, the CSS is broken and n
 
 
 
-#### Router in VueJS
+#### Advanced VueJS
 
-`useRouter() hook` : 
+`useRouter() hook` : It is used to create routes for the whole webpage.. basically useful for SPA ( single page applications ) the browser url changes and based on that we render a new component
+
+The routes are usually defined in the `/src/router/index.ts`
+
+```javascript
+
+// router/index.js
+const routes = [
+  {
+    path: '/dashboard',
+    component: DashboardLayout, // 👈 This becomes `components.default`
+    children: [
+      {
+        path: 'profile',
+        component: UserProfile, // Child component
+      },
+    ],
+  },
+];
+
+```
 
 
+`computed` is used to create reactive computed properties. So whatever is inside the computed function will be re-evaluated when its dependencies change.
+so when the route changes, Component automatically updates to reflect the new route's componet. Without computed(), it would just be a static value that never changes.
 
+```javascript
 
+const Component = computed(() => route.matched[0]?.components?.default)
+
+```
 
 
 # LEARNING JAVASCRIPT
