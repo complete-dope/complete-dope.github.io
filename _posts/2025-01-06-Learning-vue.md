@@ -672,6 +672,10 @@ const Component = computed(() => route.matched[0]?.components?.default)
 ```
 
 
+## Listening to Events
+`@keyup.enter` : listens for 'enter' button, means trigger this function when enter keyword is pressed    
+:disabled="isLoading" : dynamic loading , if isLoading=True, then button is disabled , else visible
+
 # LEARNING JAVASCRIPT
 
 * Viewport : the display area of a screen, for a laptop its the laptop screen, for the mobile that would be the mobile phone screen 
