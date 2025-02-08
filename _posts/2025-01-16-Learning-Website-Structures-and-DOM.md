@@ -42,10 +42,67 @@ These start from the root html , till the absolute end of the node name
 
 The DOM is created by browsers , browser have a standard on how to create a DOM , the xpath is a way to interact with the DOM in an efficient way  
 
+How to extract xpath ?
+
+
+
 ## Custom DOM 
 
 Features of using a custom DOM , 
 add features like is_clickable , is_visible etc .. 
+
+## Making the bounding boxes:
+The JS already gives / makes the bounding box for its elements and its very simple to get the coords of that bounding box. 
+
+
+```javascript
+const element = document.querySelector("#myElement"); // Select the element
+const rect = element.getBoundingClientRect(); 
+
+console.log({
+    x: rect.x,           // X coordinate
+    y: rect.y,           // Y coordinate
+    width: rect.width,   // Width of the element
+    height: rect.height, // Height of the element
+    top: rect.top,       // Distance from top of viewport
+    right: rect.right,   // Distance from right of viewport
+    bottom: rect.bottom, // Distance from bottom of viewport
+    left: rect.left      // Distance from left of viewport
+});
+```
+
+CSS selector: 
+
+```javascript
+
+var idx = document.querySelector("div.container > p:first-child");
+// This selects the para tag that has an direct first child present in the div tag that has an class of container  
+```
+
+
+To extract a css selector we can pass in xpath and get out a css selector 
+that is : 
+
+```javascript
+
+function xpathToCss(xpath) {
+    return xpath
+        .replace(/\/\//g, '') // Remove double slashes
+        .replace(/\//g, ' > ') // Replace single slashes with '>'
+        .replace(/\[(\d+)\]/g, ':nth-child($1)') // Convert `[n]` to `:nth-child(n)`
+        .replace(/@([\w-]+)/g, '[$1]') // Convert `@attr` to `[attr]`
+        .replace(/^\s*>/, ''); // Remove leading '>'
+}
+
+// Example Usage
+let xpath = "/html/body/div[1]/ul/li[2]/a";
+console.log(xpathToCss(xpath));
+
+```
+
+"/html/body/div[1]/ul/li[2]/a"   to   "html > body > div:nth-child(1) > ul > li:nth-child(2) > a"
+
+
 
 
 ## The flow goes like
