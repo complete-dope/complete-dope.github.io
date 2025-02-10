@@ -106,7 +106,24 @@ A subnet mask is like an IP address, but for only internal usage within a networ
 ![Subnet Image](https://cf-assets.www.cloudflare.com/slt3lc6tev37/2pBqIHUTSlxI7EW9XZPKf3/551ab3390ab9ab86fee15c73fd245f6c/subnet-diagram.svg)
 
 
+# Proxy ( actual proxy ) 
 
+This sits in front of client / user and makes his traffic seem to come from anonymous location and once it gets back the request it send it to the user without actually knowing the user that's actaully behind this !! 
+
+A user can add proxy to anonymize himself / herself  
+
+tools / examples : squid, privoxy, tinyproxy etc  
+
+## Nginx / Reverse proxy
+
+Lets say you have your python backend running at port 5000 and your node js backend running at port 5001 and your frontend application needs to sometimes call an python endpoint and sometimes an node JS endpoint .. so to maintain this from frontend woudl be a greater / tougher task so we use something like nginx / reverse proxy that acts a common route for all your frontend endpoint and then you can maintain it from there !! 
+Incoming requests from users are first received by the reverse proxy, which then forwards those requests to the appropriate backend server to process and finally sends the response back to the client as if it came directly from the reverse proxy server itself, effectively hiding the location of your real web servers.
+
+A server can add reverse proxy to do load balancing , 
+
+It also does the same work of sitting in between and sending the request to relevant data site ... 
+
+It also helps in load balancing , security of servers , caching also .. 
 
 
 
