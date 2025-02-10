@@ -126,6 +126,33 @@ It also does the same work of sitting in between and sending the request to rele
 It also helps in load balancing , security of servers , caching also .. 
 
 
+## Uvicorn 
+Uvicorn is a high-performance ASGI (Asynchronous Server Gateway Interface) web server for Python. It's commonly used to run async web applications and APIs built with frameworks like FastAPI, Starlette, and other modern Python web frameworks.
+
+In Uvicorn, "workers" refer to the number of separate processes that handle incoming requests in parallel. This is used when running Uvicorn with Gunicorn, which is a process manager that allows running multiple instances of Uvicorn.
+
+Uvicorn is an ASGI server. It's responsible for handling the HTTP protocol, running your async event loop, and managing the actual processing of requests in each process. It implements the ASGI interface so that your application can handle async I/O operations efficiently.
+
+## Gunicorn 
+
+Gunicorn acts as a process manager. It doesn't handle the requests directly; instead, it spawns and manages multiple Uvicorn worker processes. In other words, Gunicorn distributes the incoming requests among these independently running Uvicorn processes, effectively scaling your application across multiple CPU cores.
+
+
+## Web server 
+A web server is essentially the "front door" of your application. It listens for HTTP requests—like when a browser asks for a webpage—and serves back static files (HTML, CSS, images) or forwards the request to something else if the content needs to be generated dynamically. Think of it as a very efficient file server that also knows how to handle simple routing tasks.
+
+
+## Application server 
+An application server, on the other hand, is where the heavy lifting happens. It runs your actual application code. When a request involves business logic—like querying a database, processing data, or interacting with other services—the application server takes over. It dynamically generates the response (like rendering a webpage or sending back JSON data) and then sends it back to the web server (or directly to the client in some setups).
+
+
+How they all work together 
+
+Nginx (front-facing web server)
+Gunicorn (process manager)
+Uvicorn workers (actual request handlers)
+
+![Explained](https://pragnakalp.com/wp-content/uploads/2024/04/Untitled.png)
 
 
 
