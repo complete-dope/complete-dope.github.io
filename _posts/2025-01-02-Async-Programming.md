@@ -264,6 +264,46 @@ asyncio.run(Main().main())
 
 ```
 
+EXAMPLE MAKING HTTP CALLS ASYNC - 3 
+
+```python
+
+import nest_asyncio
+nest_asyncio.apply()  # Required to avoid event loop conflicts in Colab
+import aiohttp 
+import asyncio 
+
+async def api_call_1(session):
+  # async with aiohttp.ClientSession() as session:
+  async with session.get(url) as response:
+    response.raise_for_status()
+    return await response.json()
+
+async def api_call_2(session):
+  # async with aiohttp.ClientSession() as session:
+  async with session.get(url) as response:
+    response.raise_for_status()
+    return await response.json()
+
+
+async def main():
+  async with aiohttp.ClientSession() as session:
+    a = []
+    for _ in range(100):
+      a.append(api_call_1(session))
+      a.append(api_call_2(session))
+
+    dd = await asyncio.gather(*a) 
+    return dd
+
+st=time.time()  
+d = asyncio.run(main())
+et = time.time()
+
+print("total time" , et-st)
+print(d)
+
+```
 
 
 **METRICS**
