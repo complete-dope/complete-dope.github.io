@@ -229,6 +229,41 @@ asyncio.run(main2())
 
 ```
 
+Async example-2
+
+```python
+import nest_asyncio
+nest_asyncio.apply()  # Required to avoid event loop conflicts in Colab
+
+import asyncio 
+
+class Main2():
+  async def async_fn_from_main2():
+    await asyncio.sleep(5)
+     
+
+class Main():
+  def __init__(self): 
+    a = 10;
+    b = 20; 
+
+  async def asyncfn1(self):
+    await asyncio.sleep(4)
+
+  async def hello(self):
+    await asyncio.sleep(5)
+
+  async def main(self):
+    task1 = self.asyncfn1()
+    task2 = self.hello()
+    task3 = Main2.async_fn_from_main2()
+    await asyncio.gather(task1 , task2, task3)
+    print("got the data") 
+
+asyncio.run(Main().main())
+
+```
+
 
 
 **METRICS**
