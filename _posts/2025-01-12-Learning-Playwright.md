@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning Playwright and web 
+title: Learning Playwright , web and cloudfare  
 date: 2025-01-12
 ---
 
@@ -130,6 +130,51 @@ You can add extensions in browser to disable popup / cache / logins etc ..
 
 using brave browser also gives this cloudfare fuckups , need to find something that bypass it 
 
+## Learning [Cloudfare](https://blog.christophetd.fr/bypassing-cloudflare-using-internet-wide-scan-data/) 
+
+How does web works ?
+
+WITHOUT CLOUDFARE
+
+* The user contacts the DNS server of the website’s hosting provider, and asks for the IP of example.com
+* The DNS server responds with the IP of the web server hosting example.com (e.g., 93.184.216.34)
+* The user makes an HTTP request to that web server
+* The web server responds with the web page
+
+
+WITH CLOUDFARE 
+
+
+* Goes to its domain registrar, and sets the DNS servers to Cloudflare’s (e.g., kim.ns.cloudflare.com)
+* sets up its Cloudflare account to work with the domain name (e.g., mycompany.com).
+
+
+So when request is made for mycompany.com 
+
+* The user contacts the DNS server kim.ns.cloudflare.com, and asks for the IP of mycompany.com
+
+* The DNS server responds with the IP of an intermediary Cloudflare server (e.g., 104.16.109.208)
+
+* The user makes an HTTP request to this server
+
+* Cloudflare checks the legitimacy of the request (presence of malicious-looking content, source IP address, in addition to other factors), and decides whether to let the request pass through or block it
+
+* If Cloudflare chooses to allow the request to pass through, it forwards it to the real web server responsible for mycompany.com (e.g., 188.226.197.73). This server is commonly called the origin server.
+
+![webflow for cloudfare](https://blog.christophetd.fr/wp-content/uploads/2018/01/With-CloudFlare-1024x468.png)
+
+
+* For this protection to work, an attacker must not be able to access the origin server directly. Otherwise, it can just contact the origin server without passing through Cloudflare, and bypass any protection.
+
+To sum up – a publicly accessible origin server is safe… as long as nobody finds its IP addresses.
+
+Finding exposed origin servers / IP address is easy. Shodan and Censys scan the internet and make there data accessible for free .. 
+
+From this you will get IP of all hosted servers, and from there you can check if the IP is the one that is coming from cloudfare or from the origin server  
+
+
+
+What cloudfare does ?
 
 
 
