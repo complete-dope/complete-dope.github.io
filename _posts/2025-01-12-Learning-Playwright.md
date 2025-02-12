@@ -122,8 +122,13 @@ Browser:
 
 Playwright requires specific version of browser binaries to operate , using playwright CLI 
 You can use any chromium browser that so a good choice would be to use brave browser .. 
+You can run a script as soon as browser launches, that can be done by adding Init scripts to it ... 
+launch an extension in browser : https://playwright.dev/python/docs/chrome-extensions 
 
+Extension in browser: 
+You can add extensions in browser to disable popup / cache / logins etc .. 
 
+using brave browser also gives this cloudfare fuckups , need to find something that bypass it 
 
 
 
