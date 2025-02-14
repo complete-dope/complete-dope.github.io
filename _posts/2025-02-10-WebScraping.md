@@ -102,8 +102,15 @@ You need to debug or monitor deeply
 
 CDP is a low level protocol, and it uses webdriver which is a high level prop to actually control the browser.
 
+## So at end we are left with 2 options .. 
 
+In terms to getting detected as automated
+Webdriver most easily detected > then comes playwright > then comes request 
 
+1. If the site is not anti bot detected : make a request using our normal playwright .. 
+2. If its antibot detected : make a request using requests library .. that will pull static data .. 
+
+Simple lets live with it .. 
 
 
 
