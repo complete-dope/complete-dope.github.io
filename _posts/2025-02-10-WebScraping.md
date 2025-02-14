@@ -6,7 +6,7 @@ title : Web Scraping
 
 # Learning to scrape web 
 
-The modern web is dynamic, so we need to use a tool that can atleast scrape dynamic content and get the relevant resutls 
+The modern web is dynamic, so we need to use a tool that can atleast scrape dynamic content and get the relevant results
 
 The static scraping sites like : Requests , cheerio, they dont work for dynamic site 
 
@@ -100,7 +100,8 @@ You need advanced features
 You want faster execution
 You need to debug or monitor deeply
 
-CDP is a low level protocol, and it uses webdriver which is a high level prop to actually control the browser 
+CDP is a low level protocol, and it uses webdriver which is a high level prop to actually control the browser.
+
 
 
 
