@@ -208,7 +208,7 @@ Points to remember
 ## useref hook 
 
 It has a single object and doesnt causes re-render
-
+Its used to reference / make reference to something, to access something we bind a reference to it (that we will use it)  
 Its takes the DOM value directly
 
 ```javascript
