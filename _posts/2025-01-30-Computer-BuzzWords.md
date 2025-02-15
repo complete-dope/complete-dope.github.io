@@ -157,6 +157,11 @@ Uvicorn workers (actual request handlers)
 
 
 
+## PiHole  :
+Acts as a DNS resolver, whenever you request for a domain, the DNS resolves matches that to an IP address, and then serves the request, and if you add Pihole at the front, it acts as a DNS resolver and it checks from it block list if that domain is mentioned in a blocklist networks and doesnt allow it to get passed !! 
+
+This is amazing kinda like a custom DNS resolver !! 
+
 
 
 
