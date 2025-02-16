@@ -131,6 +131,98 @@ sudo journalctl -u nginx --no-pager --since "10 minutes ago"
 Most common problem is access problem, u need to give access to all the parent folders and not just the final folder. 
 
 
+## Mime Types
+
+We need to tell nginx how to render which type of content .. that information is stored in mime types file and we just need to include it 
+
+```
+http  {
+    include mime.types
+
+    server {
+        root /home/Desktop/<file-path>
+        listen 8080;
+    }
+
+}
+
+events {}
+```
+
+## Location blocks 
+
+
+```
+http  {
+    include mime.types
+
+    server {
+        listen 8080;
+        root /home/Desktop/<file-path>;
+
+        location /fruits {
+            root /home/Desktop/<file-path>; ( this auto adds /fruits at the end ) 
+
+        }
+    }
+
+}
+
+events {}
+```
+
+location /fruits : means this directory will only open when the endpoint is defined as in this case : http:localhost:8080/fruits 
+
+using root : it appends the location defined in it at the end 
+using alias : it doesnt append the location at the end so u can add at the end automatically 
+
+
+By default, it looks for `index.html` files, so we can use try_files to try for these files also 
+
+```
+events {}
+
+http { 
+
+    include mime.types;
+    
+    server {
+        listen 8080;
+        root /home/mohit/Desktop/mdesktop/reverse_proxy;
+
+        location /vegetable { 
+            root /home/mohit/Desktop/mdesktop/reverse_proxy;
+            try_files /vegetable/veggies.html /index.html =404; 
+
+        }
+    }
+}
+```
+
+## nginx as a load balancer 
+
+Lets say want to route it between 4 servers such that the time is saved per user .. 
+what we can do is : 
+
+create a dockerfile and expose the ports accordingly from it 
+
+All the exposed ports becomes as a proxy_pass for a nginx file and we perform the routing from it !!
+
+So what happens in a DIY home setup :
+
+DNS routes the domain to IP 
+Firewall passes that IP to the desired internal IP for which the port is exposed
+The nginx should be running on that machine, and listening for requests on port 80 ( http ) or 443 ( https)
+
+Once the request comes to that port , nginx then forwards that request to the internal IP's and (DOUBTFUL ON HOW?) get the data from there and sends back to the user ! 
+
+[Nginx](https://www.xda-developers.com/how-to-set-up-nginx-reverse-proxies-in-your-home-lab/)
+
+
+
+
+
+
 
 
 
