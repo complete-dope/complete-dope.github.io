@@ -218,7 +218,10 @@ Once the request comes to that port , nginx then forwards that request to the in
 
 [Nginx](https://www.xda-developers.com/how-to-set-up-nginx-reverse-proxies-in-your-home-lab/)
 
+So we need a seperate dockerFile for frontend , a seperate docker file for backend and then nginx will need to be enabled from the frontend docker file and that will look for changes ( the init for nginx will be defined in the nginx.conf file !! )
 
+
+nginx conf start -> looks for requests coming on port 80 
 
 
 
