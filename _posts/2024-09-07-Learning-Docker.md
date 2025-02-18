@@ -15,15 +15,24 @@ date : 2024-09-07
 
 ### Docker in interactive mode
 
-```bash
-docker run -it image_name /bin/bash
+Here this `-i` is the interactive mode but this looks like shit !! 
 ```
+docker run -i image_name /bin/bash
+```
+
+So we need to attach the -t ( tty ) to it to look good and usable
+```
+docker run -it image_name /bin/bash 
+```
+
 
 ### Docker in detached mode
 
 ```bash
 docker run -d image_name
 ```
+
+## 
 
 
 
