@@ -224,6 +224,28 @@ So we need a seperate dockerFile for frontend , a seperate docker file for backe
 nginx conf start -> looks for requests coming on port 80 
 
 
+## Prod setup !!
+
+First we create a frontend and backend dockerfile , and the nginx will be just the started as we do using systemctl and it will start listening to all the http ports 
+
+In the nginx.conf file we will mention the port it has to redirect to which will be localhost:8000 based on the app
+
+The app's port will be exposed using port forwarding in the docker file 
+
+The backend will be similarly exposed using an endpoint running in the docker file !! 
+
+So all we need is frontend docker rendering the sites and backend docker giving the response and nginx acting as the reverse proxy !!  
+
+
+
+
+
+
+
+
+
+
+
 
 
 
