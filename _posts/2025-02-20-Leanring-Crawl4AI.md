@@ -168,12 +168,35 @@ asyncio.run(main())
 ```
 
 
-### Custom Methods : 
+### Custom Methods to get relevant data: 
 
 Get the full HTML from the page and then pass this to the beautiful soup parser ( to get the HTML ) and then use the logic there to get the desired output !!
 
+```python
+soup = BeautifulSoup(result.html, "html.parser") 
+links = [a["href"] for a in soup.select("div.yuRUbf a") if a.has_attr("href")]
+print("Extracted Links:", links)
+with open("extracted_links.txt", "w") as f:
+    f.write("\n".join(links))
+```
+
+## Adding args to crawler and browser configs
+
+`--disable-blink-features=AutomationControlled` : very important features , without this the browser sends it as a webdriver request which is probably bad !
 
 
+1. extra-args : [--disable-blink-features=AutomationControlled]
+
+2. text-only modes 
+
+
+Removing Popups :
+*remove_overlay_elements = True
+*magic = True
+*exclude_external_links = True
+
+
+The log saying `Console error: Cannot redefine property: webdriver` means that the code has some property in the config file which is trying to change the existing property. So basically the browsers have prevented this property from getting changed ... !
 
 
 
