@@ -184,9 +184,7 @@ with open("extracted_links.txt", "w") as f:
 
 `--disable-blink-features=AutomationControlled` : very important features , without this the browser sends it as a webdriver request which is probably bad !
 
-
-1. extra-args : [--disable-blink-features=AutomationControlled]
-
+1. extra-args : [--disable-blink-features=AutomationControlled] in browser config 
 2. text-only modes 
 
 
@@ -194,11 +192,15 @@ Removing Popups :
 *remove_overlay_elements = True
 *magic = True
 *exclude_external_links = True
+*exclude_tags = [ "" , "" , "" ]
 
 
 The log saying `Console error: Cannot redefine property: webdriver` means that the code has some property in the config file which is trying to change the existing property. So basically the browsers have prevented this property from getting changed ... !
 
 
+
+### Strange
+`arun_many` seems to work fine in headless = False mode !! debug what happen when using just arun  
 
 
 #### Nice links to visit : 
