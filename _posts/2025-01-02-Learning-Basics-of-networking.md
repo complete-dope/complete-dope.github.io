@@ -26,7 +26,7 @@ and on the Delhi machine we need to turn connect using:
 
 
 
-### TCP explained
+### TCP explained ( Transmission control protocol )
 
 A protocol to send data over internet its nothing just a reliable method and ensures reliability of data. 
 
@@ -43,6 +43,7 @@ IP layer to provide the headers to the data
 The Data Link layer (handled by your NIC and drivers) and the Physical layer (your network hardware, e.g., Ethernet, Wi-Fi).
 
 **Setup**
+
 
 
 **Working**
