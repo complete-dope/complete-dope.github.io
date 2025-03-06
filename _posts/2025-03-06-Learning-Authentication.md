@@ -30,13 +30,10 @@ Verification process : backend uses a special library to decode and verify the t
 If u need the details of a user then we need to use ID token 
 Then for subsquent request I will verify it using <access-token>
 
+Just by using the access token we can also get the user details ,the endpoint for the same is, `GET /api/v2/users/{id}` using this
+[Get user data from access token](https://tus.auth0.com/docs/manage-users/user-search/retrieve-users-with-get-users-by-id-endpoint?utm_source=chatgpt.com)
 
-
-
-
-
-
-
+Once we get the access token, we need to decode that jwt and get the user_id that is in the payload and from there we can verify the user !!    
 
 
 
