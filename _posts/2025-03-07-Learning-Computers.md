@@ -130,6 +130,30 @@ Each processor / Central processing Unit has a ISA ( Instruction set archicture 
 Intel has CISC isa , that is defined seperately !!
 Mac and phones uses RISC , that tells that I can receive instructions in this manner !!
 
+[Processor registers](https://en.wikipedia.org/wiki/Processor_register)
+[Multi Media registers](https://stackoverflow.com/a/44299695)
+
+
+SIMD (concept) and inside it we have an subset called as XMM registers ( they constitute SIMD ) !!
+AVX (Advanced Vector Extensions) : A SIMD instruction set within the x86 CISC architecture.
+The term x86 comes from Intel's 8086 processor, which was the first in a family of processors with a similar instruction set.
+
+x86 processor -> uses CISC isa -> introduced SIMD concept 
+SIMD in x86 (earlier aka SSE) -> registers XMM
+SIMD in x86 (now aka AVX) -> registers YMM , ZMM
+
+
+MM registers 
+This was a latest addition to intel x86 isa to bring the concept of SIMD , and have now been upgraded to XMM , YMM , ZMM ( each increasing the no of bits we can store for parallel processing data)   
+Using 
+
+
+
+
+
+
+
+
  ### `Windows games cant run in linux without conversion ? why ? even if i use same processor ?`
 This is because the games developed by a windows developer uses windows DLL and many more , and to use them on Linux machine would require to change them in linux file format (ELF) and many more
 So we require a compatiblity layer for this conversion at the software level !!
