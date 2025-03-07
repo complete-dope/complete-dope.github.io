@@ -80,6 +80,10 @@ Once decoded we need to execute / carry out that instruction ( i.e. apply maths 
 `NOT COMPLETING IT !! LEXI HAS WRITTEN WAY TOO GOOD IN CPU LAND CANT BECOME BETTER !`
 
 [SIMD](https://www.youtube.com/watch?v=ulmjqD6Y4do)
+[Improving performance](https://stackoverflow.blog/2020/07/08/improving-performance-with-simd-intrinsics-in-three-use-cases/)
+[x86 arch](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture)
+[x64 arch](https://learn.microsoft.com/en-us/archive/msdn-magazine/2006/may/x64-starting-out-in-64-bit-windows-systems-with-visual-c)
+
 ## How to program a CPU ?
 
 Single Instruction Single Data 
@@ -90,7 +94,7 @@ arent both the same?
 
 In C, you depend on the compiler's to convert to machine code ( u trust too much on compiler ) that will do it optimally and placce in apt registers for faster  
 
-In SIMD in C, uses SIMD registers that basically fakes CPU to do multiple operation on multiple data at a single time, this is called vectorisation     
+In SIMD in C, uses SIMD registers that basically fakes CPU to do multiple operation on multiple data at a single time, this is called vectorisation, given the processor supports AVX (Advanced vector Extension)!
 
 Example : 
 
@@ -112,6 +116,25 @@ for (int i = 0; i < 1000; i += 8) {
 
 ```
 
+
+`Question : Why does `for` loop inherently use this SIMD registers if they are so good ? Why do we have to tell them to use SIMD now ? Cant it identify its a SIMD operation ? `
+
+TL;DR : Compilers are dumb in 2025
+Modern compilers can auto-vectorize loops and convert certain code into SIMD instructions if the target architecture supports it (like AVX). However, it's not as simple as "just do it" for a few reasons:
+1. Compilers are cautious. They only auto-vectorize loops when they're absolutely sure it won't change the program's behavior.
+2. SIMD instructions often require data to be aligned in memory.
+... 
+
+Each processor / Central processing Unit has a ISA ( Instruction set archicture ) that defines the registers , formats etc (In general, an ISA defines the supported instructions, data types, registers, the hardware support for managing main memory,[clarification needed] fundamental features (such as the memory consistency, addressing modes, virtual memory), and the input/output model of implementations of the ISA. )  which tells all program that are gonna run in the CPU after getting compiled to Machine Code, that look I am expecting instructions in this format you dare not give me something else !!
+
+Intel has CISC isa , that is defined seperately !!
+Mac and phones uses RISC , that tells that I can receive instructions in this manner !!
+
+ ### `Windows games cant run in linux without conversion ? why ? even if i use same processor ?`
+This is because the games developed by a windows developer uses windows DLL and many more , and to use them on Linux machine would require to change them in linux file format (ELF) and many more
+So we require a compatiblity layer for this conversion at the software level !!
+
+where ever software layer comes things become a bit sorted / easy for developers to test it out !! 
 
 # How does a GPU works ?  
 
