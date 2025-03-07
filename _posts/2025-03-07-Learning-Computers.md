@@ -4,14 +4,16 @@ date : 2025-03-07
 title : Learning internals of building a PC
 ---
 
-[computer from starting up](https://cpu.land/the-basics)
-[computerphile explaining CPU](https://www.youtube.com/watch?v=IAkj32VPcUE)
-[Inside a CPU](https://www.youtube.com/watch?v=iNfuE3MLmzA)
-[blog explaining cpu working](https://www.trentonsystems.com/en-us/resource-hub/blog/what-is-a-cpu)
-[compiler explorer](https://godbolt.org/)
+[computer from starting up](https://cpu.land/the-basics) <br>
+[computerphile explaining CPU](https://www.youtube.com/watch?v=IAkj32VPcUE) <br>
+[Inside a CPU](https://www.youtube.com/watch?v=iNfuE3MLmzA) <br>
+[blog explaining cpu working](https://www.trentonsystems.com/en-us/resource-hub/blog/what-is-a-cpu) <br>
+[compiler explorer](https://godbolt.org/) <br>
 
 # What is a disassembler? and what does that mean? 
-
+Disassembles Machine code to human readable assembly code and the assembly code is specific to the processor as it depends on ISA of the processor !! 
+Popular disassembler is IDA ( integrated disassembler ) 
+Modern compilers add a lot of functions to make it efficient so its becomes an art decompiling it !!  
 
 
 # How does a CPU works ?
@@ -79,10 +81,10 @@ Once decoded we need to execute / carry out that instruction ( i.e. apply maths 
 
 `NOT COMPLETING IT !! LEXI HAS WRITTEN WAY TOO GOOD IN CPU LAND CANT BECOME BETTER !`
 
-[SIMD](https://www.youtube.com/watch?v=ulmjqD6Y4do)
-[Improving performance](https://stackoverflow.blog/2020/07/08/improving-performance-with-simd-intrinsics-in-three-use-cases/)
-[x86 arch](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture)
-[x64 arch](https://learn.microsoft.com/en-us/archive/msdn-magazine/2006/may/x64-starting-out-in-64-bit-windows-systems-with-visual-c)
+[SIMD](https://www.youtube.com/watch?v=ulmjqD6Y4do) <br>
+[Improving performance](https://stackoverflow.blog/2020/07/08/improving-performance-with-simd-intrinsics-in-three-use-cases/) <br>
+[x86 arch](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture) <br>
+[x64 arch](https://learn.microsoft.com/en-us/archive/msdn-magazine/2006/may/x64-starting-out-in-64-bit-windows-systems-with-visual-c) <br>
 
 ## How to program a CPU ?
 
@@ -130,8 +132,8 @@ Each processor / Central processing Unit has a ISA ( Instruction set archicture 
 Intel has CISC isa , that is defined seperately !!
 Mac and phones uses RISC , that tells that I can receive instructions in this manner !!
 
-[Processor registers](https://en.wikipedia.org/wiki/Processor_register)
-[Multi Media registers](https://stackoverflow.com/a/44299695)
+[Processor registers](https://en.wikipedia.org/wiki/Processor_register) <br>
+[Multi Media registers](https://stackoverflow.com/a/44299695) <br>
 
 
 SIMD (concept) and inside it we have an subset called as XMM registers ( they constitute SIMD ) !!
