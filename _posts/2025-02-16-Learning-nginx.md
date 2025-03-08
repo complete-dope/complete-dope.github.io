@@ -4,6 +4,9 @@ date : 2025-02-16
 title : Learning nginx 
 ---
 
+`Proxy` 
+Something that sits in front of client is called proxy !
+
 # Learning Nginx 
 
 Nginx is a reverse proxy , that means is sits in front of the server and then its role is to redirect the traffic ( aka acts as a load balancer ) and hides the IP of the server 
