@@ -88,13 +88,12 @@ Once decoded we need to execute / carry out that instruction ( i.e. apply maths 
 
 ## How to program a CPU ?
 
-Single Instruction Single Data 
-Single Instruction Multiple Data 
+Single Instruction Single Data (SISD) <br>
+Single Instruction Multiple Data (SIMD) <br> 
 
-Writing instruction for a CPU in C lang (coding) vs writing SIMD in C how does that matter ? 
-arent both the same?
+`Question : Writing instruction for a CPU in C lang (coding) vs writing SIMD in C how does that matter ? arent both the same?`
 
-In C, you depend on the compiler's to convert to machine code ( u trust too much on compiler ) that will do it optimally and placce in apt registers for faster  
+In C, you depend on the compiler's to convert to machine code ( u trust too much on compiler ) that will do it optimally and place in apt registers for faster  
 
 In SIMD in C, uses SIMD registers that basically fakes CPU to do multiple operation on multiple data at a single time, this is called vectorisation, given the processor supports AVX (Advanced vector Extension)!
 
@@ -148,9 +147,6 @@ SIMD in x86 (now aka AVX) -> registers YMM , ZMM
 MM registers 
 This was a latest addition to intel x86 isa to bring the concept of SIMD , and have now been upgraded to XMM , YMM , ZMM ( each increasing the no of bits we can store for parallel processing data)   
 Using 
-
-
-
 
 
 
