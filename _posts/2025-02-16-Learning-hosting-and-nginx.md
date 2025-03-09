@@ -242,6 +242,48 @@ So all we need is frontend docker rendering the sites and backend docker giving 
 
 
 
+## Host the app on a VM 
+
+Example scenario : 
+
+Public IP  : 49.47.71.217
+Private IP : 192.168.29.146
+
+Hosted app on this private IP
+
+
+all incoming for public router for http request from users should go to this IP address = 49.47.71.217:80 or 49.47.71.217:443 ( if https )
+
+
+In router settings, all connections coming to the machine :80 , should go to this private IP : 192.168.29.146:80 and http should route that to the Hosted App , that routing will be done using nginx 
+
+
+user will type http://publicIP:8080 , then directly it will see the app 
+
+but the user typing http://publicIP , then also the user should be able to see and its enabled with using nginx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
