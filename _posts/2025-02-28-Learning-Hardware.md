@@ -25,9 +25,49 @@ The development board has pins exposed for external connections , power supply e
 
 So the electronics parts is a bit tough part !!
 
+[Understanding arduino pins](https://www.youtube.com/watch?v=bniUECtJkeU)
+
+GND : ground pin it allows current to flow out of internal circuit into the Ground 
+
+#### Power supply Ping 
+Using Power pins that are attached to arduino with voltages 
+
+#### Analog Pins
+Using Analog pings
+
+
+#### Digital Pins
+o to 13 pins, 
+Can have only 2 modes , 1 or 0 , 1 is high that means 
+
+Digital pin can either be in input mode or in output mode and you need to configure that mode in code !!
+
+Input mode is used to read data from sensor 
+Output mode is used to write data to actuator 
+
+Then high state corresponds to 5 volt for high and 0 volt for low 
+
+PWM ( pulse width modulation ) for fractional voltages by changing the width and those are with '~' next to there number .. These pins can be used normally in binary mode or in pwm mode only in output mode 
+
+#### Interrupt Pins 
 
 
 
+#### Analog Pins
+useful to read values that cant be just 0 or 1
+Assume you have a potentiometer, with a digital pin you could just know the potentiometer is at max or min and nothing else .. 
+
+It reads the analog value from a sensor, lets say it reads 2.5 volts, so your adc ( analog digital converter) changes it from 0 to 1023 
+0 being 0 volts
+1023 being 5 volts 
+614 = 3 volts 
+
+Analog pins can only be used to read analog values it cant write it 
+
+3 Communication protocols between pins: 
+uart , spi, i2c 
+
+uart : connected to computer using library 
 
 
 
@@ -44,15 +84,28 @@ So the electronics parts is a bit tough part !!
 
 `How to power a microcontroller ? What are the appropriate voltages to supply ? and what does those pins means ? `
 
+Ground pin : For electricity to flow we need a closed circuit, if there is no ground connection electricity has nowhere to go and circuit wont work 
+
+all components in a dev board need a common refernce point to measure voltages 
+
+current goes from positive(+) to negative(-) and electrons flow form negative(-) to positive (+)
+
+Battery positive is like a hilltop with extra energy and negative side is like a bottom of a hill and electrons roll down the hill
+
+Think of an electronic circuit like a water system:
+
+    Battery/Power Source = Water Pump (pushing water up)
+    Wires = Pipes (carrying water)
+    Resistors/LEDs/Motors = Water Mills (using energy)
+    Ground (GND) = Riverbed (where water flows back)
+
+If you don’t have a path for water to return (ground), the water won’t move, just like electricity won’t flow without a ground.
 
 
 
+For getting a reference value we use GND, we can use lets say 3V as the ground but now the potential difference will be battery voltage (10 V) and the devices will be getting only 10-3 = 7 volts !!
 
-
-
-
-
-
+More comes to play in series and parallel connection ..  
 
 
 
