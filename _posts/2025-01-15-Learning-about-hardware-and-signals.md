@@ -7,7 +7,7 @@ title : Learning about Electrical signals
 [Electro Magnetic Field](https://www.youtube.com/watch?v=XoVW7CRR5JY)
 
 
-# Learning about hardware , signals , communication 
+# Learning about Electronics , signals , communication 
 
 
 ## Communication
