@@ -1,7 +1,7 @@
 ---
 layout : post
 date : 2025-01-15
-title : Learning about hardware and signals   
+title : Learning about Electrical signals   
 ---
 
 [Electro Magnetic Field](https://www.youtube.com/watch?v=XoVW7CRR5JY)
