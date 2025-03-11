@@ -109,6 +109,17 @@ More comes to play in series and parallel connection ..
 
 
 
+### Arduino Pins 
+If you require periodic controlling of something without manual interverntion then we require microcontrollers in that !! and they these controllers just like human , acts on behalf of them 
+
+Digital Pins : The output from these are 0 and 1. We require to set pinMode to either OUTPUT and INPUT output pin can output 2 things 0 or 1 . 0 (zero) means low  , 1 means high voltage !
+
+GPIO registers ( general purpose input output ) registers and DDR ( Data Direction Register )
+
+Internally arduino uses MOSFETS working in combination to achieve this state ! 
+
+so first we setup pins / init them and then we use loops to run in those or different configurations  
+
 
 
 
