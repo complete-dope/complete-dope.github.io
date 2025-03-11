@@ -49,6 +49,11 @@ Then high state corresponds to 5 volt for high and 0 volt for low
 
 PWM ( pulse width modulation ) for fractional voltages by changing the width and those are with '~' next to there number .. These pins can be used normally in binary mode or in pwm mode only in output mode 
 
+```
+digitalWrite( PIN , HIGH ) 
+digitalWrite( PIN , LOW ) 
+```
+
 #### Interrupt Pins 
 
 
