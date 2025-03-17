@@ -39,7 +39,10 @@ Loss function as single 'north star', that guides all the parameters toward a co
 "Which direction should I change to help the overall goal ?"
 
 
+## Residual connection 
 
+The residual connections should not have normalisations in them , as there role is to provide a direct path for gradients to flow through the network . 
+Adding normalisation in there will affect the gradient that is the flowing through it !!
 
 
 
