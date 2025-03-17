@@ -44,8 +44,64 @@ Loss function as single 'north star', that guides all the parameters toward a co
 The residual connections should not have normalisations in them , as there role is to provide a direct path for gradients to flow through the network . 
 Adding normalisation in there will affect the gradient that is the flowing through it !!
 
+The whole role of adding / making residual connections is that it helps in passing the grads between 2 different parameter spaces. 
 
 
+## Relu vs variations 
+Hard bounding , makes the grad directly zero ( after passing through the act we are left with a zero values and gradients wont work on that zero values !! [REALLY ? DONT WE HAVE '+' OPERATIONS ??] Nothing saves from the curse of relu as in grad flow it comes as a mutiplication term in the chain rule 
+
+```
+z = xW + b
+y_hat = sigma(z)
+      
+( d (y_hat)) / d (z) )
+
+∂y_hat/∂z = {
+    0 if z < 0
+    1 if z > 0
+}
+
+So this term comes as a curse in grad flow !!
+```
+
+So, we tend to use its variation like swiglu , gelu ,leaky relu etc 
+that are not hardered around negative values ... 
+
+## Batch dimensions and parallel processing 
+
+In pytorch, using in cuda mode
+the pytorch assumes all the starting dimensions as batches ( a,b,c,d ) , here a and b are considered as batches and only last 2 dimensions ( c and d ) will be considered in matmul .. rest is batches and we pytorch will consider it as batch operation 
+
+
+Block Multiplication for parallel processing 
+
+The most common way to get hold of parallel processing is using the block multiplication, this is particularly useful because in this we have simple mat-mul properties and the operations can be performed in parallel
+
+
+```python
+Block size 4x2
+
+A = [1 2]
+    [3 4]
+    [5 6]
+    [7 8]
+
+B = [1 2 3 4]
+    [5 6 7 8]
+
+
+Segments of 2x2x2
+
+A = [A1]  where A1 = [1 2] and A2 = [5 6]
+    [A2]          [3 4]        [7 8]
+
+B = [B1 B2] where B1 = [1 2] and B2 = [3 4]
+                        [5 6]         [7 8]
+
+C = A×B = [A1×B1 A1×B2]
+          [A2×B1 A2×B2]
+
+```
 
 
 
