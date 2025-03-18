@@ -104,6 +104,63 @@ C = A×B = [A1×B1 A1×B2]
 ```
 
 
+## backward pass and loss functions !
+
+We typically dont need to write our own backward pass in pytorch as that gets handled by the pytorch autograd function which computes a computational graph that handles the backward pass and stuff !
+
+when we call `loss.backward()` it does the internals and we dont have to worry the computational graph building and accumulating and changing gradients .. 
+
+basically the DS looks like :
+
+For every tensor with requires_grad = True, 
+
+```python 
+weight : torch.Tensor (W1 x W2)
+grad : torch.Tensor (W1 x W2)
+```
+
+CAN WRITE A CUSTOM BACKWARD FUNCTION ( COOL ) !! 
+
+
+How does cross entropy loss gets calculated ? how exactly does any loss function gets calculated ? 
+
+Output vs Expected 
+
+How exactly does CE work in a Next token prediction model ?  
+
+I am passing the input ( B,T ) batches and token, lets say of size 8, 32 ... 
+and the expected output ( B,T ) batches and token
+
+How does that even work ? 
+
+So what happens is, at the core what we need is the next correct and that is called generative AI / rather it should be called predictive AI / 
+So once we pass the logits to the CE function it converts that to probabilities and then find the most probable one and compares that to ground truth. 
+
+we get the logits > these are raw scores
+comes softmax () converts the above to probability distribution 
+Now we have the correct value and the model output probability distribution ... 
+we take the prob at that position and sum that up using -log(p(x))
+
+that's how we get the CE loss !! 
+
+How does loss.backward() has access to whole computational graph ?
+
+because in model.forward(x) we already passed all !!
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
