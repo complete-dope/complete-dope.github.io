@@ -263,7 +263,120 @@ user will type http://publicIP:8080 , then directly it will see the app
 but the user typing http://publicIP , then also the user should be able to see and its enabled with using nginx
 
 
+## Hosting multiple sites on a single server !!
+TESTING HTTPS ON THE LOCAL SYSTEM WE CAN USE A SELF SIGNED CERTIFICATE , 
 
+GET THE SELF SIGNED CERTIFICATE : `sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt`
+
+So the only limitation is the hardware , using a single machine we can host multiple sites from it and in the nginx itself we can mention to use which particular configuration for a single file !
+
+For this we have to first simply run this: 
+
+CONF FILE : `sudo nano /etc/nginx/sites-available/your-app` , This is the nginx conf file that we use
+
+Then we need to make a symbolic link to the sites-enabled using this : 
+
+SYMBOLIC LINK : `sudo ln -s /etc/nginx/sites-available/your-app /etc/nginx/sites-enabled/`
+REMOVE THE SYMBOLIC LINK : `sudo rm /etc/nginx/sites-enabled/your-app`
+
+RESTART : `sudo systemctl restart nginx`
+
+
+```json 
+server {
+    listen 443 ssl;
+    server_name 4.240.104.180;
+
+    ssl_certificate /etc/nginx/ssl/server.crt;
+    ssl_certificate_key /etc/nginx/ssl/server.key;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    
+    # WebSocket traffic
+    location /ws/ {
+        proxy_pass ws://0.0.0.0:8001;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300s;
+        proxy_send_timeout 300s;
+    }
+
+}
+
+server {
+    listen 80;
+    server_name 4.240.104.180;
+    return 301 https://$host$request_uri;
+}
+
+```
+
+## UPGRADING TO HTTPS AND NGINX CONF FILE 
+
+1. SELF SIGNED CERTIFICATE 
+Get a self signed certificate that lives for 365 days , but the signing authority cant be validated as you urself are trying to upgrade that connection ( ideally a 3rd party needs to do this part !!)
+
+`openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365` : This saves the certificate at cert.pem file 
+
+
+2. Free SSL Providers
+Using providers like ZeroSSL and Let's Encrypt
+
+
+ONCE GENERATED WE NEED TO TELL NGINX TO USE IT : 
+
+here in the ssl-server we wrote the certificate name and stuff  
+
+```
+// binds to port 443 ( ssl / https )
+server {
+    listen 443 ssl;
+    server_name 4.240.104.180;
+
+    ssl_certificate /etc/nginx/ssl/server.crt;
+    ssl_certificate_key /etc/nginx/ssl/server.key;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # WebSocket traffic 
+    location /ws/ {
+        proxy_pass http://0.0.0.0:8001/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300s;
+        proxy_send_timeout 300s;
+    }
+}
+
+// binds to port 80 ( http )  
+server {
+    listen 80;
+    server_name 4.240.104.180;
+    return 301 https://$host$request_uri;
+}
+```
 
 
 
