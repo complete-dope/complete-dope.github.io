@@ -282,7 +282,7 @@ REMOVE THE SYMBOLIC LINK : `sudo rm /etc/nginx/sites-enabled/your-app`
 RESTART : `sudo systemctl restart nginx`
 
 
-```json 
+``` 
 server {
     listen 443 ssl;
     server_name 4.240.104.180;
