@@ -147,6 +147,21 @@ How does loss.backward() has access to whole computational graph ?
 
 because in model.forward(x) we already passed all !!
  
+## Single head and multiple attention head 
+
+We believe that the same positions in the linear layer when passed through a single embedding tries to cover only a single pattern and we need to learn multiple patterns so that we can make chunk , and each chunk has its seperate subspace (but same latent space) in which it can learn its own patterns !! 
+
+
+Each head is trying to capture something different ( really ? good knows ? similar to in conv each filter tries to learn something new !! do we really motivate the model to come up with this behavior ?? NO !! ) and the model learns the intricacies of the language !!
+
+
+## ADDING THE REGULARISATION LAYER !!
+
+
+
+
+
+
 
 
 
