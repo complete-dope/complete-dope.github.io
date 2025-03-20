@@ -390,8 +390,15 @@ then the provider tests for that file
 
 Once it verifies that this is the correct position for the file it upgrades your self signed (openssl) to the one provided by the authority !! 
 
+Update the ssl certificate and the key so that you dont see that https error on it !!
 
+DONE FOR HTTPS ! 
 
+We need to do the same / similar for http but only change being we dont need to update and that will be the first time creation and updation !!
+  
+ 
+ 
+ 
 
 
 
