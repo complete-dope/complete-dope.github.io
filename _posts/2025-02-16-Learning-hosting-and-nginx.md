@@ -380,6 +380,15 @@ server {
 
 
 
+### GET AN SSL CERTIFICATE USING `NOSSL` 
+
+So first step is you need to host a file that the ssl provider 
+
+(you can host the file over http or https, for http no openssl certificate is required and for https you require to get a openssl certificate and use it !! )
+
+then the provider tests for that file 
+
+Once it verifies that this is the correct position for the file it upgrades your self signed (openssl) to the one provided by the authority !! 
 
 
 
@@ -413,3 +422,7 @@ server {
 
 
 
+
+
+
+ 
