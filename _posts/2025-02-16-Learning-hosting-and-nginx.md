@@ -396,10 +396,48 @@ DONE FOR HTTPS !
 
 We need to do the same / similar for http but only change being we dont need to update and that will be the first time creation and updation !!
   
- 
- 
- 
+## common pitfalls 
 
+vite server HMR ( hot module reload )
+ 
+## What process happens internally ? 
+
+The NGINX exposes port 443 
+
+The internal whole setup runs on http port  
+
+encrypted request comes from user browser > gets decrypted using nginx > internal routed to `http` as mentioned in the nginx conf file > uses this http for all the internal communication > before sending back the request encryptes it > sends back to user 
+
+This process is called SSL termination - Nginx "terminates" the SSL connection and handles all encryption/decryption, so your internal services don't need to.
+
+For WebSocket Traffic
+
+Your frontend establishes a WebSocket connection to wss://4.240.104.180/ws/autosuggestion
+Nginx identifies this as a WebSocket upgrade request based on headers
+Nginx handles the SSL/TLS part (the "wss" protocol)
+Nginx forwards the WebSocket connection to ws://0.0.0.0:8001/autosuggestion
+Your backend server accepts the WebSocket connection
+Two-way communication begins through this persistent connection
+
+here is how nginx manages this magic connection part !!
+
+`location /ws/ `: tells nginx to match any URL that begins with /ws/ > it founds this connection : `wss://4.240.104.180/ws/autosuggestion`
+`proxy_pass http://0.0.0.0:8001/;` Forwards the request to http://0.0.0.0:8001/
+`proxy_http_version 1.1;
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection "upgrade";` This is where the upgrade to websocket happens !! we append in the http request itself that this should be upgraded as a ws request !!
+
+When your frontend code does new WebSocket('wss://4.240.104.180/ws/autosuggestion'):
+
+The browser initiates a secure connection to your server on port 443
+It sends an HTTP upgrade request with headers indicating it wants to switch to WebSocket protocol
+Nginx decrypts this request using your SSL certificate
+Nginx sees the /ws/ path and applies your WebSocket location block
+Nginx forwards the WebSocket handshake to your backend at http://0.0.0.0:8001/autosuggestion
+Your backend accepts the connection, and a full-duplex WebSocket channel is established
+Nginx acts as a transparent proxy, passing messages back and forth between the browser and your backend
+
+NGINX seamlessly handles the protocol conversion part !!
 
 
 
