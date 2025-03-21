@@ -398,7 +398,14 @@ We need to do the same / similar for http but only change being we dont need to 
   
 ## common pitfalls 
 
+Read the [vite docs throughly](https://vite.dev/config/server-options.html#server-hmr)  
 vite server HMR ( hot module reload )
+This fucks up in prod cases , so rather use 
+```
+npm run build
+npx serve dist -l 8080
+```
+
  
 ## What process happens internally ? 
 
