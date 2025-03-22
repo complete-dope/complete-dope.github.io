@@ -159,9 +159,17 @@ Each head is trying to capture something different ( really ? good knows ? simil
 
 
 
+## CACHING THE KV !! AND WHY NOT Q AND ATTENTION MATRIX 
+[MLA](https://planetbanatt.net/articles/mla.html)
 
 
+We don't cache the Q cause of memory limits !! 
+Computational is not tough storing the values and retrieving the values from memory is tough !! 
 
+We only cache the KV, that is efficient and the attention is not the most computation part in transformers we dont need to maximize storing that part ... 
+
+
+TODO : code the query part and check whether it all store it all  
 
 
 
