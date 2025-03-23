@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2025-02-2028
+date: 2025-02-28
 title: Learning about Hardware and ROS and controllers
 ---
 
