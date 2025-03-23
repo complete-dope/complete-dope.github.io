@@ -173,6 +173,7 @@ TODO : code the query part and check whether it all store it all
 
 Adding Q caching increases code complexity for a relatively modest gain. The most expensive operations in inference are typically elsewhere (like the feed-forward networks).
 
+We dont emphasis enough on the fact that KV cache is the most paining point in inference time .. and we need to reduce it as soon as possible !!    
 
 
 
