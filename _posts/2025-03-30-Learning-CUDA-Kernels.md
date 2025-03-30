@@ -99,7 +99,7 @@ For different GPU devices and version we can compile by passing in a `-code`
 ### Allocating 2d and 3d memory 
 `cudaMallocPitch()` and `cudaMalloc3D()` 
 
-
+[Playing with linker TODO Whatttt](https://chatgpt.com/share/67e9b3b4-26a0-8009-a3ec-0eadc15725d3)
 
 
 
