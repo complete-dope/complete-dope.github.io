@@ -14,6 +14,7 @@ SIMT : single instruction , multiple threads
 Lockstep : all threads starts in parallel / works at the same time  
 SM : Streaming Multiprocessor ( CPU aka processor , single processor , useful for all tasks ... whereas .. gpu only for intensive application handed over to it by cpu )
 Stream : like event loop in CPU used for cuda async operations  
+PTX : parallel thread executions , has a seperate ISA used for cuda code and runs on GPU 
 
 ## Structure of GPU :
 
@@ -66,6 +67,44 @@ __global__ void divergent(){
 ### Async programming
 Streams are like event loop , schedules async programs and have access to stop and start them !!
 can have multiple streams (as its a multiprocessor with multicores )  
+
+
+
+## Compilation and low level stuff in the API 
+CPU COMPILATION HAPPENS AS : 
+
+```
+Source code > compiler > asm file
+asm file > assembler > object file
+object file > linker > exe binary 
+```
+
+What currently happens in software is the above steps gets followed for langs like C / C++ for high level languages like python, Java , Javascript they get converted to intermediate file format like .pyc   
+
+
+
+`nvcc compiler` : based on backend powered by LLVM , 
+seperates device and host code , 
+converts device code to PTX (assembly code) 
+converts host code to obj file 
+
+JIT compilation: 
+GPU driver takes in the PTX code that is generated in the compilation step by nvcc 
+the conversion to binary happens by the gpu drivers which is not open-sourced proprietary software (nouveau is open sourced and does a decent job)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
