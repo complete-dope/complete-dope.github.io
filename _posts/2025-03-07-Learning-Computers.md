@@ -75,7 +75,17 @@ Once decoded we need to execute / carry out that instruction ( i.e. apply maths 
 
 ## Threading ( how does that work with examples in assembly) 
 
+Threads role is to pick up a 
+
 ## Cores
+The cores in CPU are just physical partition at the silicon level ( if it was theoretical people would have exploited it more ) .. so that a single process (aka a long task) dont take up the whole computation / processing / CPU and we no more operation can run on it ... 
+So cores help in managing overall working of a CPU ( that might involve, sending data to GPU , showing viz , storing , fetching etc ) 
+
+Each core has threads for it and there role is to pick up a task send that to a seperate core or same core (often on a seperate core ) and bring that data back from the core once the computation is all done and return back !! 
+Kinda like a worker and we call them workers  
+
+## Multiprocesses
+Run each code snippet on a different Core so that we can tell CPU thinks its running so many process (it is but they are the same processes) and each code snippet has its memory space and variables defined ...     
 
 ## Die shots 
 
@@ -160,6 +170,7 @@ where ever software layer comes things become a bit sorted / easy for developers
 
 # How does a GPU works ?  
 
+Writing another article for this !! 
 
 
 
