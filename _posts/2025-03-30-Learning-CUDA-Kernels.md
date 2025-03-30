@@ -79,7 +79,7 @@ asm file > assembler > object file
 object file > linker > exe binary 
 ```
 
-What currently happens in software is the above steps gets followed for langs like C / C++ for high level languages like python, Java , Javascript they get converted to intermediate file format like .pyc   
+What currently happens in software is the above steps gets followed for langs like C / C++ for high level languages like python, Java , Javascript they get converted to intermediate file format like .pyc or .class file and now that compilation to binary code happens at JIT ... so they never gets to the stage of asm or obj file ..   
 
 
 
@@ -92,9 +92,12 @@ JIT compilation:
 GPU driver takes in the PTX code that is generated in the compilation step by nvcc 
 the conversion to binary happens by the gpu drivers which is not open-sourced proprietary software (nouveau is open sourced and does a decent job)
 
+For different GPU devices and version we can compile by passing in a `-code`  
 
+## [CUDA RUNTIME](https://docs.nvidia.com/cuda/cuda-c-programming-guide/#cuda-runtime)
 
-
+### Allocating 2d and 3d memory 
+`cudaMallocPitch()` and `cudaMalloc3D()` 
 
 
 
