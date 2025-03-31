@@ -7,6 +7,8 @@ title: Learning and Making CUDA kernels as a future skill
 ## THIS IS A SKILL OF FUTURE 
 [CUDA DOCS](https://docs.nvidia.com/cuda/cuda-c-programming-guide/)
 
+[How do GPU work by geohotz](https://www.youtube.com/watch?v=OUzm06YaUsI) starts at 20:00 
+
 
 ## Terminologies : 
 Warp : grp of 32 threads scheduled and working on the same streaming multiprocessor 
@@ -105,8 +107,6 @@ A lot of abstraction is handled by runtime library for the driver code, when we 
 
 Persistence : frequent memory accesses are cached in l2 cache
 Streaming : single time usage of memory is not stored in any cache
-
-[How do GPU work](https://www.youtube.com/watch?v=OUzm06YaUsI) starts at 20:00 
 
 
 
