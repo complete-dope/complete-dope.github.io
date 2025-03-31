@@ -101,11 +101,12 @@ For different GPU devices and version we can compile by passing in a `-code`
 
 [Playing with linker TODO Whatttt](https://chatgpt.com/share/67e9b3b4-26a0-8009-a3ec-0eadc15725d3)
 
+A lot of abstraction is handled by runtime library for the driver code, when we write things like thread allocation and context destruction lot of the under the hood is handled by driver code ( which is not open sourced )
 
+Persistence : frequent memory accesses are cached in l2 cache
+Streaming : single time usage of memory is not stored in any cache
 
-
-
-
+[How do GPU work](https://www.youtube.com/watch?v=OUzm06YaUsI) starts at 20:00 
 
 
 
