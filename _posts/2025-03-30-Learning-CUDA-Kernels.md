@@ -25,10 +25,11 @@ PTX : parallel thread executions , has a seperate ISA used for cuda code and run
 ## Memory in GPU : 
 
 * Shared Memory : This is used by all threads in a block and is assesible using `__shared__` keyword  
-* Global Memory : This is the default memory accessible by all kernels `cudaMalloc` , `cudaMemcpy`  
-* L1 cache : This is hardware managed memory, like a CDN, the most frequently used memory is placed close to the blocks ( can't be programmed )  
-* L2 cache : This is hardware managed memory and cant be programmed like L1
-
+* Global Memory : This is the default memory accessible by all kernels `cudaMalloc` , `cudaMemcpy`  (slow)
+* L1 cache : This is hardware managed memory, like a CDN, the most frequently used memory is placed close to the blocks ( can't be programmed )  (fast)
+* L2 cache : This is hardware managed memory and cant be programmed like L1 (medium)
+* Registers : 16 bit memory storage blocks , total 32 in count ,  only memory that are actually used by the CPU  ( fastest)
+ 
 Yes, shared memory is different from L1 and L2 cache, and you can explicitly use shared memory in your CUDA programs, but L1 and L2 caches are hardware-managed and cannot be directly controlled.
 
 Serial Code : Synchronous code , that runs sequentially on the CPU 
