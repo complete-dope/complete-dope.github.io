@@ -7,6 +7,14 @@ title : Learning nginx
 `Proxy` 
 Something that sits in front of client is called proxy !
 
+# HTTP and Frontend working 
+So the frontend code renders on the user site (everyone knows but how does that happen ?)
+
+The user requests the site url `https://mysite.com` , the http protocol goes to the hosted server and gets code for frontend site data and then render to the user system. In the frontend code we mention in depth what we want , how we want , how to interact with the data .. 
+
+HTTP works on TCP / IP connection flow !
+
+
 # Learning Nginx 
 
 Nginx is a reverse proxy , that means is sits in front of the server and then its role is to redirect the traffic ( aka acts as a load balancer ) and hides the IP of the server 
