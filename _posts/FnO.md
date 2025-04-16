@@ -115,5 +115,43 @@ Extrinsic value :
 
 
 
---- OPTION-CHAIN --- 
- 
+===> ACTUAL BUYING AND SELLING 
+Lets make some option calling and execute some orders now !!
+
+DELTA : Option kitna move krega agar underlying 1 rupee move kare toh
+
+>>> nifty bank 
+APRIL MARKET ANALYSIS (TRADE DAY = 1ST APRIL ) 
+
+support : 47900
+delta = -7.31 
+
+** Delta diff between -15 to +15 is considered good !! 
+
+resistance 1 : 52019 
+resistance 2 : 53900 , delta = -7.74
+
+*Call option = 53900 ka 
+*Put option = 47900 ka 
+
+To make this an Iron Flag Strategy 
+
+47650 ka PE buy karunga 
+54000 ka CE buy karunga 
+
+
+STEPS FOR DOING DELTA NEUTRAL STRATEGY !! 
+
+CE Selling = you are a seller 
+PE Selling = you are a buyer
+
+This strategy works for OPTION SELLING 
+1. Make strong support and strong resistance for last months (dont consider the current month in action) 
+2. Here you assume the market will remain in a sideways motion and you sell a CE at resistance and PE at support 
+3. And make sure the delta difference is in between , -15 to +15 in this case   
+4. This requires large capital and arnd 4% of avg benefits 
+5. Market moves sideways / less volatile from 11AM to 2PM , so this is where this trade works 
+6. The side / tail losses in this can be minimised using IRON FLY Strategy where you buy CE above resistance and you buy PE above support.        
+
+
+
