@@ -120,7 +120,7 @@ Lets make some option calling and execute some orders now !!
 
 DELTA : Option kitna move krega agar underlying 1 rupee move kare toh
 
->>> nifty bank 
+**nifty bank** 
 APRIL MARKET ANALYSIS (TRADE DAY = 1ST APRIL ) 
 
 support : 47900
@@ -173,14 +173,32 @@ FOR ITM calls -> 1
 For deep OTM calls -> 0 
 
 
-Vega:
+*Vega*:
 Implied Volatility index 
 Its a market forecast of a likely movement in a security's price. 
 
 
-Gamma: 
-Rate of change of delta for every unit change in the underlying asset's price. 
+*Gamma*: 
+Rate of change of delta for every unit change in the underlying asset's price
+IV = implied volatility  
+IV jumps from 20 to 25 , but price stays at 100. 
+Vega = 0.05
+new price = 2 + (0.05 x 5) => 2.25 
+cause you are betting on fear 
 
+
+Example: 
+underlying stock = 100 
+ATM call strike = 100 
+Time to expiry = 5 days
+IV = 20% 
+Option price = let's say 2 
+delta = 0.5 ATM 
+gamma = 0.1 
+vega = 0.05 
+
+delta = 0.5 + (0.1 x 2) => 0.7 
+So, its more like owning 70 shares of stock instead of 50. That's gamma , the position just got more directional .. 
 
 
 
