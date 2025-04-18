@@ -200,6 +200,38 @@ vega = 0.05
 delta = 0.5 + (0.1 x 2) => 0.7 
 So, its more like owning 70 shares of stock instead of 50. That's gamma , the position just got more directional .. 
 
+## Credit spread aka bear call spread 
+Ek option ko sell krna and doosre option ko buy krte ho dono same expiry date ke hote hain, lekin alag strike price k saath. 
+
+Spot price = 100 
+sell put @ 95 -> premium milta hai 3 
+buy put @ 90 -> premium dena padta hai 1 
+
+3-1 = 2 * 100 ( 1 lot m 100 shares )
+$200 ka paisa directly mil gya jeb m 
+ab mai wish krunga ki price 95 se upar he rhe 
+and agar neeche bhi aa gya toh mera 90 wala buy cap kr lenge
+95 - 90 =  5
+max loss = 5 -2 = 3 * 100 = $300 
+
+This is good , agar lgta h market neeche ya sideways rahegi  
+
+## Iron Condor 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
