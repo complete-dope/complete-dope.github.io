@@ -151,7 +151,46 @@ This strategy works for OPTION SELLING
 3. And make sure the delta difference is in between , -15 to +15 in this case   
 4. This requires large capital and arnd 4% of avg benefits 
 5. Market moves sideways / less volatile from 11AM to 2PM , so this is where this trade works 
-6. The side / tail losses in this can be minimised using IRON FLY Strategy where you buy CE above resistance and you buy PE above support.        
+6. The side / tail losses in this can be minimised using IRON FLY Strategy where you buy CE above resistance and you buy PE above support.
+
+ETF : exchange traded funds , basket of differnet underlying to diversify the portfolio, these replicate an index and are cheap to buy with the same exposure as of an index 
+
+Option greeks : 
+What are these and who made them and why do they exist ? --> These are in market to favous buyers and seller . We have multiple greeks and they all work differently some favour buyers other favour sellers 
+
+
+*Theta*: 
+This favours the seller.. and this is a time based factor in a premium and constitutes avg of 30% of premium value. The role of theta is to become zero at the expiration day (premium doesn't become zero, theta becomes zero) reduces the value of the premium
+
+*Delta*: 
+This tells how much the premium will move if the underlying spot price moves by 1 pts .. 
+range = 0 to 1 for calls
+range = 0 to -1 for puts
+This is the most important value that reduces / makes up the premium 
+
+For ATM calls -> 0.5 
+FOR ITM calls -> 1 
+For deep OTM calls -> 0 
+
+
+Vega:
+Implied Volatility index 
+Its a market forecast of a likely movement in a security's price. 
+
+
+Gamma: 
+Rate of change of delta for every unit change in the underlying asset's price. 
+
+
+
+
+
+
+
+
+
+
+
 
 
 
