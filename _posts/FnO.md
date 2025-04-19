@@ -155,7 +155,9 @@ This strategy works for OPTION SELLING
 
 ETF : exchange traded funds , basket of differnet underlying to diversify the portfolio, these replicate an index and are cheap to buy with the same exposure as of an index 
 
-Option greeks : 
+Option seller has to follow what the option buyer has to say .. 
+
+# Option greeks : 
 What are these and who made them and why do they exist ? --> These are in market to favous buyers and seller . We have multiple greeks and they all work differently some favour buyers other favour sellers 
 
 
@@ -200,6 +202,11 @@ vega = 0.05
 delta = 0.5 + (0.1 x 2) => 0.7 
 So, its more like owning 70 shares of stock instead of 50. That's gamma , the position just got more directional .. 
 
+
+# Strategies 
+Most important thing in this strategies is the risk : reward ratio
+
+
 ## Credit spread aka bear call spread 
 Ek option ko sell krna and doosre option ko buy krte ho dono same expiry date ke hote hain, lekin alag strike price k saath. 
 
@@ -216,11 +223,40 @@ max loss = 5 -2 = 3 * 100 = $300
 
 This is good , agar lgta h market neeche ya sideways rahegi  
 
+## Short Put spread 
+Spot price = 1000
+PE sell kro 900 @ 50 
+PE buy kro 800 @ 30 
+
+max loss = 100 - 20 => 80 per share in lot
+
+## Strangle
+YOU THINK MARKET WILL REMAIN SIDEWAYS 
+Spot price = 1000 
+Sell a CE at strike price 1200 
+Sell a PE at strike price 800 
+
+This makes a straddle strategy 
+
+
+## Straddle
+You are unaware where will market go .. so you betted on both side !!
+Spot price => 1000 
+Sell a PE -> 1050 
+Sell a CE -> 1050 
+
+Toh meri thought process h ki agar market upar gyi toh mera PE expire ho jaega
+Agar market neeche gyi toh CE expire ho jaega
+
+But Agar jyada he directional trennd m chali gyi toh heavy nuksaan ho jaega .. and iss cheez ko mujhe hedge krna h  
+
+
 ## Iron Condor 
+Hedging a Strangle with buy options on both below and above makes an iron condor 
 
 
-
-
+# Iron Fly ( butterfly) 
+Hedging a Straddle with buy option on above and below the strike price makes an iron fly   
 
 
 
