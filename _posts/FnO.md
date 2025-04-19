@@ -155,6 +155,12 @@ This strategy works for OPTION SELLING
 
 ETF : exchange traded funds , basket of differnet underlying to diversify the portfolio, these replicate an index and are cheap to buy with the same exposure as of an index 
 
+Okay , but what the hell are ETF's ? 
+> ETF's provide the same expose as the index, lets say bank nifty maintains an index of top 12 banks and you think the banking sector will go up but not know which individual bank might go .. so the best way would to trade in bank nifty's etf that provide the same expose what the index would have provided you ..
+They maintain the same holding that the index holds and are available at much less price compared to the index price 
+
+
+
 Option seller has to follow what the option buyer has to say .. 
 
 # Option greeks : 
@@ -270,6 +276,7 @@ But Agar jyada he directional trennd m chali gyi toh heavy nuksaan ho jaega .. a
 
 ## Iron Condor 
 Hedging a Strangle with buy options on both below and above makes an iron condor 
+This is a good strategy is the market is sideways but requires adjustments when the market becomes trendy / trending in a direction 
 
 
 # Iron Fly ( butterfly) 
@@ -279,6 +286,7 @@ Hedging a Straddle with buy option on above and below the strike price makes an 
 
 ### How to avoid that max loss in a volatile market ? how to do that adjustments ? And then a a full backtested strategy .. 
 
+This can be learnt only when you play out this strategy in backtesting.
 
 
 
