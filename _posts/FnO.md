@@ -307,3 +307,16 @@ This can be learnt only when you play out this strategy in backtesting.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
