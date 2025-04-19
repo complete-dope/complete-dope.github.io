@@ -178,7 +178,24 @@ For deep OTM calls -> 0
 *Vega*:
 Implied Volatility index 
 Its a market forecast of a likely movement in a security's price. 
+India VIX : india's volatility index
+This tells how much stock market might move in next 30 days based on trader fear or clamness
+Its calculated using nifty 50 option prices
 
+Its like a forecast for market mood 
+
+High VIX, and buying option means you are paying more 
+High VIX, and selling option means you earn more premium 
+Low VIX, and buying option means you are paying less premium 
+Low VIX, and selling option means you are earning less premium 
+
+10 – 14	: Very Low Volatility	;;  Market is stable, possibly complacent
+15 – 20	: Low to Moderate	;; Normal healthy range
+20 – 25	: Elevated	;; Traders expecting larger swings
+25 – 35	: High Volatility ;;	Caution! Market can swing hard
+35+	Extreme Volatility	;; Panic / Crisis (e.g., COVID crash)
+
+Before taking a position in a market always consider India VIX and for global prediction take in consideration overall US / europe / china VIX  
 
 *Gamma*: 
 Rate of change of delta for every unit change in the underlying asset's price
@@ -259,6 +276,8 @@ Hedging a Strangle with buy options on both below and above makes an iron condor
 Hedging a Straddle with buy option on above and below the strike price makes an iron fly   
 
 
+
+### How to avoid that max loss in a volatile market ? how to do that adjustments ? And then a a full backtested strategy .. 
 
 
 
