@@ -288,10 +288,15 @@ Hedging a Straddle with buy option on above and below the strike price makes an 
 
 This can be learnt only when you play out this strategy in backtesting.
 
+Started out with iron condor.. if the price remains in between the green range then its nice condition, profit condition, if it moves sideways to the top-most 2 points then we need to adjust the strategy .. 
 
+If the market moved upward aka the price increased take the premium on PUT Sell and take loss on PUT buy and settle there ... and convert that to the Iron fly ..     
 
+Iron fly, here you sell the PUT at the same price of the CALL sell and hedge that PUT position by buying a PUT at below price
 
+and if the market moves to one side in the fly you need to convert that to an iron condor as market is now showing a directional movement ...
 
+and repeat this till the end of the day !!  
 
 
 
