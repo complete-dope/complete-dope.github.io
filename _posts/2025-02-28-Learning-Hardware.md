@@ -126,6 +126,30 @@ Internally arduino uses MOSFETS working in combination to achieve this state !
 so first we setup pins / init them and then we use loops to run in those or different configurations  
 
 
+# Hardware and drivers and how do they talk to each other !!
+
+Just imagine if the kernel maintainer has to keep up with every new development / app coming in the market, then it will not be possible 
+So what they did is, currently we have around 100's of system call ( that are essential for system boot-up and using the system ) and an exposed sys-call called `ioctl` , `sysctl` that extends the kernel to run something called as 'device-driver'
+
+
+The device-driver is the code that interacts with the hardware from the kernel space and is maintained by the company providing it .. but the code provided is not easy to understand for the developers to be able to work with it .. so they provide a compatible user space library that normal developers can use and interact with the underlying hardware ... 
+
+And there role is to maintain the device driver + the user space and bring regular updates to it ..  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
