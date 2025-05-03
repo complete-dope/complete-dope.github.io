@@ -136,7 +136,7 @@ The device-driver is the code that interacts with the hardware from the kernel s
 
 And there role is to maintain the device driver + the user space and bring regular updates to it ..  
 
-
+Application → [libdrm] → [ioctl → i915 kernel driver] → Intel GPU Hardware
 
 
 
