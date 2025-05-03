@@ -133,10 +133,15 @@ In Uvicorn, "workers" refer to the number of separate processes that handle inco
 
 Uvicorn is an ASGI server. It's responsible for handling the HTTP protocol, running your async event loop, and managing the actual processing of requests in each process. It implements the ASGI interface so that your application can handle async I/O operations efficiently.
 
+Used for applications like FastAPI , Starlette 
+
 ## Gunicorn 
 
 Gunicorn acts as a process manager. It doesn't handle the requests directly; instead, it spawns and manages multiple Uvicorn worker processes. In other words, Gunicorn distributes the incoming requests among these independently running Uvicorn processes, effectively scaling your application across multiple CPU cores.
 
+This is used for synchronous applications like Django, Flask etc
+
+Gunicorn with uvicorn works as a process manager for managing the uvicorn ( async framework ) 
 
 ## Web server 
 A web server is essentially the "front door" of your application. It listens for HTTP requests—like when a browser asks for a webpage—and serves back static files (HTML, CSS, images) or forwards the request to something else if the content needs to be generated dynamically. Think of it as a very efficient file server that also knows how to handle simple routing tasks.
