@@ -4,6 +4,8 @@ date : 29-03-2025
 title : Learning Celery 
 ---
 
+## Background task 
+Maintaining background tasks specially in python django is damn tough, so we to think spawning some daemon threads and getting that solved is very tough .. so rather we should use celery that starts a complete new process and doesnt maintain any-thing inside main process  
 
 ## Celery 
 
