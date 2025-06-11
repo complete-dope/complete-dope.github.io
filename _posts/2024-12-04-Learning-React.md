@@ -328,8 +328,18 @@ To pass props (or arguments) to a function in a button's onClick, you can use an
 
 
 ### Public Static 
-Only the files in the /public/ are fetched by the user, 
+Only the files in the /public/ are fetched by the initial HTTP request,  and the src/ requests are not sent .. By restricting static file serving to the public directory, Vercel ensures that sensitive source files (like configuration files, environment variables, or server-side code) are not accidentally exposed to the public internet.
 
+Your source files in src are processed (bundled, minified, etc.) by the build tool. The resulting JavaScript, CSS, and other assets are output to the build directory (like .vercel/output/static or dist).
+
+No Direct Access to src:
+You cannot fetch or access files directly from src in production. They are either bundled into your app or ignored
+
+### CORS Error 
+
+Client to server , server sends backs data , browser sees if the header is set for `/same-origin/` , if yes, rendered else its CORS error 
+
+Cors proxy in between , client to CP , CP sends request to Server , server sends backs data to CP,  CP adds 'same-origin' to it , CP sends its back to client , now that request comes from same origin !!   
 
 
 
