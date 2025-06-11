@@ -4,11 +4,9 @@ title: Learning basics of React
 date: 2024-12-04
 ---
 
+[Doc link](https://docs.google.com/document/d/1Bg43BoC0xSmXugYI7L27NJm4ZFUaHDYlVYsFiTiodTM/edit?usp=sharing) 
 
-![Doc link](https://docs.google.com/document/d/1Bg43BoC0xSmXugYI7L27NJm4ZFUaHDYlVYsFiTiodTM/edit?usp=sharing) 
-
-
-![REPLIT](https://replit.com/@mohitdulani1/eg)
+[REPLIT](https://replit.com/@mohitdulani1/eg)
 
 Trying to Learn React once again 
 Delta to learn react is high, you need JS, css, html 
@@ -325,10 +323,12 @@ If any state variable get defined inside a component, and it gets updated then t
 
 
 
+### Passing props to a button onClick function  
+To pass props (or arguments) to a function in a button's onClick, you can use an inline arrow function that calls your function with those props. 
 
 
-
-
+### Public Static 
+Only the files in the /public/ are fetched by the user, 
 
 
 
