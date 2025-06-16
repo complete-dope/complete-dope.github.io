@@ -57,3 +57,67 @@ W_i+1 = W_i - lr * dL / dW_i
 
 (The sgd is not well explained in the pytorch docs , the loop they represent is teh whole training loop , not the sgd loop)
 
+
+## Revision / paper reading 
+
+Paper : Chameleon paper by meta ( https://arxiv.org/pdf/2405.09818 ) 
+
+
+
+### Forward pass Gradient explosion / vanishing
+If the weights at backward pass of step t-1 rises , then the weights at forward pass of t step also rises 
+
+
+### Backward pass gradient explosion / vanishign  
+Weights updation happens in the backward pass
+
+
+
+### Gradient free meta learning 
+Never computes or propagates gradients.
+Treats the entire weight set as a black‑box parameter vector and optimizes it with non‑gradient methods (e.g. evolutionary strategies, population‑based search).
+
+
+Think of your entire set of 4‑bit quantized weights 𝑊 as a single “individual” in a population.
+Each individual is just one candidate solution—a full weight assignment for the network.
+
+You start with 𝑁 random individuals (e.g. 𝑁 = 100 ) 
+and anyone of this can be a potential case for our case , we randomly start and do just a forward pass calculate loss value 
+
+Rank from lowest loss to highest and pick up top 2 candidates (elitism) ..  
+and then in loop = 2, choose random 98 more, total 2+98 = 100 more 
+
+and then we have these possibilities to do: 
+
+#### Mutuation : 
+
+Introduce Small Random Changes
+For each new child, randomly pick a small percentage of weight bits (e.g. 1–2 %) and flip them.
+This injects fresh diversity and helps explore new regions of weight‑space.
+Ensure Quantization Consistency
+Since weights are 4‑bit log values, any mutation simply toggles one of those bits—no out‑of‑range values.
+
+#### Crossover : 
+
+Pair Up Parents
+Randomly choose two parents (with or without weighting by fitness) for each crossover event.
+Mix Their “Genomes”
+For each weight position (4‑bit log value), flip a (virtual) coin: choose the bit from parent A or parent B.
+Produce one or two children from each pair.
+
+Reduce the loss over and over , no backward pass 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
