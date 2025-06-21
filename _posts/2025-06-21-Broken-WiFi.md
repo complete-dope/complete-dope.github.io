@@ -23,6 +23,7 @@ It can sniff to any frequency band that its capable of in the above range
 So what you do is you deauth the neighbor's router by sending 'deauthentication packets' ? ( how can I send deauth packets ? )
 deauth is broken, part of 802.11 management frames, are not protected in WPA/WPA2 - Personal , can be spoofed / faked by anyone in the range 
 
+
 Particular client deauth attack 
 
 ```
@@ -40,6 +41,10 @@ Deauth bombing:
 
 Deauth particular user : 
 `aireplay-ng --deauth 10 -a AA:BB:CC:DD:EE:FF -c 11:22:33:44:55:66 wlo1mon`
+
+When the client connects back, we capture the 4-way handshake packets EAPOL Packets, and they are stored to the .cap files 
+
+We dont need to decrypt this, rather we just need to match with the leaked password list and get the wifi password !! 
 
 
 #  scan the wifi : 
