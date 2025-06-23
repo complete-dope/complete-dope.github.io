@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learning JS Event Loop 
+title: Learning Event Loops ( JS / Python )
 date: 2025-01-26
 ---
 
@@ -26,8 +26,8 @@ What would happen is lot of JS running parallel in many threads and all editing 
 so we queue the taks and run that in a step 
 
 ## Event loop
-Runs around CPU in an efficient manner 
-
+Runs around CPU in an efficient manner, tasks get schedules it picks up efficiently completes it 
+Each application / Main process has its own event loop  
 
 ### Task Queue
 When we queue a task, the event loop takes a detour, browser says to event loop I have got a job for you to run .. event loop says add it to my to-do list 
@@ -49,8 +49,25 @@ JS task:
 If from some button click , an event got registered and that event initiated a microtask, then the JS will first finish task on stack, then call microtask then call next JS function ...   
 
 
+## EVENT LOOP IN  Django framework
+
+We can run the django event loop on local-server , the built-in server in which the model runs using `python manage.py runserver` that is a WSGI server aka synchronous server.
+That means event loop starts as soon an async view comes and end when the request is completed and the request is logged as completed once we `return HTTPResponse()`.
+
+So to any event that is added to return loop after that get's autocancelled / destroyed. 
+
+To overcome this the classic thing to do is : to start a new loop, seperate from the current execution loop, and add your event there and close the loop seperately 
+
+Cases: 
+1. New loop -> new thread  : doesnt interfare with existing functionality 
+2. Same loop -> new thread : interfares  with its own loop
+3. Parent thread can cancel execution , no python doesnt provide a built-in / safe way to identify the child threads and cancel it  
+
+When we run our django app in production behind an ASGI ( async server ) the event loop is not destroyed for each request and its managed by the async server. 
 
 
+Uvicorn works at the process level not per request or per thread. 
+Each worker process runs in a single event loop and the loop stays alive for the entire process lifetime and this is how celery also works  
 
 
 
