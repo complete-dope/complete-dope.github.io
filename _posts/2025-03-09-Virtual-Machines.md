@@ -8,11 +8,11 @@ Connecting to a Azure VM using ssh and RDP
 
 Configure a VM based on the specs 
 
-## Connecting with SSH 
+# Connecting with SSH 
 
 Directly connect using ssh create an inbound rule for ssh, you get the ssh key !  
 
-## Connecting with RDP  
+# Connecting with RDP  
 RDP , install ubuntu-desktop, 3389 is the port for RDP  , 22 for ssh , 80 for http , 443 for https !
 
 # Azure VM RDP Setup Guide
