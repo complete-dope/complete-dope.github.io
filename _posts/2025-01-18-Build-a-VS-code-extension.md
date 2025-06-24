@@ -256,12 +256,50 @@ webview.onDidReceiveMessage() , this takes in the data and classifies using swit
 
 ## Typescript 
 Interface in React = enum in python 
+Same as JS , but with typecontrol ( it helps to define type ) 
+
+## Sandbox env
+Name originates from children playing in a safe env is called sandbox. 
+
+We create a sandbox environment, that means , we allow access to security boundaries , limited API and controlled interaction 
+We block OS access , Hardware access , Network calls etc .. 
+
+So one workaround is: 
+Call an API, that interacts with OS and returns to you the required stuff ( like you can't take a screenshot from controlled env so expose an API that takes the screenshot and we return the output from that )
+
+But the sandbox env's differ that means: 
+
+Browser tab : Chrome ,Firefox ... no FS/OS access
+Plugin System : Adobe , OnlyOffice, VScode ... Host-app API only
+Language VM : JVM , .NET 
+Container : Docker ... OS-level
+Full Virtualisation : VMware , KVM 
 
 
+Web based sandbox : using param in iframe named `sandbox`
+
+We create namespaces to avoid bumping to the same function-name, so it's used to create seperation 
+
+`unshare` : linux command to create a new namespace , they are process level 
+`docker run` : also uses unshare internally
 
 
+```
+unshare --pid --uts --ipc --net --mount --fork /bin/bash
 
 
+# Confirm isolated hostname
+hostname  # Returns: sandbox
+
+# Check available interfaces
+ip link show  # Only shows lo (and it's DOWN)
+
+# Verify /tmp is separate
+df -h /tmp  # Shows tmpfs mount
+
+# Check PID namespace
+echo $$  # Should return 1 (init process for namespace)
+```
 
 
 
