@@ -359,7 +359,8 @@ Best throughput, non-blocking across requests.
 
 
 
-
+Built in server in django is multithreaded , sync server .. that means each request spins up a 1 seperate OS thread and gets executed by the individual request loop
+Async server ( uvicorn ) makes it multithreaded , async server .. that means all the requests are scheduled in the same Event loop as async task by the process level event loop (Concurrency occurs via await yielding , waiting for async tasks to complete)
 
 
 
