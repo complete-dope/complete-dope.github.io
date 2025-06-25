@@ -70,6 +70,9 @@ Uvicorn works at the process level not per request or per thread.
 Each worker process runs in a single event loop and the loop stays alive for the entire process lifetime and this is how celery also works  
 
 
+Runserver is multithreaded by default , that means if spawned 10 threads and each thread requests the server if works concurrently ... 
+But why cant this be mimicked by async requests? 
+
 
 
 
