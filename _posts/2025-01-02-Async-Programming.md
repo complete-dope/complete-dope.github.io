@@ -331,7 +331,31 @@ and it the epoll tells the OS when is the data received and then it tells it bac
 
 
 
+## Django server stats
 
+**1. Code: async, Server: sync (WSGI)** → Result: async
+Under WSGI, Django creates a one-off event loop in your thread.
+
+Your async def view with awaitable calls (like HTTP requests) can interleave tasks inside that loop.
+
+✅ You get intra-thread concurrency, so things run faster—your logs are valid.
+
+**2. Code: sync, Server: async (ASGI)** → Result: sync
+ASGI offloads your sync view into a thread pool using sync_to_async.
+
+It still blocks that thread; no benefit from event loop.
+
+So performance stays sync, not async.
+
+**3. Code: sync, Server: sync (WSGI)** → Result: sync
+Classic model—thread-per-request, fully blocking.
+
+No async anywhere.
+
+**4. Code: async, Server: async (ASGI)** → Result: async
+True async all the way: event loop, async view, awaitable I/O.
+
+Best throughput, non-blocking across requests.
 
 
 
