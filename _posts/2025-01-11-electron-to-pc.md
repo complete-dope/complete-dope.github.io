@@ -62,3 +62,18 @@ The transistor cant be just made smaller as at such small levels, atomic forces 
 # Advanced 
 
 We created an Adder and a Subtracter in the section above this is used in the actual system to do the mathematical calculations   
+
+
+
+## Electricity
+
+Inverter : Converts to DC to AC power
+
+Rectifier : Converts from AC to DC power 
+
+Inside a copper wire, electrons flow randomly , we need to give them a direction that is done using voltage (DC) and electron tend to come back to their initial position so they move through the appliance / switch and light it up 
+
+
+
+
+
