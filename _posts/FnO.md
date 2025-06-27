@@ -194,6 +194,8 @@ Lets suppose on day 4, someone says I also want a same contract as you :
 so it's call buy at 1100 
 Premium that he will pay is : intrinsic + extrinsic => 150 + 20  = 170
 
+![Screenshot From 2025-06-28 02-41-40](https://github.com/user-attachments/assets/73110760-ee1a-49be-8ea3-b1bff1291bfe)
+
 
 ### Put Buy : 
 Intrinsic =  max(Strike Price - Spot price , 0)
