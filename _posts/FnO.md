@@ -159,12 +159,53 @@ Okay , but what the hell are ETF's ?
 > ETF's provide the same expose as the index, lets say bank nifty maintains an index of top 12 banks and you think the banking sector will go up but not know which individual bank might go .. so the best way would to trade in bank nifty's etf that provide the same expose what the index would have provided you ..
 They maintain the same holding that the index holds and are available at much less price compared to the index price 
 
+## REVISION 
+
+ Buyer ->  Right 
+ Call -> BUY
+ Put -> SELL
+
+ Call option buyer means I have right to buy this @price
+ Put option buyer means I have right to sell this @price
+
+
+`Premium = Intrinsic + Extrinsic value`
+
+Eventually option greeks ka kaam hita h to make Extrinsic value to 0 on the expiration date
+
+### Call Buy : 
+Intrinsic = max(Spot price - Strike Price , 0) 
+
+stock at 1000, I think it will go to 1300 , call buy at 1100 @ 150 premium 
+
+
+ATM of buying  : intrinsic = 0 , extrinsic = 150 
+
+```
+1st day : intrinsic = 0 , extrinsic = 150 
+2nd day : If stock moves up to 1090, intrinsic = 0 , extrinsic = 180
+3rd day : If stock moves up to 1150, intrinsic = 50 , extrinsic = 100
+4th day :  If stock moves up to 1250, intrinsic = 150 , extrinsic = 0
+.
+.
+```
+
+Lets suppose on day 4, someone says I also want a same contract as you : 
+so it's call buy at 1100 
+Premium that he will pay is : intrinsic + extrinsic => 150 + 20  = 170
+
+
+### Put Buy : 
+Intrinsic =  max(Strike Price - Spot price , 0)
+
+
 
 
 Option seller has to follow what the option buyer has to say .. 
 
 # Option greeks : 
 What are these and who made them and why do they exist ? --> These are in market to favous buyers and seller . We have multiple greeks and they all work differently some favour buyers other favour sellers 
+
 
 
 *Theta*: 
