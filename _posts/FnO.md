@@ -1,49 +1,46 @@
 ---
 layout : post
 date : 2025-04-13
-title : A bit about F & O
+title : Learning F&O and game theory
 ---
 
-Random learning 
+# F&O learning 
 
-Nifty 50 :
-Index h , joh ki top 50 indian companies ko track krta h .. 
+## Derivatives
+> Includes Futures and Options
 
-Ye apne aap m khuch nhi hota toh isko khareed bech nhi skte
-
-nifty m trading krne ka matlab hota h , ki nifty k futures m trade krna 
-
-
-
-FUTURES 
-paperwork hota h 
-3 month in future , last thrusday of each month ka dekha jata h 
-
-near future and far-away future 
-
-Lot m kaam krta h ,multi-day kr skte ho and isme short kr skte ho 
-
-
-Last thrusday of that month ko expire hoga mtlb agar aapne apna balance khtm nhi kiya uss din tk toh apka broker automatically apko uss din nikal dega .. 
-
-Futures m you can go either go long or go short 
-
-already leveraged prodcut h ... 
+### Financial Instruments
+> Nifty 50, Nifty Bank , Stock Options , Commodities , Soybean Futures etc
  
+* Index h , joh ki top 50 indian companies ko track krta h ..   
+* Ye apne aap m khuch nhi hota toh isko khareed bech nhi skte  
+* nifty m trading krne ka matlab hota h , ki nifty k futures m trade krna   
 
+
+### Futures 
+* No premium , just have to pay the margin 
+* 3 month in future , last thursday of each month ka dekha jata h aka near future and far-away future. 
+* Lot m kaam krta h ,multi-day kr skte ho and isme short kr skte ho 
+* Last thrusday of that month ko expire hoga mtlb agar aapne apna balance khtm nhi kiya uss din tk toh apka broker automatically apko uss din nikal dega .. 
+* Futures m you can go either go long or go short 
+* Long position : means you bullish on the stock price that it will go up
+* Short position : means you are bearish that stock price will go down in future
+
+Already leveraged prodcut h ... 
+
+```
 spot price : abhi ka kya price h stock ka 
 future price : future jispe trade ho rha h uska kya price h 
 
 if future price > spot price : toh bolte h premium m chal rha h 
 if future price < spot price : toh bolte h discount m chal rha h 
-
-
-Swing trade : iska matlba hota h ki stock ko ek 2 weeks ya 1-2 months tk hold krna 
+```
 
 Future ka mtlb ki ha hm isko badme ( fixed date ) ko buy ya sell krenge 
 
 Agar you think ki haa ye contract ka price expiry se pehle he acha mil rha toh bech ke nikal jao .. ab woh uss buyer ki headache h ki expiry p kya hoga .. 
 
+Swing trade : iska matlba hota h ki stock ko ek 2 weeks ya 1-2 months tk hold krna 
 
 WHY IS CALLED RISKY ? 
 
@@ -73,7 +70,7 @@ Interface se dekhna h abhi dhang se !!
 
 
 
---- OPTIONS --- 
+## Options
 Index ke options hr week expire hote h 
 Stock ke index hr month expire hote h 
 
@@ -274,6 +271,18 @@ vega = 0.05
 ```
 delta = 0.5 + (0.1 x 2) => 0.7 
 So, its more like owning 70 shares of stock instead of 50. That's gamma , the position just got more directional .. 
+
+### OI ( open interest ) 
+We say their is huge OI ( open interest ) in Calls and Puts that bank nifty will stay above or below  49500 
+So the sellers to these buyers are institutional and they want to keep there premium and want options to expire worthless  
+
+There best interest lies in to keep the price at 49500
+
+
+
+
+
+
 
 
 # Strategies 
