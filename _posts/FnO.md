@@ -210,29 +210,32 @@ What are these and who made them and why do they exist ? --> These are in market
 
 
 
-*Theta*: 
+**Theta**: 
 This favours the seller.. and this is a time based factor in a premium and constitutes avg of 30% of premium value. The role of theta is to become zero at the expiration day (premium doesn't become zero, theta becomes zero) reduces the value of the premium
 
-*Delta*: 
+**Delta**: 
 This tells how much the premium will move if the underlying spot price moves by 1 pts .. 
+```
 range = 0 to 1 for calls
 range = 0 to -1 for puts
+```
 This is the most important value that reduces / makes up the premium 
-
+```
 For ATM calls -> 0.5 
 FOR ITM calls -> 1 
 For deep OTM calls -> 0 
+```
 
-
-*Vega*:
+**Vega**:
 Implied Volatility index 
-Its a market forecast of a likely movement in a security's price. 
-India VIX : india's volatility index
+Its a market forecast of a likely movement in a security's price.  
+India VIX : india's volatility index  
 This tells how much stock market might move in next 30 days based on trader fear or clamness
-Its calculated using nifty 50 option prices
+Its calculated using nifty 50 option prices  
 
 Its like a forecast for market mood 
 
+```
 High VIX, and buying option means you are paying more 
 High VIX, and selling option means you earn more premium 
 Low VIX, and buying option means you are paying less premium 
@@ -243,19 +246,23 @@ Low VIX, and selling option means you are earning less premium
 20 – 25	: Elevated	;; Traders expecting larger swings
 25 – 35	: High Volatility ;;	Caution! Market can swing hard
 35+	Extreme Volatility	;; Panic / Crisis (e.g., COVID crash)
+```
 
 Before taking a position in a market always consider India VIX and for global prediction take in consideration overall US / europe / china VIX  
 
-*Gamma*: 
+**Gamma**: 
 Rate of change of delta for every unit change in the underlying asset's price
+```
 IV = implied volatility  
 IV jumps from 20 to 25 , but price stays at 100. 
 Vega = 0.05
 new price = 2 + (0.05 x 5) => 2.25 
+```
 cause you are betting on fear 
 
 
 Example: 
+```
 underlying stock = 100 
 ATM call strike = 100 
 Time to expiry = 5 days
@@ -264,7 +271,7 @@ Option price = let's say 2
 delta = 0.5 ATM 
 gamma = 0.1 
 vega = 0.05 
-
+```
 delta = 0.5 + (0.1 x 2) => 0.7 
 So, its more like owning 70 shares of stock instead of 50. That's gamma , the position just got more directional .. 
 
