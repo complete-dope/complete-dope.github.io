@@ -17,7 +17,7 @@ Earlier the most common activation function used to be sigmoid and tanh but now 
 
 The shift is because of the derivatives for these functions in the computation graph 
 
-![Computation Graph](https://www.researchgate.net/profile/Yuqing-Chen-3/publication/344260274/figure/fig3/AS:936580785139716@1600309668673/A-a-neural-network-and-b-its-computational-graph-The-c-forward-and-backward.png)
+[Computation Graph](https://www.researchgate.net/profile/Yuqing-Chen-3/publication/344260274/figure/fig3/AS:936580785139716@1600309668673/A-a-neural-network-and-b-its-computational-graph-The-c-forward-and-backward.png)
 
   
 The range of d(tanh) lies between 0 and 1, the multiplication of too many of these values lead to way less gradient values and the weights don't get updated properly 
@@ -105,7 +105,32 @@ Mix Their “Genomes”
 For each weight position (4‑bit log value), flip a (virtual) coin: choose the bit from parent A or parent B.
 Produce one or two children from each pair.
 
-Reduce the loss over and over , no backward pass 
+Reduces the loss over and over , no backward pass 
+
+
+## Int vs Float 
+
+So this is something interesting, integers are actual no. that are store in the memory , they reduce computational time , and have fixed / accurate value. 
+
+A int32 can hold at max 2^31 - 1
+This is used for accuracy and that means its used for list indexing .. 
+
+
+Float on the other hand is just a `representation` of a no. 
+A float32 can hold max of 2^127 and this is how they do it: 
+Its its within the bits limit (2^34), its stored as it is , else if we increase this to more then its gets hashed and stored using this
+
+```
+sign 
+exponent 
+mantissa
+```
+
+Assume it like a hash function, computer stores the hashed value in float32 .. 
+so before any operation performed on float values we need to decompose it to the actual value ( to its computational-value which can take more space for the moment ) , once calculation is done , then it again gives answer back in float so its this .. and in this to and fro conversions they are prone to errors in the accuracy  
+
+
+
 
 
 
