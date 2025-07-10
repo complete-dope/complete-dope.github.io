@@ -130,6 +130,12 @@ Assume it like a hash function, computer stores the hashed value in float32 ..
 so before any operation performed on float values we need to decompose it to the actual value ( to its computational-value which can take more space for the moment ) , once calculation is done , then it again gives answer back in float so its this .. and in this to and fro conversions they are prone to errors in the accuracy  
 
 
+## Batchnorm , layernorm , rmsnorm , l1 norm , l2 norm 
+These techniques are used to speed up the training part / increase model training 
+The reason to bring these in action is because, each time the layer (l-1)th increases the layer l also has to change the weights to actually converge before the whole model can reach convergence state and these lead to in internal covariate shift .. so to avoid this delay in convergence we apply these batchnorms for inputs where batches make more sense ( like image related stuff ) , other is , language input where the batches dont make much sense so we go with layernorm ( requires 2 passes through data) , but they also have some overhead to over come these overhead we use rmsnorm (norm that is done in a single pass ) 
+
+
+
 
 
 
