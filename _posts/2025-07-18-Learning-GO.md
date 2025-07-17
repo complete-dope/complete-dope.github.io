@@ -5,7 +5,7 @@ title  : Learning Go-lang
 ---
 
 ## Learning GO to get the minimum latency and get things right from start .. 
-
+https://go.dev/doc/tutorial/getting-started
 
 The whole file needs to become a package and to make it whole a package we wrap that up in `package main` and this makes the whole code as a single package that is then converted to binary 
 
