@@ -9,6 +9,9 @@ https://go.dev/doc/tutorial/getting-started
 
 The whole file needs to become a package and to make it whole a package we wrap that up in `package main` and this makes the whole code as a single package that is then converted to binary 
 
+We create package to help us import those in other files and the importing helps in code seperation, else we would have to write the whole code in a single main.go file.. 
+
+
 ### Imports 
 The internal imports are done using: 
 
@@ -32,6 +35,40 @@ so these are the imports as we made in the python and to get these imported sort
 `func main()` is the function that gets called by default as soon as we compile the app 
 
 `go run .` : runs the file 
+
+
+### Multiple modules 
+
+If each module in a separate directory, you will need to basically convert that package from external link to the local one :
+
+```
+~/go-dev/
+├── greetings/
+│   └── go.mod (module example.com/greetings)
+|   └── greetings.go 
+└── app/
+    └── go.mod (module example.com/app)
+    └── app.go 
+```
+
+So to use greetings.go in app.go we need to import in this way in the 
+`go mod edit --replace example.com/greeting=../greetings`
+
+also the package name should be same as the directory name .. 
+
+### variable declaration 
+
+```
+var name string
+name = "Mohit"
+--
+name := "Hello" //Here the type declaration is taken from the rght side of the string 
+```
+
+### Error Handling 
+
+send the value , error with it  .. 
+
 
 
 
