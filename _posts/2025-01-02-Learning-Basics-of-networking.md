@@ -87,7 +87,6 @@ rpc is better than rest for internal system  call :
 * IDL : Interface description language, is a generic term for a language that lets a program or object written in one language communicate with another program written in an unknown language.
 
 
-
 `statically typed language` : where the type is defined by the developer, at compile time and not at the runtime
 `dynamically typed language` : where the type is defined by the program at the runtime
 
