@@ -17,3 +17,9 @@ title: Building Backend Architecture from scratch
 
 > gRPC using proto-buffers, no REST 
 > 
+
+
+### Backend Stack 
+
+> Golang
+> 
