@@ -48,8 +48,11 @@ The Data Link layer (handled by your NIC and drivers) and the Physical layer (yo
 
 **Working**
 
+## Protocols 
+HTTP protocol was made by internet engineering task force , and its a document that explain this protocol and rules of how to use it .. 
+Set of rules like language , so any 2 parties that follow these rules or speak this language can talk to each other 
 
-
+HTTP is made on top of TCP, (OSI model) , the syn , syn-ack , ack this happens over TCP protocol 
 
 ### RPC vs HTTP 
 
