@@ -5,7 +5,8 @@ title  : Learning Go-lang
 ---
 
 ## Learning GO to get the minimum latency and get things right from start .. 
-https://go.dev/doc/tutorial/getting-started
+[Go docs](https://go.dev/doc/tutorial/getting-started)  
+[Go Tour](https://go.dev/tour/list)
 
 The whole file needs to become a package and to make it whole a package we wrap that up in `package main` and this makes the whole code as a single package that is then converted to binary 
 
@@ -56,7 +57,7 @@ So to use greetings.go in app.go we need to import in this way in the
 
 also the package name should be same as the directory name .. 
 
-### variable declaration 
+### Variable declaration 
 
 ```
 var name string
@@ -65,9 +66,29 @@ name = "Mohit"
 name := "Hello" //Here the type declaration is taken from the rght side of the string 
 ```
 
+`list` declaration:
+
+```
+message := [] string { 
+  "Hi 1", 
+  "Hi 2",
+  "Hi 3",
+}
+```
+
 ### Error Handling 
 
 send the value , error with it  .. 
+
+so the return is a tuple ( message , error-code ) , error return nil means no error , else send an erorr using : 
+
+```
+import "errors"
+
+if name == "":
+  return "", errors.New("empty name")
+```
+
 
 
 
