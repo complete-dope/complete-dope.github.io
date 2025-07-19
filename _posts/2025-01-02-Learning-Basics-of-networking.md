@@ -51,13 +51,45 @@ The Data Link layer (handled by your NIC and drivers) and the Physical layer (yo
 
 
 
+### RPC vs HTTP 
+
+Learning about rpc , grpc , http and alternatives
+
+rpc : remote procedure call  
+
+client calls a function, the function is located on the server, the server then returns the value back to client
+
+marshalling is same as serialization i.e. conversion of objects into format suitable to transmit like bit-stream 
+
+unmarshalling is same as deserialization i.e. reconstruct to original form from serialized form 
+
+
+`Stubs` : stubs or proxies that are generated from Interface definition language , RPC system convert these remote execution over the network .. ( not clear yet ) 
 
 
 
+![rpc-example](https://slideplayer.com/slide/8976075/27/images/15/Example+of+an+RPC+No+message+passing+at+all+is+visible+to+the+programmer..jpg)
+
+
+client converts to stub -> sends the stubs over the network using ( http/2 , tcp ) then the server recreates this stub , calls the actual function and return backs the data
+
+
+* Internal system : this means microservices talking to each other, each having its own container and these services like inside the same kubernetes cluster ..
+
+
+rpc is better than rest for internal system  call : 
+
+1. function level granularity , each endpoint is mapped to a function / method
+2. protocol buffers : defines input and output schemas with backward compatibility resources ,
+3. protobuf : its a compact data-type to share the data over the network in comparison to verbose text based formats like JSON , this improves speed of sharing , reduces     
+
+
+* IDL : Interface description language, is a generic term for a language that lets a program or object written in one language communicate with another program written in an unknown language.
 
 
 
-
+`statically typed language` : where the type is defined by the developer, at compile time and not at the runtime
+`dynamically typed language` : where the type is defined by the program at the runtime
 
 
 
