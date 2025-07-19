@@ -169,6 +169,13 @@ This is amazing kinda like a custom DNS resolver !!
 
 
 
+# Low level 
+
+
+## Memory leak :
+When you dont unfree memory and it just piles up and RAM gets full and its leads to memory leak, global memory allocations are pilled up .. 
+Garbage collector frees up memory that is unused in the code and is deferenced .. but any global variable is not picked up by garbage collected
+so we can do :  `import tracemalloc` 
 
 
 
