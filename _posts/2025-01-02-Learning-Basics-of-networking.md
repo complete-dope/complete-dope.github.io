@@ -92,5 +92,63 @@ rpc is better than rest for internal system  call :
 
 
 
+```
+— HTTP connection — 
+
+@app.route(‘/users/<int:user_id>’): 
+def get_user(user_id): 
+	return jsonify({ 
+		‘user_id’ : user_id, 
+		‘name’: 'Alice'
+	})
+
+
+
+call it using 
+
+>> requests.get(“http://localhost:5000/users/12”)
+
+
+-- grpc protocol  -- 
+
+``user.proto``
+
+syntax = ‘proto3'; 
+
+service UserService  { 
+	rpc GetUser (UserRequest) returns (UserResponse);
+
+}
+
+
+message UserRequest { 
+	int32 user_id = 1;
+}
+ 
+
+message UserResponse { 
+	int32 user_id = 1;
+	string name = 2;
+}
+— 
+
+
+`grpc code`
+
+`python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. user.proto`
+
+`
+.protoc = proto compiler 
+python_out = generates standard python classes from .proto definitions 
+grpc_python_out = generate grpc specific python code ( stubs ) 
+`
+
+user.proto : using the above python command
+user_pb2.py  : this file gets translated to `{file_name}_pb2`, this contains the actual `message`
+user_pb2_grpc.py  : this file means `method` specified
+
+```
+
+
 
 
