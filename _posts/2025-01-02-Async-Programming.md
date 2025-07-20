@@ -364,8 +364,11 @@ Async server ( uvicorn ) makes it multithreaded , async server .. that means all
 
 
 
+### Terms from streams 
+
 Async requests have to be async till the very end .. (that's called leaky abstraction)
 
+`function coloring ` : This means that we are making some functions colored as sync and other as async, and this coloring based differentiation is being made out 
 
 
 
