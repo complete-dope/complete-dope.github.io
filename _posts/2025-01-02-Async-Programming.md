@@ -364,7 +364,7 @@ Async server ( uvicorn ) makes it multithreaded , async server .. that means all
 
 
 
-
+Async requests have to be async till the very end .. (that's called leaky abstraction)
 
 
 
