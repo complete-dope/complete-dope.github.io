@@ -89,6 +89,106 @@ if name == "":
   return "", errors.New("empty name")
 ```
 
+## Range keyword
+used to iterate over 
+```
+Array, 
+Slices, 
+Strings, 
+Maps,
+Channels
+```
+
+## Make
+`map_init := make(map [string]int )`
+`slice_init := make([]int, 5)`
+`chan_init := make(chan int)`
+
+
+## GoRoutines 
+goroutines are like threads, assume that they are threads and you can goroutines will work, 
+new goroutines are created using the 'go' keyword (prefix) , 
+any function can become a goroutine just add the go keyword in front and doesnt require function coloring 
+
+
+## Channels
+channels are way of communicating before 2 goroutines, data transfer between goroutines are done using these channels, 
+
+Each channel is a has a particular type of data-structure / data-type that is called `Element` type 
+
+```
+// so its a integer data channel means integers can only passed through this channels 
+ch := make(chan int) 
+```
+
+`make` : this keyword is used to 3 datatypes (map , channel , struct)
+
+```
+ch <- x   ...//a send statement 
+x = <-ch  ...//a receive statement is an assignment 
+<-ch ...// a receive statement; result is discarded
+```
+
+Channels support `close` keyword , which sets a flag indicating that no more values will ever be sent on this channel .. 
+
+Example : 
+```
+// channels , pipeline
+
+package main
+
+import ( 
+	"fmt"
+)
+
+// go doesnt allow named functions inside the main() function .. only anon functions can be declared  
+func main(){
+	naturals := make(chan int)
+	squares := make(chan int)
+
+	// Naturals 
+	go func(){
+		for x:= 0; x<100 ; x++ {
+			naturals <- x
+		}
+		close(naturals)
+	}()
+
+	// Squares
+	go func(){
+		for	x := range naturals{
+			squares <- x*x 
+		}
+		close(squares)
+	}()
+
+	// Printer
+	for x:= range squares {
+		fmt.Println(x)
+	}
+}
+```
+
+### Unbuffered Channel 
+by default, the initialised channel is an unbuffered one , that is there is not buffer stored in the channel , once go routines sends a value , it will wait till receiver receives that value
+
+```
+ch = make(chan int)     //unbuffered channel
+ch = make(chan int, 0)  //unbuffered channel
+ch = make(chan int, 3)  //buffered channel with capacity 3 
+```
+
+Called as Synchronous channel 
+
+### Buffered Channel 
+
+It has a queue of elements, send inserts at the end , receiver takes out the value from the start, and if the queue is filled the sender no longer pushes the values in .. so that is one drawback
+
+If in an unbuffered channel , goroutine is trying to enter value then it wont be able to add values to the buffer this situation is called `goroutine leak` 
+
+
+
+
 
 
 
