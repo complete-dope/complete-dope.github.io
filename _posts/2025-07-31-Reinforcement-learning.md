@@ -12,7 +12,11 @@ N-armed bandit, classic RL, between any N choices, start by choosing random and 
 ## Contextual Bandit 
 Why do we have to choose one size fit all theory .. if the goal is to maximize a particular score/value why not use multi strategy for multi users and then iterate from there .. 
 
+## Policy Gradient 
+Policy tells what action to take in a given state , with some parameters ( and is usually a neural net ) 
+Goal : maximize expected returns
 
+using gradient ascent, we update params in direction that increase the return 
 
 
 
