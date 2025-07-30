@@ -21,3 +21,23 @@ Steps:
 
 This is how to rebuild a node-module  !!  
 
+
+
+## Github learning 
+
+```
+git checkout -b branch_name
+git branch --set-upstream-to=origin/branch_name
+```
+
+or, 
+
+```
+git checkout -b branch_name origin/branch_name
+```
+
+to check the remote of branch we get, 
+
+`git status -sb` : helps to find the remote branch 
+
+
