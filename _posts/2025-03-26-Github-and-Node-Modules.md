@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2025-03-26
-title : Editing the node modules
+title : Editing the node modules and github commands 
 ---
 
 A noob method of playing with Node modules  
@@ -23,7 +23,7 @@ This is how to rebuild a node-module  !!
 
 
 
-## Github learning 
+## Github commands 
 
 ```
 git checkout -b branch_name
@@ -39,5 +39,34 @@ git checkout -b branch_name origin/branch_name
 to check the remote of branch we get, 
 
 `git status -sb` : helps to find the remote branch 
+
+
+`git config pull.rebase false`: makes the default git behaviour as pull and merge 
+`git config pull.rebase true `: pulls the latest commits to the branch and add your commits on top of that 
+
+```
+         A---B---C   (origin/main)
+        /
+   M---N---X---Y     (your local main)
+
+```
+
+Rebase false
+```
+         A---B---C
+        /         \
+   M---N---X---Y---M'   ← your branch now
+             ↑
+        merge commit
+
+```
+
+Rebase True
+```
+   A---B---C---X'---Y'   ← your branch now
+
+```
+
+
 
 
