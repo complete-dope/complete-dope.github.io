@@ -76,24 +76,35 @@ Once decoded we need to execute / carry out that instruction ( i.e. apply maths 
 ## Threading ( how does that work with examples in assembly) 
 
 In `python` :
-OS Threads are spawned to achieve concurrency but due to GIL, at a time a single process can only run 
+OS Threads are spawned to achieve concurrency but due to GIL, at a time a thread from a single python process can only run.. so lets say you have 4 cores , and your python process uses , 100 threads so at any given time the process you started that main thread + 100 subsequent one that your process spawns out of these only 1 can be executed even if they are all independent of each other .. that how GIL works
 
-In `golang` :  
-Go routines , these 
+You can do multiprocessing but that doesn't solve the threading problem you have above 
+
+![GIL](https://github.com/user-attachments/assets/1253e5c2-0e61-46e1-8331-c7ff9539f64b)
+
+Here your process even though started multiple threads GIL is eventually locking them down to use one thread at a time ... 
+
+In `golang` :
+You create Goroutines , worry nothing about threads, the go will map using M:N mapping , OS threads to goroutines and uses all cores, actual threading to get the work done .. true threading / concurrency
 
 
 ## Concurrency 
-Its the ability to do multiple tasks one after another in such fast manner that ir seems that many tasks are getting executed at once and but in reality , at any given time , a single core is working with a single task ..
+Its the ability to do multiple tasks one after another in such fast manner that it seems that many tasks are getting executed at once and but in reality , at any given time , a single core is working with a single task ..
+Task1 picked up , waiting for I/O , add back to queue start with task 2, waiting for user IO , add back to queue , start with task 3 .. this is how CPU works and that too in clock cycle .. this is called context switching and to remeber from where it has to continue it uses : Program Counter , Stack pointer, General purpose registers  
 
 ## Parallelism 
 Its a subpart of concurrency , where in reality multiple tasks are getting executed, that can be done when each core is doing a different task. Parallelism is one way of acheiving concurrency. 
 
 ## Multiprocessing 
+Its also a type 
 Now the machines have multiple cores, so that means, 
 
 In `python` :  
 Run each code snippet on a different Core so that we can tell CPU thinks its running so many process (it is but they are the same processes) and each code snippet has its memory space and variables defined ...   
 Using multiprocessing library each core now runs the same code on each core that leads to high memory use and higher file sizes, that makes context switching expensive (as memory space also needs to be loaded)
+
+This is useful to run same python process from each core ,but if each process spawns up its own threads then its not useful .. as at a time one thread per python process .. 
+
 
 In `golang` :
 [goroutines](https://jayconrod.com/posts/128/goroutines-the-concurrency-model-we-wanted-all-along)
@@ -106,6 +117,8 @@ So cores help in managing overall working of a CPU ( that might involve, sending
 
 Each core has threads for it and there role is to pick up a task send that to a seperate core or same core (often on a seperate core ) and bring that data back from the core once the computation is all done and return back !! 
 Kinda like a worker and we call them workers  
+
+Processes can initiate / create more multiple threads from there process and to they can all run independently on different core and get the work done , but python limits them using GIL (as explained above)
 
 ## Die shots 
 
