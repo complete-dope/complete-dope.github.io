@@ -84,8 +84,14 @@ You can do multiprocessing but that doesn't solve the threading problem you have
 
 Here your process even though started multiple threads GIL is eventually locking them down to use one thread at a time ... 
 
+
 In `golang` :
 You create Goroutines , worry nothing about threads, the go will map using M:N mapping , OS threads to goroutines and uses all cores, actual threading to get the work done .. true threading / concurrency
+
+## Event loop 
+In python, Single threaded, process / event loop , that stacks up the python asynchronous calls , IO calls , sleeps etc. Its unaware of threads that are running , can be added in the same event loop using `loop.run_in_executor()` 
+
+So what that means is, your python process and its main event loop is running fine, if I start a new thread then its an os level thread, event loop will not wait for it to end, that is, that thread will run in bg till the python process is running, and request will be returned as soon as event loop ends so its a win-win.
 
 
 ## Concurrency 
@@ -96,7 +102,7 @@ Task1 picked up , waiting for I/O , add back to queue start with task 2, waiting
 Its a subpart of concurrency , where in reality multiple tasks are getting executed, that can be done when each core is doing a different task. Parallelism is one way of acheiving concurrency. 
 
 ## Multiprocessing 
-Its also a type 
+Its also a type of concurrency 
 Now the machines have multiple cores, so that means, 
 
 In `python` :  
@@ -119,6 +125,15 @@ Each core has threads for it and there role is to pick up a task send that to a 
 Kinda like a worker and we call them workers  
 
 Processes can initiate / create more multiple threads from there process and to they can all run independently on different core and get the work done , but python limits them using GIL (as explained above)
+
+
+## Modern day server
+
+Event driven : 
+Single main threads runs over , requests comes in they are all queued in the sockets uses `select` syscall.  select accepts a list of file descriptors (generally sockets) and returns which ones are ready to read or write. So these are event driven architecture and works in nodejs as well ... 
+
+[servers](https://jayconrod.com/posts/128/goroutines-the-concurrency-model-we-wanted-all-along)
+
 
 ## Die shots 
 
