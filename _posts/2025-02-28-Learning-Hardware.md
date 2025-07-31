@@ -14,7 +14,7 @@ Nice_Chat : https://chatgpt.com/share/67c0be3f-ca80-8009-b271-f3c1f626edbf
 Esp32 : One of the most popular microcontroller that is inbuilt with bluetooth and wifi card ! 
 ATmega328P : Microcontroller that is used in Arduino UNO 
 
-GPIO  : general purpose input output 
+GPIO  : general purpose input output ( can act as input or output pin, depending on the code and its usage ) 
 
 `What is a firmware ? `
 Firmware is a low level control over hardware , directly written in the hardware RAM, to the memory ( embedded in metal ) kinda like a kernel that manages / controls the microcontroller  
@@ -29,6 +29,16 @@ So the electronics parts is a bit tough part !!
 
 GND : ground pin it allows current to flow out of internal circuit into the Ground 
 
+### Learning ESP32 ( connecting things and playing around )
+gpio 2 is connected to inbuilt LED so if you use gpio 2 as the input high source that would mean the inbuilt led would also glow whether you want it or not .. 
+so use some other free gpio like gpio ( 4, 5, 13, 14, 15) etc and get your work done 
+
+Buttons ( omron b3f ) , 4 legged tactile switch when pressed creates and internal connection, pressed state is called LOW state , and unpressed state is called HIGH state. 
+
+### Serial Port
+
+
+
 #### Power supply Ping 
 Using Power pins that are attached to arduino with voltages 
 
@@ -37,7 +47,7 @@ Using Analog pings
 
 
 #### Digital Pins
-o to 13 pins, 
+0 to 13 pins, 
 Can have only 2 modes , 1 or 0 , 1 is high that means 
 
 Digital pin can either be in input mode or in output mode and you need to configure that mode in code !!
