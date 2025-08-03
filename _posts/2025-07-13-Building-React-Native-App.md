@@ -6,7 +6,7 @@ date : 2025-07-13
 
 # Building a React Native App 
 
-Very similar to react.js app , simple libraries , nothing much 
+Very similar to react.js app , simple libraries , nothing much    
 FEW CONCEPTS : 
 
 ## ScrollView vs Flatlist
