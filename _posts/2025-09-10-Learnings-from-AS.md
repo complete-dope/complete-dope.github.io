@@ -12,8 +12,8 @@ Get the input metrics sorted :
 3. Uptime
 
 Fit a linear equation that matches your score function : 
-SF = W_1 * latency + W_2 * cost + W_3 * uptime 
-where, W_1 + W_2 + W_3 = 1
+`SF = W_1 * latency + W_2 * cost + W_3 * uptime `
+where W_1 + W_2 + W_3 = 1
 
 
 ## AB testing 
