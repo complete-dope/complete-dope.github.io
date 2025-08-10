@@ -54,8 +54,38 @@ So list takes on average around O(n) and with set you can reduce that to O(1) , 
 
 
 
+## Disk based storage systems 
+
+Like Cassandra, it doesnt do IO based operation to improve efficiency / lookup / search 
+
+Replication factor means how many times the data will be replicated 
+
+For a 6 node cluster with a replication factor of 3
+```
+Node1: owns A, D, G  | replicas of B, E, H
+Node2: owns B, E, H  | replicas of C, F, I
+Node3: owns C, F, I  | replicas of A, D, G
+Node4: owns J, M, P  | replicas of A, E, I
+Node5: owns K, N, Q  | replicas of B, F, J
+Node6: owns L, O, R  | replicas of C, G, K
+```
+
+So more the RF more the fault tolerance
+
+Uses LSM Tree Structure to store data 
 
 
+Create schema for Data, data comes in find relevant nodes ( depends on RF value ) , then add that to commit log of each of the node and also add to mem table , once they both ack we say write is done, then once memtable is filled up / fully filled flush that to SSTable , ( memtable stores in sorted order) 
+
+when flushed to SStable , we also keep : 
+```
+Bloomfilter.db 
+summary.db
+filter.db 
+```
+
+
+so at search time we check these above 3 .db first and then search the disk for the actual file 
 
 
 
