@@ -135,13 +135,17 @@ Uvicorn is an ASGI server. It's responsible for handling the HTTP protocol, runn
 
 Used for applications like FastAPI , Starlette 
 
-## Gunicorn 
+## Gunicorn on uvicorn threads 
 
 Gunicorn acts as a process manager. It doesn't handle the requests directly; instead, it spawns and manages multiple Uvicorn worker processes. In other words, Gunicorn distributes the incoming requests among these independently running Uvicorn processes, effectively scaling your application across multiple CPU cores.
+
+Each worker is like a process and internally it uses multiprocessing on workers to spawn up each python process in a seperate thread so that is the reason behind that 
 
 This is used for synchronous applications like Django, Flask etc
 
 Gunicorn with uvicorn works as a process manager for managing the uvicorn ( async framework ) 
+
+Each process is still uvicorn only , that is its async only so no need to use threading in that .. each process has its own single event loop and requests + tasks gets queued up in that event loop
 
 ## Web server 
 A web server is essentially the "front door" of your application. It listens for HTTP requests—like when a browser asks for a webpage—and serves back static files (HTML, CSS, images) or forwards the request to something else if the content needs to be generated dynamically. Think of it as a very efficient file server that also knows how to handle simple routing tasks.
