@@ -7,7 +7,6 @@ date: 2025-01-02
 
 [Google doc link](https://docs.google.com/document/d/1gMVzz5Haivst864_JZKWwY_AiNvu6pxMpttg2-dJopk/edit?usp=sharing)
 [Async Programming](https://www.blog.pythonlibrary.org/2016/07/26/python-3-an-intro-to-asyncio/)
-[]()
 
 # Basics of Async Programming 
 
@@ -46,6 +45,39 @@ Think of a Future as a pizza order receipt
 ## Task 
 When the future has started to run then its called a task.
 Directly schedule a task using this async method 
+
+## The use of async await coloring 
+
+Async makes the function async that is execution could be suspended and when we do await then (if it asynced till the very end aka network call) the event loop leaves this task and takes up the other task that is has in its event queue .. it cant pick up the call that is present in the next line because it has left its execution of that particular running item its takes up its mostly backlog requests which are queued in that event loop.. 
+See this : 
+
+```python
+
+async def wait_2_sec():
+  await asyncio.sleep(2)
+  return "slept 2"
+
+async def wait_3_sec():
+  await asyncio.sleep(3)
+  return "slept 3"
+
+async def task_1_sec_sleep():
+   await asyncio.sleep(1.5)
+  return "completed task that took 1.5 sec" 
+
+async main():
+  coro1 = task_1_sec_sleep()
+  task1 = asyncio.create_task(coro1) # backlog task 
+  st = time.time()
+  await wait_2_sec()
+  # while its waiting it will complete this backlog task1 here ( so that is the use of async await )  
+  await wait_3_sec() 
+  et = time.time()
+  print("total time ", et-st)
+
+# run this in async loop
+main()
+```
 
 ### How chatGPT answers Streaming response
 
@@ -361,7 +393,6 @@ Best throughput, non-blocking across requests.
 
 Built in server in django is multithreaded , sync server .. that means each request spins up a 1 seperate OS thread and gets executed by the individual request loop
 Async server ( uvicorn ) makes it multithreaded , async server .. that means all the requests are scheduled in the same Event loop as async task by the process level event loop (Concurrency occurs via await yielding , waiting for async tasks to complete)
-
 
 
 ### Terms from streams 
