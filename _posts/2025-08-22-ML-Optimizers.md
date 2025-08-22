@@ -87,19 +87,101 @@ Okay what if we need that in a direction , that is also sorted we know how to do
 
 <img width="1332" height="719" alt="image" src="https://github.com/user-attachments/assets/777c8790-a5db-4107-92e5-8ae9c0756a35" />
 
-The calculattion is very simple same as we did for the first one , 
+The calculation is very simple same as we did for the first one , we already now know how to take points on the line , that is, so same using directional derivativees for the second derivative that is done ! 
+ 
 
 <img width="970" height="709" alt="image" src="https://github.com/user-attachments/assets/3b97ff30-8605-450e-8b7e-63fa758100bb" />
 
 
 
 ## SGD ( Stochastic Gradient Descent ) 
+This is very simple / basic optimasation algorithm that takes in account almost nothing and treats each parameter as equal :   
+`Theta_t+1 = Theta_t - (learning_rate) * (dL / d(Theta_t))`
 
+It uses single derivative to solve the optimisation problem 
+What is  `dl/d_theta` is zero ? this could also mean the model is in local maxima or minima 
 
+In high dim , ML problems are extremely rare , most critical points are saddle points, 
 
+Disadvantages : 
+1. All params have same learning rate
+2. Every parameter gets updated with same step-size 
 
 ## AdaGrad
-Adaptive Gradient : Each param has its own learning rate depending on how its behaving in previous steps 
+Adaptive Gradient : Its adapts the learning rate for each feature depending on its sum of product of previous gradients , it tends to assign higher learning rates to infrequent features which ensures the parameter updates rely less on freq. and more on relevance 
+
+
+If the Sum( g_t @ g_t.T ) is higher, that means this parameter was seeing some higher gradients, and we need to slow it down a bit 
+
+If the Sum( g_t @ g_t.T ) is lower, that means this parameter was seeing lower gradients, and we need to increaase its learning rate a bit
+
+So its an inverse relation, 
+`learning_rate_new = learning_rate_old / Sq_root(Sum(G_T))`
+
+<img width="1200" height="385" alt="image" src="https://github.com/user-attachments/assets/e1b42718-4391-455e-ab8e-a54e0ecadedb" />
+
+Disadvantages: 
+
+1. Its sensitive to the initial conditions , if the initial gradients are larger the learning rates will be lower that means that param will be taking up small steps that will eventually lead to settling in some local minima so we need to avoid that ... 
+
+## AdaDelta 
+
+<img width="219" height="27" alt="image" src="https://github.com/user-attachments/assets/57f2322b-7122-4adc-812d-f96d80e036bb" />
+
+Adadelta tackles this problem by doing 'WEIGHTED AVERAGE' of the sum of prev term and the current gradient value and the `rho` here is a hyper-parameter known as decay rate .. 
+
+
+## SGD with momentum 
+The formula is quite simple just we are taking momentum to go in a particular direction nothing more !! 
+
+<img width="740" height="752" alt="image" src="https://github.com/user-attachments/assets/8b9de4f7-5eaa-4d91-a533-d1f09b1d0513" />
+
+Nesterov said 
+rather than taking the gradient at current step , go to the step where momentum is pushing and take gradient from that step,  that way you already capture the next incoming information as well 
+
+So you adjust early and converge faster 
+
+## RMSProp 
+
+
+## Adam 
+
+
+## AdamW 
+
+## LARS / LAMB 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
