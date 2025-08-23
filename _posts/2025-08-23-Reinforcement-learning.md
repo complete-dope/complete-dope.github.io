@@ -55,6 +55,9 @@ Training a policy neural net, we are taking scenarios and seeing the gain if the
 
 <img width="4993" height="2253" alt="image" src="https://github.com/user-attachments/assets/92b993cb-c896-42f3-b6c3-7c98a6561b21" />
 
+`Loss_policy_theta = (PNN_t(a|s) / PNN_t-1(a|s)) * momentum in that direction`
+
+
 
 
 ## SFT 
