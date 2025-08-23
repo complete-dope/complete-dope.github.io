@@ -155,7 +155,8 @@ Here, EMA is the estimated moving average, `EMA_t = alpha * X_t + (1-alpha) * EM
 So we just replace the G_t here with WMA with EMA
 
 ## Adam 
-[Adam Optimizer Cornell](https://optimization.cbe.cornell.edu/index.php?title=Adam)
+[Adam Optimizer Cornell](https://optimization.cbe.cornell.edu/index.php?title=Adam)   
+TODO : READ THE MATHS BEHIND THE PAPER AND HOW THEY ARE SOLVING IT !! 
 Adaptive moment optimisation 
 This uses optimisations of the first and second moments of the gradients to adapt the learning rate for each weight of the neural net. 
 Its requires only first order gradients wghere memory requirement is too little, 
@@ -181,26 +182,6 @@ Its requires only first order gradients wghere memory requirement is too little,
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Adam
 
 
 
