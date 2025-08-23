@@ -4,7 +4,7 @@ date : 2025-08-23
 title : Post training methods in LLM using RL 
 ---
 
-Tags : Reinforcement Learning, RL , Machine learning , deep learning , ML , DL  
+Tags : Reinforcement Learning, RL , Machine learning , deep learning , ML , DL  , Post traning
 
 [PPO](https://www.youtube.com/watch?v=TjHH_--7l8g)
 
@@ -57,7 +57,11 @@ Training a policy neural net, we are taking scenarios and seeing the gain if the
 
 `Loss_policy_theta = (PNN_t(a|s) / PNN_t-1(a|s)) * momentum in that direction`
 
+To avoid very large updates, we clip it so the step is not very erractic and its slowly 
 
+Its same as we have in optimisers, that is, we need to go to a particular direction
+
+That momentum is called advantage (A) / reward in that direction !! 
 
 
 ## SFT 
@@ -73,6 +77,23 @@ Output Examples
 ### PPO 
 Value and policy model both get rained at the same time
 
+
+The PPO model looks like this : 
+<img width="2526" height="639" alt="image" src="https://github.com/user-attachments/assets/c2f11a47-49ab-4805-a69d-32dd165c5fc4" />
+
+
+This is the policy model, this is same as the GPT model with an Linear head at last , that output 1d output that tells how good or bad the model is and its just a combination of a linear layer
+
+<img width="1273" height="414" alt="image" src="https://github.com/user-attachments/assets/5c133ec3-1a60-4dd9-8312-7995c9f11609" />
+
+<img width="404" height="485" alt="image" src="https://github.com/user-attachments/assets/346566ee-8411-4828-8395-7858aa13766e" />
+
+The walkhrough for the whole is like this : 
+The KL divergence is to ensure the model doesnt drift away too much in its probabilities and starts giving irrelevant outputs that are not at all required to the user !! 
+
+So to regularise the probabiility we find KL div from a trained SFT model .. 
+
+<img width="2526" height="639" alt="image" src="https://github.com/user-attachments/assets/e6acdd52-cd01-43ca-84d3-12bfbda6a70d" />
 
 
 ### GRPO 
