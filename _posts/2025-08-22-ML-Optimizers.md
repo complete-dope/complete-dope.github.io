@@ -68,7 +68,7 @@ Now lets say we want to find derivative in a direction, that direction is some a
 <img width="902" height="464" alt="image" src="https://github.com/user-attachments/assets/451cd1a7-d855-4041-b23e-504b21ba17e9" />
 
 
-And the calculations for the same go as this : 
+Here the derivative of the curve is a line , and we get that by taking first derivative, that is,  And the calculations for the same go as this 
 <img width="1518" height="459" alt="image" src="https://github.com/user-attachments/assets/7dc71902-b495-4159-a33d-e98795b84d68" />
 
 So to get derivative , first derivative in higher dimensions we used the above formula 
@@ -139,15 +139,30 @@ The formula is quite simple just we are taking momentum to go in a particular di
 Nesterov said 
 rather than taking the gradient at current step , go to the step where momentum is pushing and take gradient from that step,  that way you already capture the next incoming information as well 
 
-So you adjust early and converge faster 
+So you adjust early and converge faster and not wait till the end-moment
 
 ## RMSProp 
+Developed by Geoffrey Hinton, 
 
+* Adagrad takes in previous muliplication of weights and then weighs the learning rate based on the prev steps
+
+So if the previous weights are higher, the learning rate decreases and eventually the leads to vanishing grads 
+
+To avoid this in Adagrad, in RMS prop we use EMA ( estimated moving average ) 
+
+Here, EMA is the estimated moving average, `EMA_t = alpha * X_t + (1-alpha) * EMA_t-1`
+
+So we just replace the G_t here with WMA with EMA
 
 ## Adam 
+[Adam Optimizer Cornell](https://optimization.cbe.cornell.edu/index.php?title=Adam)
+Adaptive moment optimisation 
+This uses optimisations of the first and second moments of the gradients to adapt the learning rate for each weight of the neural net. 
+Its requires only first order gradients wghere memory requirement is too little, 
 
 
 ## AdamW 
+
 
 ## LARS / LAMB 
 
