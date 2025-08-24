@@ -183,7 +183,7 @@ The same term is now added at the last just with the full learning rate rather t
 <img width="1058" height="619" alt="image" src="https://github.com/user-attachments/assets/7b3a3fc6-4170-420f-b3a9-c13036534511" />
 
 ## LARS / LAMB 
-[LARS PAPER]https://arxiv.org/pdf/1904.00962) 
+[LARS PAPER](https://arxiv.org/pdf/1904.00962) 
 
 Uses 2nd order derivatives 
 
