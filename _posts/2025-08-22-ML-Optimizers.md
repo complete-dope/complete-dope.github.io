@@ -110,6 +110,10 @@ Disadvantages :
 ## AdaGrad
 Adaptive Gradient : Its adapts the learning rate for each feature depending on its sum of product of previous gradients , it tends to assign higher learning rates to infrequent features which ensures the parameter updates rely less on freq. and more on relevance 
 
+Square of anything tells us how big was that thing, irrespective of the sign , a -10 squared gives us 100 , that tells us that -10 was a large value in first place. Similarly,
+`-2 --> squared --> 4` : tells that the number itself was small 
+
+> Gradient square (G_t ^ 2) in itself doesn't mean anything its just tells us the magnitude.
 
 If the Sum( g_t @ g_t.T ) is higher, that means this parameter was seeing some higher gradients, and we need to slow it down a bit 
 
