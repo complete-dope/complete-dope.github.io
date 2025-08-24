@@ -165,18 +165,27 @@ Adaptive moment optimisation
 This uses optimisations of the first and second moments of the gradients to adapt the learning rate for each weight of the neural net. 
 Its requires only first order gradients wghere memory requirement is too little, 
 
+
 The concept is very simple, the (G_t ^ 2) tells the its magnitude of the gradient, that is, how large the gradient was at first place and we take EMA that is taking some parts from prev.  calculation and some from the current one and we take 2 moments first one is for the momentum calculation and second one for regularising the learning rate ( learning_rate / Square_root(v_t)), and the first moment so that tells us the vector, the direction (g_t) of the step and (v_t) tells us the magnitude of the Grads  
 
-<img width="2490" height="1546" alt="image" src="https://github.com/user-attachments/assets/1ac91890-0c54-4711-b0b1-119c7cc0cd84" />
+<img width="2648" height="1546" alt="image" src="https://github.com/user-attachments/assets/28b3b9a8-613c-45ea-bd2c-2b891ec1640e" />
+
+The formula is same for momentum + adagrad and that works just great !! 
 
 
 ## AdamW 
+Researchers add L2 regularization to the loss function, when multiplied with the normalisation factor (normalization of learning rate) that loses its effect so to avoid this thing, we seperate out the step, we apply L2 regularisation after that step 
 
+Adam with L2 regularisation : 
+<img width="887" height="479" alt="image" src="https://github.com/user-attachments/assets/66b35f05-8d79-4872-bbfd-ba3ce404cc3f" />
 
-
+The same term is now added at the last just with the full learning rate rather than normalised  
+<img width="1058" height="619" alt="image" src="https://github.com/user-attachments/assets/7b3a3fc6-4170-420f-b3a9-c13036534511" />
 
 ## LARS / LAMB 
+[LARS PAPER]https://arxiv.org/pdf/1904.00962) 
 
+Uses 2nd order derivatives 
 
 
 
