@@ -165,8 +165,14 @@ Adaptive moment optimisation
 This uses optimisations of the first and second moments of the gradients to adapt the learning rate for each weight of the neural net. 
 Its requires only first order gradients wghere memory requirement is too little, 
 
+The concept is very simple, the (G_t ^ 2) tells the its magnitude of the gradient, that is, how large the gradient was at first place and we take EMA that is taking some parts from prev.  calculation and some from the current one and we take 2 moments first one is for the momentum calculation and second one for regularising the learning rate ( learning_rate / Square_root(v_t)), and the first moment so that tells us the vector, the direction (g_t) of the step and (v_t) tells us the magnitude of the Grads  
+
+<img width="2490" height="1546" alt="image" src="https://github.com/user-attachments/assets/1ac91890-0c54-4711-b0b1-119c7cc0cd84" />
+
 
 ## AdamW 
+
+
 
 
 ## LARS / LAMB 
