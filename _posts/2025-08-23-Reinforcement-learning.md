@@ -6,7 +6,8 @@ title : Post training methods in LLM using RL
 
 Tags : Reinforcement Learning, RL , Machine learning , deep learning , ML , DL  , Post traning
 
-[PPO](https://www.youtube.com/watch?v=TjHH_--7l8g)
+[PPO](https://www.youtube.com/watch?v=TjHH_--7l8g)  
+[RLHF](https://yugeten.github.io/posts/2025/01/ppogrpo/)  
 
 ### Maths 
 Reinforcement learning, here the agent takes / decides some action to take based on the current state and other variables present at timestep t, and then its takes that action and a reward is followed and weights are updated based on the rewards received by model 
@@ -63,6 +64,10 @@ Its same as we have in optimisers, that is, we need to go to a particular direct
 
 That momentum is called advantage (A) / reward in that direction !! 
 
+
+## Post Training 
+Stage 1 : SFT ( Supervised Finetuning )  
+Stage 2 : RLHF ( reinforcement learning with human feedback )  
 
 ## SFT 
 Supervised finetuning, (SFT)
