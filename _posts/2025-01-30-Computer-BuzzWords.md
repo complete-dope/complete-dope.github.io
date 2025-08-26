@@ -46,6 +46,12 @@ How It Works:
 Uses PromQL, its a query language, 
 
 
+# DevOps Architecture Flow
+k8s : kubernetes  
+k9s : cli for k8s
+
+<img width="1763" height="947" alt="image" src="https://github.com/user-attachments/assets/e3b2a02e-037b-461f-974b-9cf74dbabbfd" />
+
  
 
 # Backend Glossary 
