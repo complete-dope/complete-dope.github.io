@@ -141,6 +141,12 @@ See How newton method scales with just n=10000 params
 <img width="1116" height="332" alt="image" src="https://github.com/user-attachments/assets/798a3ebc-14bb-482d-b014-ca40fa167549" />
 
 
+The methods like SGD and other popular one they rely on 1-d approximation as its easy to calculate out without thinking about hessian and on the other hand when approximating till 2nd derivative it leads to faster convergence that is obviously true but requires hessian calculation and scales up quickly !  
+
+So sgd sees a line approximation , whereas lars see curve for it and seeing curve will obviously lead to faster solving , faster finding of minima
+
+
+------------------------------------------------------------------------------------------------------
 
 # DL Optimizers 
 
