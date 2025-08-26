@@ -92,7 +92,24 @@ The calculation is very simple same as we did for the first one , we already now
 
 <img width="970" height="709" alt="image" src="https://github.com/user-attachments/assets/3b97ff30-8605-450e-8b7e-63fa758100bb" />
 
+### Taylor series 
+It presenta a beautiful way of approximating functions, for any complex function for which you dont know its expansion we can approximate that function for some value to help us solve it .. 
 
+Take for example cos(theta) , its taylor approximation comes out as : ( 1 - (theta**theta)/2 ) 
+
+<img width="1000" height="669" alt="image" src="https://github.com/user-attachments/assets/4b1b2240-c05c-42c0-aa72-49dd28764991" />
+
+
+
+### Newton method 
+
+[Newton Method in Optimisation](https://www.youtube.com/watch?v=W7S94pq5Xuo)  
+
+In first derivative we approximate the descent as : `f'(x) = f(x) - f(x_k) / (x - x_k)` , this 
+To refine our approximations, we use [taylor series](https://www.youtube.com/watch?v=3d6DsjIBzJ4) , 
+
+
+# DL Optimizers 
 
 ## SGD ( Stochastic Gradient Descent ) 
 This is very simple / basic optimasation algorithm that takes in account almost nothing and treats each parameter as equal :   
