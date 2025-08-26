@@ -50,7 +50,7 @@ Uses PromQL, its a query language,
 k8s : kubernetes  
 k9s : cli for k8s
 
-<img width="1763" height="947" alt="image" src="https://github.com/user-attachments/assets/e3b2a02e-037b-461f-974b-9cf74dbabbfd" />
+<img width="1752" height="952" alt="image" src="https://github.com/user-attachments/assets/add1c3d0-eb82-44f3-9ee8-08086b646cd7" />
 
  
 
