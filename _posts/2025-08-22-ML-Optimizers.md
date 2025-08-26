@@ -4,8 +4,8 @@ date : 2025-08-22
 title : Deep learning Optimizers
 ---
 
-[Gradients visualised](https://www.youtube.com/watch?v=7JEWlfFoJJQ)
-[Second order derivative](https://course.ece.cmu.edu/~ece739/lectures/18739-2020-spring-lecture-08-second-order.pdf)
+[Gradients visualised](https://www.youtube.com/watch?v=7JEWlfFoJJQ)  
+[Second order derivative](https://course.ece.cmu.edu/~ece739/lectures/18739-2020-spring-lecture-08-second-order.pdf)  
 
 # Maths behind 
 ## Single variable
@@ -96,10 +96,32 @@ The calculation is very simple same as we did for the first one , we already now
 It presenta a beautiful way of approximating functions, for any complex function for which you dont know its expansion we can approximate that function for some value to help us solve it .. 
 
 Take for example cos(theta) , its taylor approximation comes out as : ( 1 - (theta**theta)/2 ) 
-
 <img width="1000" height="669" alt="image" src="https://github.com/user-attachments/assets/4b1b2240-c05c-42c0-aa72-49dd28764991" />
 
+Take this example e^x : 
 
+1. create a polynomial eq : c1 + c2*x + c3*x^2 + c4*x^3 ...
+2. now for any point in x' we can do x = x' then estimate these values
+3. x = 0, f(x) = e^x = e^0 = 1 , c1 = 1
+4. x = 0, f'(x) = e^x = e^0 = 1 , c2 = 1/2!
+5. x = 0, f''(x) = e^x = e^0 = 1 , c3 = 1/3!
+6. f(x) = e^x = 1 + x + x^2/2 + x^3/3! + .. 
+
+But magically keeping x = 0 , we can approximate this whole series 
+
+<img width="1353" height="683" alt="image" src="https://github.com/user-attachments/assets/05d202c8-af77-41ee-8226-f32d5a216ef2" />
+
+The generalised form for the taylor series is this : and its completely correct you can do the proof very simply taking only first 2 terms  
+
+```
+f(x) = c1 + c2*x
+
+at x=a,
+f(a) = c1 + c2^a
+f'(a) = c2 
+```
+
+`f(x) at x=a is : f(a) + f'(a)(x-a) `
 
 ### Newton method 
 
@@ -107,6 +129,17 @@ Take for example cos(theta) , its taylor approximation comes out as : ( 1 - (the
 
 In first derivative we approximate the descent as : `f'(x) = f(x) - f(x_k) / (x - x_k)` , this 
 To refine our approximations, we use [taylor series](https://www.youtube.com/watch?v=3d6DsjIBzJ4) , 
+
+
+Taylor series to approximate loss function and minimizing that loss function to ultimately reach the minimal / minima point
+see here the blue curve is the original curve that we dont know in real life , and so we start out by approximating the functions that could lead to at-least instantaneous optimisation at some particular value of x  
+<img width="2716" height="1528" alt="image" src="https://github.com/user-attachments/assets/d847d55c-8ef6-40f1-8560-ab779963d262" />
+
+
+
+See How newton method scales with just n=10000 params 
+<img width="1116" height="332" alt="image" src="https://github.com/user-attachments/assets/798a3ebc-14bb-482d-b014-ca40fa167549" />
+
 
 
 # DL Optimizers 
