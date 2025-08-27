@@ -151,6 +151,9 @@ So SGD sees a line approximation , whereas lars see curve for it and seeing curv
 
 * The weight matrix is low ranked.
 * The gradient updates are usually governed in a single direction, that is, as they all stem from same loss field, they march in a similar direction ( even each param choose its own direction using the grads of the loss function it they all tend to march in unison )  
+* So the gradient direction is usually governed by a long vector and multiple short ones that gives it an elliptical shape and therefore we have that zigzag pattern we see in teh gradient update step 
+
+<img width="932" height="555" alt="image" src="https://github.com/user-attachments/assets/e7265616-931e-42c9-bde5-18fe185c2bdd" />
 
 
 ------------------------------------------------------------------------------------------------------
@@ -248,14 +251,19 @@ The same term is now added at the last just with the full learning rate rather t
 ## LARS / LAMB 
 [LARS PAPER](https://arxiv.org/pdf/1904.00962) 
 
-Uses 2nd order derivatives 
+Uses 2nd order derivatives so to get more information about the function they are predicting the loss for .. as the loss function is very complex we try to approximate a simpler function that satisfies it at instantaneous points, and that is done using 1st derivate to approximate it further more ( rather than estimating it as a line ) more than a line we use take the curve information using double derivative and to approximate double derivative we use taylor series and its a bit complex as its requires hessian calculation and then taking the inverse ( which is also known as newton method) , this leads to faster convergence of the loss     
 
+## Moun Optimizer 
+[moun optim](https://kellerjordan.github.io/posts/muon/)
 
+The main idea to convert the elliptical , low ranked gradient update matrix to a circular , high ranked matrix  
 
+<img width="508" height="595" alt="image" src="https://github.com/user-attachments/assets/244fdbfe-3add-4d24-91ea-e4b1d54f74da" />
 
+How the maths work out that involved taking covariance ( that leads to higher cost, then taking out eigen values to get inverse ) rather to do these computationally expensive things we approximate the inverse square root using `newton schuulz` 
 
-
-
+The code for the same is 
+<img width="2310" height="2171" alt="image" src="https://github.com/user-attachments/assets/5bcfc69b-98c4-433f-8bb6-1b728d2d1fe0" />
 
 
 
