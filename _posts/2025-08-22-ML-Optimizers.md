@@ -143,7 +143,14 @@ See How newton method scales with just n=10000 params
 
 The methods like SGD and other popular one they rely on 1-d approximation as its easy to calculate out without thinking about hessian and on the other hand when approximating till 2nd derivative it leads to faster convergence that is obviously true but requires hessian calculation and scales up quickly !  
 
-So sgd sees a line approximation , whereas lars see curve for it and seeing curve will obviously lead to faster solving , faster finding of minima
+So SGD sees a line approximation , whereas lars see curve for it and seeing curve will obviously lead to faster solving , faster finding of minima
+
+------------------------------------------------------------------------------------------------------
+
+## Facts about weights in ML
+
+* The weight matrix is low ranked.
+* The gradient updates are usually governed in a single direction, that is, as they all stem from same loss field, they march in a similar direction ( even each param choose its own direction using the grads of the loss function it they all tend to march in unison )  
 
 
 ------------------------------------------------------------------------------------------------------
