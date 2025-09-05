@@ -108,3 +108,12 @@ In grpo , we ditch the value model and for updating the post training params we 
 <img width="2526" height="1371" alt="image" src="https://github.com/user-attachments/assets/10a56456-c241-4de4-b41d-ecd1930cdf78" />
 
 [GRPO video](https://www.youtube.com/watch?v=Yi1UCrAsf4o)
+
+
+# Post Training (RLHF) methods in LLM Training 
+
+Course  : https://learn.deeplearning.ai/courses/post-training-of-llms/lesson/ynmgf/introduction-to-post-training
+
+<img width="2724" height="1410" alt="image" src="https://github.com/user-attachments/assets/1965cd12-f8bc-42c3-81d8-63989bc5f936" />
+
+
