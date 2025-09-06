@@ -155,6 +155,13 @@ Improves model capabilities because of its constrastive nature ..
 DPO dataset curation starts with the one where we start from the sft template and then move ahead and perform computations 
 
 
+So its 
+```
+Fine-tuning : SFT
 
+Optimization : DPO
+
+Online RL : PPO and GRPO techniques 
+```
 
 
