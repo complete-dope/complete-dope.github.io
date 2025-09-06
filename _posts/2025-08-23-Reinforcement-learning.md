@@ -117,3 +117,44 @@ Course  : https://learn.deeplearning.ai/courses/post-training-of-llms/lesson/ynm
 <img width="2724" height="1410" alt="image" src="https://github.com/user-attachments/assets/1965cd12-f8bc-42c3-81d8-63989bc5f936" />
 
 
+
+The output from the base model is not at all coherent, it doesnt output relevant information at all as it doesnt even understands or has seen the chat-template format   
+
+```
+
+=== Base Model (Before SFT) Output ===
+
+Model Input 1:
+Give me an 1-sentence introduction of LLM.
+Model Output 1:
+⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ ⚙ �
+
+
+Model Input 2:
+Calculate 1+1-1
+Model Output 2:
+⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ �
+
+
+Model Input 3:
+What's the difference between thread and process?
+Model Output 3:
+⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ ⚇ �
+
+```
+
+
+SFT cant be ignored in any case that is very important , its the one that tells model what to output , how to output , and in which template to output .. etc
+
+Rest of the optimization comes as an additional improvement step, leading to better models outputs and stuff ! 
+
+DPO : good for identity, multilingual , Instruction following and Safety
+
+Improves model capabilities because of its constrastive nature .. 
+
+DPO dataset curation starts with the one where we start from the sft template and then move ahead and perform computations 
+
+
+
+
+
