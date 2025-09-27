@@ -86,15 +86,25 @@ So the actual prob. is : P(x belongs to [a,b]) = a_integral_b [p(x)*dx]
 
 * Point : In a data field, if data is numerical then this can be [1,2,3,..] if the data is images then its R_d ( 64 x 64 x 3 ) = 12288 dim these many dimensions , where each dimension represent a pixel value. The axis 1 represent value of red channel in (0,0) place ... till axis 12287 .. .
 
-Here this is a discrete random variable right ? the pixel value in an image ?
+Q) Here this is a discrete random variable right ? the pixel value in an image ?
 > Yes, if in 0-255 channel space this would have been discrete but treating them as continous allows us to add gaussing noise, compute grads, use nice maths .. so we convert from 0-255 (discrete space) to 0-1 ( continous space ) -- (1)
 
-We need it continous so to predict the flow field, to see how the  
+We need it continous, so that we can see how the function changes over infinitesimal changes in input and that way only we will be able to see the score / vector field 
 
 ```
 
 coming back to (1) , even adding gaussian noise to the real discrete pixels that also would make it continous 
 
+
+So, we start from unknown distribution of real images then add gaussian noise from 0 mean , I variance over them for a fixed timesteps ( t = 100 ) the image now converts to fully gaussian distribution
+
+Q) But for this gaussian distribution do we know the mean , variance?
+> yes, the noise we added was from 0 mean and I variance and after t timestamps we reached there only so we know the mean and variance in this case
+
+The equation for the forward process is : `x_t = [root(alpha_t)] * x_0 + [root(1-alpha_t)] * epsilon`
+
+Reverse process, 
+During training the network sees x_t and t, 
 
 
 
