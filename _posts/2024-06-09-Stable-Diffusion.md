@@ -6,7 +6,7 @@ date : 2024-06-09
 
 The pre-requisites for this blog post is Journey till diffusion model 
 
-##### Stable Diffusion model:
+## Stable Diffusion model:
 
 Uses cross-attention for allowing conditional modelling ( using text/segmentation map + image to generate image) 
 
@@ -33,8 +33,7 @@ When generating an image of a cat, the model can simultaneously capture both the
 
 perceptual loss : extract features from a feature extractor and then calculate the loss based on that low feature values (as passing the model from encoder will remove the high feature values ) 
 
-
-##### Training the autoencoder ( its a universal autoencoder) 
+## Training the autoencoder ( its a universal autoencoder) 
 
 They used perceptual loss along with patch based adversarial loss so the image reconstruction is good !! 
 
@@ -67,5 +66,88 @@ b) Gradually denoise it step by step (∏T(t=1) p(xt-1|xt))
 c) Consider all possible paths through this denoising process `(∫z)`
 
 `The model learns to estimate p(xt-1|xt) for each step, which allows it to gradually transform noise into a coherent image.`
+
+## Learning the in's and out's of the diffusion models
+
+It all starts with the real images that people have created , we now want to create more using machine only , so the thought process goes out like :
+
+1. All the images ever made comes from a very complex probability distribution that we are unaware of
+2. If there is a way to sample out some example from that distribution, we can generate unlimited images 
+
+So these assumptions are still true but are all unknown, neither we know the underlying distribution nor the sampling method 
+
+```
+Few learnings: 
+
+* Discrete random variable : so probability of getting a 3 on a dice roll is 1/6
+
+* Continuous random variable :  The chance of hitting exactly 2.00000… is zero in an infinite line of possibilities is zero, so here we calculate probability density, The density function 𝑝(𝑥) tells you “how thick the probability is around this point"
+So the actual prob. is : P(x belongs to [a,b]) = a_integral_b [p(x)*dx]
+
+* Point : In a data field, if data is numerical then this can be [1,2,3,..] if the data is images then its R_d ( 64 x 64 x 3 ) = 12288 dim these many dimensions , where each dimension represent a pixel value. The axis 1 represent value of red channel in (0,0) place ... till axis 12287 .. .
+
+Here this is a discrete random variable right ? the pixel value in an image ?
+> Yes, if in 0-255 channel space this would have been discrete but treating them as continous allows us to add gaussing noise, compute grads, use nice maths .. so we convert from 0-255 (discrete space) to 0-1 ( continous space ) -- (1)
+
+We need it continous so to predict the flow field, to see how the  
+
+```
+
+coming back to (1) , even adding gaussian noise to the real discrete pixels that also would make it continous 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
