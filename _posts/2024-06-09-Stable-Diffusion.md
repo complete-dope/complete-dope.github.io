@@ -103,55 +103,29 @@ Q) But for this gaussian distribution do we know the mean , variance?
 
 The equation for the forward process is : `x_t = [root(alpha_t)] * x_0 + [root(1-alpha_t)] * epsilon`
 
-Reverse process, 
-During training the network sees x_t and t, 
+q(x_t | x_0) : what possible distribution of x_t would have led to this particular x_0
+
+So instead of relying on all the intermediates steps we use reparameterization trick which is essentially, using closed form solution for gaussian maths and we just sample in one shot this is done for training not in the inference part 
+
+<img width="779" height="474" alt="image" src="https://github.com/user-attachments/assets/5594b3ec-a980-457f-ae82-b69e3fae8e1d" />
+
+### Training
+
+Why do we emphasise on predicting noise value ? 
+
+The field vectors that tell from any point in data field, how to come back to the original distribution that are computed using score vectors and to optimise / learn the field it all comes down to predicting the noise 
+
+log(p(x_t)) :  tells you the direction in the data space where the probability is higher — “which way should we move x_t to make it more like real data.”
+
+<img width="609" height="254" alt="image" src="https://github.com/user-attachments/assets/5bdc1fd8-9ff3-4fed-b99b-f0755fb9fc40" />
 
 
+The equation of gaussian distribution is: 
+, 
 
+## Flow matching
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Its doesnt uses any these above one velocity fields , score fields etc nothing is used .. it simplifies the whole flow 
 
 
 
