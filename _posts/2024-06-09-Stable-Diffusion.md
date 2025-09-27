@@ -119,19 +119,33 @@ log(p(x_t)) :  tells you the direction in the data space where the probability i
 
 <img width="609" height="254" alt="image" src="https://github.com/user-attachments/assets/5bdc1fd8-9ff3-4fed-b99b-f0755fb9fc40" />
 
+```
+Derivation of the above image :
 
 The equation of gaussian distribution is: 
 , 
+```
+
+Diffusion is stochastic ,the value of noise (e) also depends on the timestamp   
+the forward path is stochastic, each step adds fresh gaussian noise so differentiating it and getting the velocity field makes no sense and therefore we have to rely on probability density , 
 
 ## Flow matching
 
 Its doesnt uses any these above one velocity fields , score fields etc nothing is used .. it simplifies the whole flow 
 
+No noisy forward process in this, we still add noise and make it a gaussian its just that its not 
+
+yeh so here the researchers said to avoid the step wise adding and rather they went on to : `x_t = (1-t) * x_0 + t * E` , where E is the noise vector .. 
+
+`v_t = E - x_0` , so model learn this , here also the model predicts the noise only 
+
+FM is deterministic, the value of noise (e) doesnt depend on timestamp, once its fixed rest all the t=1,2,3... can be sampled out 
+The forward path is deterministic, so there we can use velocity field
 
 
+### Connection to VLA models
 
-
-
+this same approach is used in the VLA models to predict the action tokens in robotics . Here we have continous action space in flow matching in tokens we had discrete tokens / space. its predicts velocity in continous space
 
 
 
