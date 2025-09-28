@@ -4,7 +4,7 @@ title: Diffusion and flow matching
 date : 2024-06-09
 ---
 
-Tags : FM , flow matching , diffusion model , stable diffusion , DDPM , sampling , VLA , Action tokenizer
+Tags : FM , flow matching , diffusion model , stable diffusion , DDPM , sampling , VLA , Action tokenizer, colab, code
 
 The pre-requisites for this blog post is Journey till diffusion model 
 
@@ -150,6 +150,7 @@ The forward path is deterministic, so there we can use velocity field
 ### Connection to VLA models
 
 this same approach is used in the VLA models to predict the action tokens in robotics . Here we have continous action space in flow matching in tokens we had discrete tokens / space. its predicts velocity in continous space
+
 
 
 
