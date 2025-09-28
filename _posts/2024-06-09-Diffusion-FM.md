@@ -131,6 +131,8 @@ The equation of gaussian distribution is:
 Diffusion is stochastic ,the value of noise (e) also depends on the timestamp   
 the forward path is stochastic, each step adds fresh gaussian noise so differentiating it and getting the velocity field makes no sense and therefore we have to rely on probability density , 
 
+Refer to this :  https://colab.research.google.com/drive/1JotCHZTMbh673ndWlbPbRvYKweljOWaq?usp=sharing 
+
 ## Flow matching
 
 Its doesnt uses any these above one velocity fields , score fields etc nothing is used .. it simplifies the whole flow 
@@ -148,6 +150,7 @@ The forward path is deterministic, so there we can use velocity field
 ### Connection to VLA models
 
 this same approach is used in the VLA models to predict the action tokens in robotics . Here we have continous action space in flow matching in tokens we had discrete tokens / space. its predicts velocity in continous space
+
 
 
 
