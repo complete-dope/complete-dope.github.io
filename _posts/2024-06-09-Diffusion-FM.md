@@ -69,7 +69,7 @@ c) Consider all possible paths through this denoising process `(∫z)`
 
 `The model learns to estimate p(xt-1|xt) for each step, which allows it to gradually transform noise into a coherent image.`
 
-## Learning the in's and out's of the diffusion models
+# Learning the in's and out's of the diffusion models
 
 It all starts with the real images that people have created , we now want to create more using machine only , so the thought process goes out like :
 
@@ -150,6 +150,7 @@ The forward path is deterministic, so there we can use velocity field
 ### Connection to VLA models
 
 this same approach is used in the VLA models to predict the action tokens in robotics . Here we have continous action space in flow matching in tokens we had discrete tokens / space. its predicts velocity in continous space
+
 
 
 
