@@ -31,16 +31,10 @@ Picker is not smooth to state changes , so better is to first add an isloading, 
 ## OTA updates
 Over the Air updates , the components , non native things can be shared deployed using checked / verified OTA
 
+## Server side UI 
 Server Side UI, that is the whole UI of the app is based on a json file and these UI components are added in it .. 
 
 So a .json file that is rendered from an API that is fetched to get the UI of the app and crud operations on UI are done using the OTA updates !!  
-
-
-
-
-
-
-
 
 
 
