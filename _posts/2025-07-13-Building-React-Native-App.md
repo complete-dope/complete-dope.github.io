@@ -25,3 +25,31 @@ It's a simple key-value pair used to store value that can be added / updated in 
 ## React native picker 
 Picker is not smooth to state changes , so better is to first add an isloading, boolean and see if its loading , if its loaded then take the updated value , this is the only solution I can find for using the native picker !!   
 
+
+# How to not release a build everytime a feature is released
+
+## OTA updates
+Over the Air updates , the components , non native things can be shared deployed using checked / verified OTA
+
+Server Side UI, that is the whole UI of the app is based on a json file and these UI components are added in it .. 
+
+So a .json file that is rendered from an API that is fetched to get the UI of the app and crud operations on UI are done using the OTA updates !!  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
